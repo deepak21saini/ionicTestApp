@@ -1,0 +1,33 @@
+<ion-content padding>
+<ion-grid>
+	<ion-row>
+		<ion-col col-12 text-center margin-top>
+			<h4 ion-text color="pink"> <strong> Enter your Phone Number</strong> </h4>
+			<p ion-text color="dark"> You will get by SMS</p>
+		</ion-col>
+	</ion-row>
+	<form #resetForm="ngForm">
+	<ion-row>
+		<!--<ion-col col-2>
+			<ion-item no-padding>
+				<ion-input type="text" placeholder="+91" required></ion-input>
+			</ion-item>
+		</ion-col>-->
+		<ion-col col-10 no-padding>
+			<ion-item>
+				<ion-input type="text" placeholder="1234567890" [(ngModel)]="model.mobile" name="mobile"required></ion-input>
+			</ion-item>
+		</ion-col>
+	</ion-row>
+	<ion-row margin-top>
+		<ion-row >
+		<p ion-text color="dark">By signing up, you agree to the<a href="#" ion-text color="pink">Term and conditions</a> & <a href="#" ion-text color="pink">Privacy Policy</a>.</p>
+		</ion-row>
+	</ion-row>
+	 </form>
+	 <button ion-button block color="pink" class="login-btn" (click)="resetPassword()" [disabled]="!resetForm.valid || disableButton">Next</button>
+</ion-grid>
+
+</ion-content>
+
+
