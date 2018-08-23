@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, App, NavController, NavParams } from 'ionic-angular';
-import {SignupService} from '../../providers/signup.service';
-import {AuthService} from '../../providers/auth.service';
-import {SharedService} from '../../providers/shared.service';
-import {VERIFICATION_TYPE} from '../../providers/config';
+import {AuthService} from '../../../providers/auth.service';
+import {SharedService} from '../../../providers/shared.service';
+import {VERIFICATION_TYPE} from '../../../providers/config';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp'
-import {ListPage} from '../list/list'
+import {ListPage} from '../../list/list'
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 /**
  * Generated class for the LoginPage page.
  *
@@ -31,11 +31,12 @@ export class LoginPage {
 		public navParams: NavParams,
   	private storage: Storage,
   	public app: App,
-  	private _signupService : SignupService,
   	private auth : AuthService,
-    private shared: SharedService
+    private shared: SharedService,
+    private spinner: Ng4LoadingSpinnerService
   ) {
-
+    console.log('here it is');
+      this.spinner.show(); 
   	}
 
   	ionViewDidLoad() {
@@ -43,7 +44,9 @@ export class LoginPage {
   	}
 
   login() {
-      this._signupService.signin(this.model).subscribe(res => { 
+      
+      this.auth.signin(this.model).subscribe(res => {
+        //this.spinner.hide(); 
         this.model = {};
         this.storage.set('user', res.data);
         this.auth.setLoggedInStatus(true);

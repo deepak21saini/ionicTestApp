@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, Slides } from 'ionic-angular';
 
-import {SignupService} from '../../providers/signup.service';
-import {AuthService} from '../../providers/auth.service';
-import {SharedService} from '../../providers/shared.service';
+import {AuthService} from '../../../providers/auth.service';
+import {SharedService} from '../../../providers/shared.service';
 
-import {VERIFICATION_TYPE} from '../../providers/config';
+import {VERIFICATION_TYPE} from '../../../providers/config';
 import {ResetPasswordPage} from '../reset-password/reset-password';
 
 /**
@@ -29,7 +28,6 @@ export class OtpPage {
   	constructor(
   		public navCtrl: NavController, 
   		public navParams: NavParams,
-  		private _signupService : SignupService,
     	private auth : AuthService,
       private shared: SharedService,
     	) {
@@ -43,7 +41,7 @@ export class OtpPage {
   	  this.disableButton = true;
       this.model.verification_type = this.verification_type;
     
-      this._signupService.resetPassword(this.model).subscribe(data => { 
+      this.auth.resetPassword(this.model).subscribe(data => { 
         
         if(this.verification_type == 'email') {
           this.shared.presentLoading('Success', 'An e-mail was sent with your new password.');

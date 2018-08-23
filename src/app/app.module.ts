@@ -6,11 +6,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
-import { OtpPage } from '../pages/otp/otp';
-import { VerifyOtpPage } from '../pages/verify-otp/verify-otp';
-import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { LoginPage } from '../pages/auth/login/login';
+import { RegisterPage } from '../pages/auth/register/register';
+import { OtpPage } from '../pages/auth/otp/otp';
+import { VerifyOtpPage } from '../pages/auth/verify-otp/verify-otp';
+import { ResetPasswordPage } from '../pages/auth/reset-password/reset-password';
 import { LogoutPage } from '../pages/logout/logout';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -19,6 +19,7 @@ import {SignupService} from "../providers/signup.service";
 import {AuthService} from "../providers/auth.service";
 import {SharedService} from "../providers/shared.service";
 import { IonicStorageModule } from '@ionic/storage';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
-     IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

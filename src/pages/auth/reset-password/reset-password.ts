@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 
-import {SignupService} from '../../providers/signup.service';
-import {AuthService} from '../../providers/auth.service';
-import {SharedService} from '../../providers/shared.service';
+import {AuthService} from '../../../providers/auth.service';
+import {SharedService} from '../../../providers/shared.service';
 
-import {VERIFICATION_TYPE} from '../../providers/config';
-import {HomePage} from '../home/home';
+import {VERIFICATION_TYPE} from '../../../providers/config';
+import {HomePage} from '../../home/home';
 import {LoginPage} from '../login/login';
 
 /**
@@ -30,7 +29,6 @@ export class ResetPasswordPage {
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		private _signupService : SignupService,
   	private auth : AuthService,
     private shared: SharedService,
   	) {
@@ -42,7 +40,7 @@ export class ResetPasswordPage {
 
   updatePassword(){
 
-      this._signupService.updatePassword(this.model).subscribe(data => {
+      this.auth.updatePassword(this.model).subscribe(data => {
         this.model = {};
         this.shared.presentLoading('Success', 'Your password has been updated successfully.');
         this.navCtrl.setRoot(LoginPage);

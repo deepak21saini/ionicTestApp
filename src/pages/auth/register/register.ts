@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
-import {VERIFICATION_TYPE} from '../../providers/config';
-import {SignupService} from '../../providers/signup.service';
-import {AuthService} from '../../providers/auth.service';
-import {SharedService} from '../../providers/shared.service';
+import {VERIFICATION_TYPE} from '../../../providers/config';
+import {AuthService} from '../../../providers/auth.service';
+import {SharedService} from '../../../providers/shared.service';
 import {LoginPage} from '../login/login';
 import {VerifyOtpPage} from '../verify-otp/verify-otp';
 
@@ -30,7 +29,6 @@ export class RegisterPage {
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		private _signupService : SignupService,
   	private auth : AuthService,
     private shared: SharedService
 	) {
@@ -45,7 +43,7 @@ export class RegisterPage {
 
     this.disableButton = true;
     this.model.verification_type = this.verification_type;
-    this._signupService.signup(this.model).subscribe(data => { 
+    this.auth.signup(this.model).subscribe(data => { 
         console.log(this.model);
         var mobile = this.model.mobile;
         this.model = {};

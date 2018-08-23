@@ -1,7 +1,7 @@
 import { Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import {SignupService} from '../../providers/signup.service';
-import {SharedService} from '../../providers/shared.service';
+import {AuthService} from '../../../providers/auth.service';
+import {SharedService} from '../../../providers/shared.service';
 
 import {LoginPage} from '../login/login';
 import { Observable } from 'rxjs/Observable'
@@ -38,7 +38,7 @@ export class VerifyOtpPage {
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		private _signupService : SignupService,
+		private auth : AuthService,
     public toastCtrl: ToastController,
     private shared: SharedService,
 		) {
@@ -55,7 +55,7 @@ export class VerifyOtpPage {
 		this.disableButton = true;
 		
     this.model.otp_number = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
-	    this._signupService.activateAccount(this.model).subscribe(data => { 
+	    this.auth.activateAccount(this.model).subscribe(data => { 
           this.model = {};
 	        this.model = {otp:{first: '', second: '', third: '', fourth: ''}};
 	        this.shared.presentLoading('Success', 'Your account has been activated successfully');
@@ -70,7 +70,7 @@ export class VerifyOtpPage {
 
   resendOTP(){
 
-      this._signupService.resendOTP({mobile : this.mobile}).subscribe(data => {
+      this.auth.resendOTP({mobile : this.mobile}).subscribe(data => {
 
         let toast = this.toastCtrl.create({
             message: 'OTP sent successfully',
