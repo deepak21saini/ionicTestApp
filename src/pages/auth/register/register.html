@@ -1,28 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+	 <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
+	<form #signupForm="ngForm" >
 	<ion-grid text-center padding-top padding-bottom text-center>
-		<ion-row>
-			<ion-img width="100" height="130" src="/assets/imgs/logo.png" style="margin: auto;"></ion-img>
-		</ion-row>
 		<ion-row margin-top>
 			<ion-col col-12>
-				<h2 ion-text color="pink"><strong>Sign Up</strong></h2>
+				<h2 ion-text><strong>Welcome, user!</strong></h2>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
-	<form #signupForm="ngForm" >
 	<ion-list class="login-form">
-		<ion-item no-padding class="no-border-top">
-			<ion-label color="dark" stacked><strong>First Name</strong></ion-label>
-			<ion-input type="text" [(ngModel)]="model.first_name" name="first_name" required></ion-input>
-		</ion-item>
-		<ion-item no-padding>
-			<ion-label color="dark" stacked><strong>Last Name</strong></ion-label>
-			<ion-input type="text" [(ngModel)]="model.last_name" name="last_name" required></ion-input>
-		</ion-item>
-		<ion-item no-padding>
-			<ion-label color="dark" stacked ><strong>Email</strong></ion-label>
-			<ion-input type="email" [(ngModel)]="model.email" name="email" required></ion-input>
-		</ion-item>
+		
 		<ion-item no-padding>
 			<ion-label color="dark" stacked ><strong>Mobile</strong></ion-label>
 			<ion-input type="text" [(ngModel)]="model.mobile" name="mobile" required></ion-input>
@@ -31,9 +25,20 @@
 			<ion-label color="dark" stacked><strong>Password</strong></ion-label>
 			<ion-input type="password" [(ngModel)]="model.password" name="password" required> </ion-input>
 		</ion-item>
+		<ion-item no-padding>
+			<ion-label color="dark" stacked><strong>Confirm Password</strong></ion-label>
+			<ion-input type="password" [(ngModel)]="model.password" name="password" required> </ion-input>
+		</ion-item>
 	</ion-list>	
-	<button ion-button block large round color="pink" (click)="signup()" [disabled]="!signupForm.valid || disableButton">Sign up</button>
-	<button ion-button block large round outline color="pink" (click)="goToLogin()">login</button>
+	<p>
+	<button ion-button block color="primary" (click)="signup()" [disabled]="!signupForm.valid || disableButton">SIGN UP</button>
+	</p>
+	<p text-center>
+	By signing up, you agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+
+	<p text-center>
+		Do you have an account already? <a (click)="goToLogin()">Sign In</a>
+	</p>
 	</form>
 	
 </ion-content>
