@@ -35,8 +35,7 @@ export class LoginPage {
     private shared: SharedService,
     private spinner: Ng4LoadingSpinnerService
   ) {
-    console.log('here it is');
-      this.spinner.show(); 
+  
   	}
 
   	ionViewDidLoad() {

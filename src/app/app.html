@@ -12,16 +12,13 @@
       </button>
       </div>
       <div *ngIf="isLoggedIn">
-      <button detail-none menuClose ion-item (click)="ListPage()">
-       <ion-icon name="List" margin-right></ion-icon>List
-      </button>
-      <button detail-none menuClose ion-item (click)="logoutPage()">
-       <ion-icon name="logout" margin-right></ion-icon>Logout
+     <button detail-none menuClose ion-item *ngFor="let p of accountMenuItems" (click)="openPage(p)">
+       <ion-icon name="{{p.icon}}" margin-right></ion-icon> {{p.title}}  
       </button>
       </div>
     </ion-item>
   </ion-list>
 </ion-menu>
-
+<ng4-loading-spinner> </ng4-loading-spinner>
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

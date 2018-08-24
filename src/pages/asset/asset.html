@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Assets</ion-title>
+  </ion-navbar>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="expiring">
+        Expiring
+      </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content padding>
+	<ion-list #assetsList [hidden]="assets === 0">
+	   <ion-item *ngFor="let asset of assets">
+		    <h2>{{asset.manufacturer.name}} - {{asset.category.name}}</h2>
+		    <p>{{asset.model_number}} • {{asset.serial_number}}</p>
+		    <p>{{asset.purchase_date}}</p>
+		    <button ion-button clear item-end (click)="goToAssetDetail($event, asset)" >View</button>
+		</ion-item>
+    </ion-list>
+    
+</ion-content>

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { AssetPage } from '../pages/asset/asset';
 import { LoginPage } from '../pages/auth/login/login';
 import { RegisterPage } from '../pages/auth/register/register';
 import { OtpPage } from '../pages/auth/otp/otp';
@@ -50,13 +51,17 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-    { title: 'Home', icon:'home', component: HomePage  },
-	  { title: 'Login', icon:'contact', component: LoginPage },
-	  { title: 'Register', icon:'person-add', component: RegisterPage },
+      { title: 'Home', icon:'home', component: HomePage  },
+	    { title: 'Login', icon:'contact', component: LoginPage },
+	    { title: 'Register', icon:'person-add', component: RegisterPage },
     ];
 
     this.accountMenuItems = [
-          {title: 'Logout', component: LogoutPage, icon: 'log-out'}
+        {title: 'My Assets', component: AssetPage, icon: 'list'},
+        {title: 'My Requests', component: AssetPage, icon: 'list'},
+        {title: 'Help', component: AssetPage, icon: ''},
+        {title: 'Feedback', component: ListPage, icon: ''},
+        {title: 'Logout', component: LogoutPage, icon: 'log-out'}
       ];
   }
 

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Asset Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<div *ngIf="asset">
+	    <h1>{{asset.manufacturer.name}} - {{asset.category.name}}</h1>
+	    <p>
+	     {{asset.model_number}} • {{asset.serial_number}}
+	    </p>
+	    <p>{{asset.purchase_date}} • {{asset.gurantee_year}}</p>
+	    <p></p>
+	    <button ion-button clear item-end >Request</button>
+	 
+  	</div>
+
+</ion-content>
