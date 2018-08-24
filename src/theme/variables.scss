@@ -52,9 +52,9 @@ $img-placeholder-background:#fff;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-$label-ios-text-color-focused:pink; 
+$label-ios-text-color-focused:primary ; 
 $text-input-ios-show-focus-highlight:true;
-$text-input-ios-highlight-color:pink;
+$text-input-ios-highlight-color:primary ;
 $text-input-ios-margin-end:0px;
 $text-input-ios-margin-start:0px;
 $item-ios-paragraph-margin-top:10px;
@@ -64,8 +64,8 @@ $item-ios-paragraph-margin-top:10px;
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-$label-md-text-color-focused:pink; 
-$text-input-md-highlight-color:pink;
+$label-md-text-color-focused:color($colors, primary); 
+$text-input-md-highlight-color:color($colors, primary);
 $text-input-md-margin-right:0px;
 $text-input-md-margin-left:0px;
 $text-input-wp-margin-start:0px;
@@ -74,16 +74,17 @@ $text-input-wp-margin-start:0px;
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-$label-wp-text-color-focused:pink; 
-$text-input-wp-highlight-color:pink;
+$label-wp-text-color-focused:color($colors, primary);
+$text-input-wp-highlight-color:color($colors, primary);
 $text-input-wp-margin-end:0px;
 $text-input-wp-border-width:1px;
 $text-input-wp-padding-horizontal:0px;
-
-
-
-
-
+$segment-button-ios-background-color:#fff;
+$segment-button-ios-background-color-activated:#fff;
+$segment-button-md-border-color-activated:#fff;
+$segment-button-ios-text-color:#fff;
+$segment-button-md-text-color:#fff;
+$segment-button-md-text-color-activated:#fff;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
@@ -100,7 +101,7 @@ $cordova-ios-statusbar-padding:       20px;
 // Material Design only Sass variables can go here
 
 // Change the toolbar background color
-$toolbar-md-background:                   color($colors, pink);
+$toolbar-md-background:                   color($colors, primary);
 
 // Change the color of the segment button text
 $toolbar-md-active-color:                 #000;

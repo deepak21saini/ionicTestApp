@@ -57,10 +57,10 @@ export class MyApp {
     ];
 
     this.accountMenuItems = [
-        {title: 'My Assets', component: AssetPage, icon: 'list'},
+        {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
         {title: 'My Requests', component: AssetPage, icon: 'list'},
-        {title: 'Help', component: AssetPage, icon: ''},
-        {title: 'Feedback', component: ListPage, icon: ''},
+        {title: 'Help', component: AssetPage, icon: 'help-circle'},
+        {title: 'Feedback', component: ListPage, icon: 'star'},
         {title: 'Logout', component: LogoutPage, icon: 'log-out'}
       ];
   }

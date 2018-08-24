@@ -3,8 +3,6 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My Assets</ion-title>
-  </ion-navbar>
     <ion-segment [(ngModel)]="segment">
       <ion-segment-button value="all">
         All
@@ -13,9 +11,14 @@
         Expiring
       </ion-segment-button>
     </ion-segment>
+  </ion-navbar>
+    <ion-toolbar no-border-top>
+    <ion-searchbar color="primary" placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 	<ion-list #assetsList [hidden]="assets === 0">
 	   <ion-item *ngFor="let asset of assets">
 		    <h2>{{asset.manufacturer.name}} - {{asset.category.name}}</h2>
