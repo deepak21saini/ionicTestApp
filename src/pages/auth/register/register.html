@@ -27,7 +27,7 @@
 		</ion-item>
 		<ion-item no-padding>
 			<ion-label color="dark" stacked><strong>Confirm Password</strong></ion-label>
-			<ion-input type="password" [(ngModel)]="model.password" name="password" required> </ion-input>
+			<ion-input type="password" [(ngModel)]="model.confirm_password" name="confirm_password" required> </ion-input>
 		</ion-item>
 	</ion-list>	
 	<p>
@@ -38,6 +38,9 @@
 
 	<p text-center>
 		Do you have an account already? <a (click)="goToLogin()">Sign In</a>
+	</p>
+	<p text-center>
+		<a (click)="goToHome()">Go to Home</a>
 	</p>
 	</form>
 	

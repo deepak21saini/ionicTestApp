@@ -5,7 +5,7 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {LoginPage} from '../login/login';
 import {VerifyOtpPage} from '../verify-otp/verify-otp';
-
+import {HomePage} from '../../home/home';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -44,7 +44,6 @@ export class RegisterPage {
     this.disableButton = true;
     this.model.verification_type = this.verification_type;
     this.auth.signup(this.model).subscribe(data => { 
-        console.log(this.model);
         var mobile = this.model.mobile;
         this.model = {};
         this.disableButton = false;
@@ -70,5 +69,8 @@ export class RegisterPage {
     this.navCtrl.setRoot(LoginPage);
   }
 
+  goToHome(){
+     this.navCtrl.setRoot(HomePage);
+  }
  
 }

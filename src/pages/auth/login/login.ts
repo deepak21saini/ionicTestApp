@@ -5,8 +5,9 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {VERIFICATION_TYPE} from '../../../providers/config';
 import {RegisterPage} from '../register/register';
-import {OtpPage} from '../otp/otp'
-import {ListPage} from '../../list/list'
+import {OtpPage} from '../otp/otp';
+import {ListPage} from '../../list/list';
+import {HomePage} from '../../home/home';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 /**
  * Generated class for the LoginPage page.
@@ -64,6 +65,10 @@ export class LoginPage {
 
   goToForgotPassword(){
     this.navCtrl.setRoot(OtpPage);
+  }
+
+  goToHome(){
+     this.navCtrl.setRoot(HomePage);
   }
 
 }
