@@ -46,7 +46,6 @@ export class LoginPage {
   login() {
       
       this.auth.signin(this.model).subscribe(res => {
-        //this.spinner.hide(); 
         this.model = {};
         this.storage.set('user', res.data);
         this.auth.setLoggedInStatus(true);

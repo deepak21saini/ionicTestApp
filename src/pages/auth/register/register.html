@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button icon-only (click)="goToHome()">
       <ion-icon name="arrow-round-back"></ion-icon>
     </button>
 	 <ion-title>Sign Up</ion-title>
@@ -38,9 +38,6 @@
 
 	<p text-center>
 		Do you have an account already? <a (click)="goToLogin()">Sign In</a>
-	</p>
-	<p text-center>
-		<a (click)="goToHome()">Go to Home</a>
 	</p>
 	</form>
 	
