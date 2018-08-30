@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, App, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, App, NavController, NavParams, ViewController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {VERIFICATION_TYPE} from '../../../providers/config';
@@ -28,24 +28,26 @@ export class LoginPage {
   public disableButton : boolean;
 
   constructor(
-		public navCtrl: NavController, 
-		public navParams: NavParams,
+	public navCtrl: NavController, 
+	public navParams: NavParams,
+	public viewCtrl: ViewController,
   	private storage: Storage,
   	public app: App,
   	private auth : AuthService,
     private shared: SharedService,
     private spinner: Ng4LoadingSpinnerService
   ) {
-  
+		
   	}
 
   	ionViewDidLoad() {
-   	 	console.log('ionViewDidLoad LoginPage');
+		
+		console.log('ionViewDidLoad LoginPage');
   	}
 
   login() {
       
-      this.auth.signin(this.model).subscribe(res => {
+        this.auth.signin(this.model).subscribe(res => {
         this.model = {};
         this.storage.set('user', res.data);
         this.auth.setLoggedInStatus(true);
@@ -59,15 +61,17 @@ export class LoginPage {
   }
 
   goToRegister(){
-    this.navCtrl.setRoot(RegisterPage);
+	
+	this.navCtrl.push(RegisterPage);
+	
   }
 
   goToForgotPassword(){
     this.navCtrl.setRoot(OtpPage);
   }
-
-  goToHome(){
-     this.navCtrl.setRoot(HomePage);
-  }
+  
+  popView(){
+     this.navCtrl.pop();
+   }
 
 }

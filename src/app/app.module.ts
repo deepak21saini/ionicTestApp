@@ -69,4 +69,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+	
+	
+}
