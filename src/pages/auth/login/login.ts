@@ -70,7 +70,7 @@ export class LoginPage {
   }
 
   goToForgotPassword(){
-    this.navCtrl.setRoot(OtpPage);
+    this.navCtrl.push(OtpPage);
   }
   
   popView(){
