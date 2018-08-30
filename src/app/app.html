@@ -1,11 +1,12 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-list detail-none margin-top padding-top> 
-    <ion-item no-lines no-padding margin-top> 
+   <div padding style="background:#488aff;height:100px;">
+		<span *ngIf="isLoggedIn">{{username}}</span>
+    <button ion-button menuToggle (click)="goToProfile()">
+    <ion-icon name="md-arrow-forward"></ion-icon>
+    </button>
+	</div>
+	<ion-list detail-none> 
+    <ion-item no-lines no-padding> 
       <div *ngIf="!isLoggedIn">
       <button detail-none menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
        <ion-icon name="{{p.icon}}" margin-right></ion-icon> {{p.title}}  

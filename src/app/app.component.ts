@@ -12,6 +12,7 @@ import { OtpPage } from '../pages/auth/otp/otp';
 import { VerifyOtpPage } from '../pages/auth/verify-otp/verify-otp';
 import { ResetPasswordPage } from '../pages/auth/reset-password/reset-password';
 import { LogoutPage } from '../pages/logout/logout';
+import { ProfilePage } from '../pages/profile/profile';
 import { Storage } from '@ionic/storage';
 import {AuthService} from '../providers/auth.service';
 
@@ -26,7 +27,7 @@ export class MyApp {
   rootPage: any = HomePage;  
   accountMenuItems: Array<any>;
   pages: Array<{title: string, component, icon: any}>;
-  
+  username:any;
   // pages: Array<{title: string, icon: string, component: any}>;
 
   constructor(
@@ -39,7 +40,8 @@ export class MyApp {
 
     this.storage.get('user').then((val) => {
         if(val){
-            this.auth.setLoggedInStatus(true);
+          this.username = val.first_name+' '+val.last_name;
+          this.auth.setLoggedInStatus(true);
         }
     });
 
@@ -82,5 +84,9 @@ export class MyApp {
 
   logoutPage(){
      this.nav.setRoot(LogoutPage);
+  }
+
+  goToProfile(){
+     this.nav.push(ProfilePage);
   }
 }

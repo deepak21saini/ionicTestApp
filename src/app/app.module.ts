@@ -14,6 +14,7 @@ import { OtpPage } from '../pages/auth/otp/otp';
 import { VerifyOtpPage } from '../pages/auth/verify-otp/verify-otp';
 import { ResetPasswordPage } from '../pages/auth/reset-password/reset-password';
 import { LogoutPage } from '../pages/logout/logout';
+import { ProfilePage } from '../pages/profile/profile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,7 +37,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   	OtpPage,
   	VerifyOtpPage,
     ResetPasswordPage,
-    LogoutPage
+    LogoutPage,
+    ProfilePage
   ],
   imports: [
     HttpModule,
@@ -57,7 +59,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   	OtpPage,
   	VerifyOtpPage,
     ResetPasswordPage,
-    LogoutPage
+    LogoutPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
