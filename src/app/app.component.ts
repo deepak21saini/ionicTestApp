@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AssetPage } from '../pages/asset/asset';
 import { LoginPage } from '../pages/auth/login/login';
 import { RegisterPage } from '../pages/auth/register/register';
@@ -62,7 +61,7 @@ export class MyApp {
         {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
         {title: 'My Requests', component: AssetPage, icon: 'list'},
         {title: 'Help', component: AssetPage, icon: 'help-circle'},
-        {title: 'Feedback', component: ListPage, icon: 'star'},
+        {title: 'Feedback', component: AssetPage, icon: 'star'},
         {title: 'Logout', component: LogoutPage, icon: 'log-out'}
       ];
   }

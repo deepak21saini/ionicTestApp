@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AssetPage } from '../pages/asset/asset';
 import { AssetDetailPage } from '../pages/asset-detail/asset-detail';
 import { LoginPage } from '../pages/auth/login/login';
@@ -29,7 +28,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     AssetPage,
     AssetDetailPage,
   	LoginPage,
@@ -51,7 +49,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     AssetPage,
     AssetDetailPage,
   	LoginPage,
