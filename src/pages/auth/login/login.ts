@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, App, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, App, NavController, NavParams, ViewController, Navbar } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {VERIFICATION_TYPE} from '../../../providers/config';
@@ -22,7 +22,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  @ViewChild(Navbar) navBar: Navbar;
 	public loginForm: any;
   public model:any = {};
   public disableButton : boolean;
@@ -42,7 +42,10 @@ export class LoginPage {
 
   	ionViewDidLoad() {
 		
-		console.log('ionViewDidLoad LoginPage');
+  		console.log('ionViewDidLoad LoginPage');
+      this.navBar.backButtonClick = (e:UIEvent)=>{
+        this.navCtrl.popToRoot();
+      }
   	}
 
   login() {

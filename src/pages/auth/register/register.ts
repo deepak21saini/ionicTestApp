@@ -66,7 +66,7 @@ export class RegisterPage {
   }
 
   goToLogin(){
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.push(LoginPage);
   }
 
   goToHome(){

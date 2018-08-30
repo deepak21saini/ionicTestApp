@@ -164,7 +164,7 @@ body ion-app {
 }
 
 ion-page {
-  
+  display: flex;
 }
 
 ion-scroll {
@@ -187,7 +187,6 @@ scroll-content {
 .statusbar-img {
   display: none;
 }
-
 
 // App iOS Styles
 // --------------------------------------------------
