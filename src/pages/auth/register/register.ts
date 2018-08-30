@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import {VERIFICATION_TYPE} from '../../../providers/config';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
@@ -30,7 +30,8 @@ export class RegisterPage {
 		public navCtrl: NavController, 
 		public navParams: NavParams,
   	private auth : AuthService,
-    private shared: SharedService
+    private shared: SharedService,
+    public loading: LoadingController
 	) {
 	}
 
@@ -43,16 +44,18 @@ export class RegisterPage {
 
     this.disableButton = true;
     this.model.verification_type = this.verification_type;
+    let loader = this.loading.create({});
+    loader.present().then(() => {
     this.auth.signup(this.model).subscribe(data => { 
         var mobile = this.model.mobile;
         this.model = {};
         this.disableButton = false;
         if(this.verification_type == 'email') {
-          this.shared.presentLoading('Success', 'Thanks for signing up!');  
+          this.shared.AlertMessage('Success', 'Thanks for signing up!');  
         }
         else {
          
-          this.shared.presentLoading('Success', 'Thanks for signing up, please verify your account');
+          this.shared.AlertMessage('Success', 'Thanks for signing up, please verify your account');
           this.navCtrl.push(VerifyOtpPage, {mobile:mobile});
 
         }
@@ -61,7 +64,10 @@ export class RegisterPage {
       error => {
         this.shared.handleError(error);
         this.disableButton = false;
-    });
+      });
+    
+      loader.dismiss();
+  });
   
   }
 

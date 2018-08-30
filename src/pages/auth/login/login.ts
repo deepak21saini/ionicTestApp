@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, App, NavController, NavParams, ViewController, Navbar } from 'ionic-angular';
+import { IonicPage, App, NavController, NavParams, ViewController, Navbar, LoadingController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {VERIFICATION_TYPE} from '../../../providers/config';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
-import {ListPage} from '../../list/list';
+import {AssetPage} from '../../asset/asset';
 import {HomePage} from '../../home/home';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 /**
@@ -35,7 +35,8 @@ export class LoginPage {
   	public app: App,
   	private auth : AuthService,
     private shared: SharedService,
-    private spinner: Ng4LoadingSpinnerService
+    private spinner: Ng4LoadingSpinnerService,
+    public loading: LoadingController
   ) {
 		
   	}
@@ -49,24 +50,25 @@ export class LoginPage {
   	}
 
   login() {
+        let loader = this.loading.create({ });
+        loader.present().then(() => {
+          this.auth.signin(this.model).subscribe(res => {
+            this.model = {};
+            this.storage.set('user', res.data);
+            this.auth.setLoggedInStatus(true);
+            this.navCtrl.setRoot(AssetPage);
+          },
+          error => {
+            this.shared.handleError(error);
+          });
+
+          loader.dismiss();
+      }); 
       
-        this.auth.signin(this.model).subscribe(res => {
-        this.model = {};
-        this.storage.set('user', res.data);
-        this.auth.setLoggedInStatus(true);
-        this.navCtrl.setRoot(ListPage);
-
-      }, 
-      error => {
-        this.shared.handleError(error);
-      });
-
   }
 
   goToRegister(){
-	
-	this.navCtrl.push(RegisterPage);
-	
+	   this.navCtrl.push(RegisterPage);
   }
 
   goToForgotPassword(){

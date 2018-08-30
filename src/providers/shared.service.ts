@@ -26,24 +26,24 @@ export class SharedService {
         errorMessage += errors[i][0]+'<br/>';
     }
 
-    this.presentLoading('Error', errorMessage || 'Oops! something went wrong');
+    this.AlertMessage('Error', errorMessage || 'Oops! something went wrong');
 
   }
 
-  presentLoading (type, message) {
-    const loading = this.loadingCtrl.create({
-      duration: 500
-    });
+  AlertMessage (type, message) {
 
-    loading.onDidDismiss(() => {
-      const alert = this.alertCtrl.create({
+    const alert = this.alertCtrl.create({
         title: type,
         subTitle: message,
         buttons: ['Ok']
       });
       alert.present();
-    });
+  }
 
+  startLoading (){
+     const loading = this.loadingCtrl.create({
+      duration: 500
+    });
     loading.present();
   }
 }

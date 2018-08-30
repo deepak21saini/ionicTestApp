@@ -1,5 +1,5 @@
 import { Component, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
@@ -41,6 +41,7 @@ export class VerifyOtpPage {
 		private auth : AuthService,
     public toastCtrl: ToastController,
     private shared: SharedService,
+    public loading: LoadingController
 		) {
    
     this.mobile = this.navParams.data.mobile;
@@ -53,23 +54,28 @@ export class VerifyOtpPage {
 
 	activateAccount(){
 		this.disableButton = true;
-		
+		let loader = this.loading.create({});
     this.model.otp_number = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
+    loader.present().then(() => {
 	    this.auth.activateAccount(this.model).subscribe(data => { 
           this.model = {};
 	        this.model = {otp:{first: '', second: '', third: '', fourth: ''}};
-	        this.shared.presentLoading('Success', 'Your account has been activated successfully');
+	        this.shared.AlertMessage('Success', 'Your account has been activated successfully');
 	        this.navCtrl.setRoot(LoginPage);
 	    }, 
 	    error => {
 	      this.shared.handleError(error);
         this.disableButton = false;
 	    });
-  	}
+
+      loader.dismiss();
+    });
+  }
 
 
   resendOTP(){
-
+    let loader = this.loading.create({ });
+    loader.present().then(() => {
       this.auth.resendOTP({mobile : this.mobile}).subscribe(data => {
 
         let toast = this.toastCtrl.create({
@@ -87,6 +93,8 @@ export class VerifyOtpPage {
         this.disableButton = false;
     
       });
+      loader.dismiss();
+    });
   }
 
   StartTimer() {

@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, List } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, List, LoadingController } from 'ionic-angular';
 
 import { AssetDetailPage } from '../asset-detail/asset-detail';
 
 import {AssetService} from '../../providers/asset.service';
 
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 /**
  * Generated class for the AssetPage page.
  *
@@ -26,20 +25,22 @@ export class AssetPage {
   		public navCtrl: NavController, 
   		public navParams: NavParams,
   	 	private assetService: AssetService,
-  	 	private spinnerService: Ng4LoadingSpinnerService
+      public loading: LoadingController
   	) {
 	this.assets = [];
 	
   }
 
   ionViewDidLoad() {
-  	this.spinnerService.show();
+  	let loader = this.loading.create({});
+    loader.present().then(() => {
     this.assetService.getAssetList().subscribe(data => { 
     	this.assets = data.all_assets;
-    	this.spinnerService.hide();
     }, 
     error => {
        
+    });
+    loader.dismiss();
     });
   
   }

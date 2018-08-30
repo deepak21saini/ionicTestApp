@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController} from 'ionic-angular';
 
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
@@ -31,6 +31,7 @@ export class ResetPasswordPage {
 		public navParams: NavParams,
   	private auth : AuthService,
     private shared: SharedService,
+    public loading: LoadingController
   	) {
 	}
 
@@ -39,16 +40,20 @@ export class ResetPasswordPage {
 	}
 
   updatePassword(){
-
+    let loader = this.loading.create({});
+    loader.present().then(() => {
       this.auth.updatePassword(this.model).subscribe(data => {
         this.model = {};
-        this.shared.presentLoading('Success', 'Your password has been updated successfully.');
+        this.shared.AlertMessage('Success', 'Your password has been updated successfully.');
         this.navCtrl.setRoot(LoginPage);
       }, 
       error => {
         this.model = {};
         this.shared.handleError(error);
       });
+
+      loader.dismiss();
+    });
   }
 
   goToRoot(){
