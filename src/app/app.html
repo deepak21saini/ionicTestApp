@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
    <div padding style="background:#488aff;height:100px;">
 		<span *ngIf="isLoggedIn">{{username}}</span>
-    <button ion-button menuToggle (click)="goToProfile()">
+    <button *ngIf="isLoggedIn" ion-button menuToggle (click)="goToProfile()">
     <ion-icon name="md-arrow-forward"></ion-icon>
     </button>
 	</div>

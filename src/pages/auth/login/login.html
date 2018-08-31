@@ -14,8 +14,8 @@
 	<form #loginForm="ngForm">
 		<ion-list class="login-form">
 			<ion-item no-padding>
-				<ion-label color="dark" stacked><strong>Mobile Number</strong></ion-label>
-				<ion-input type="text" [(ngModel)]="model.username" name="username" required>></ion-input>
+				<ion-label color="dark" stacked><strong>Email</strong></ion-label>
+				<ion-input type="text" [(ngModel)]="model.email" name="email" required>></ion-input>
 			</ion-item>
 			<ion-item no-padding>  
 				<ion-label color="dark" stacked><strong>Password</strong></ion-label>  
@@ -28,9 +28,6 @@
 	</p>
 	<p>
 		<button ion-button block color="primary" [disabled]="!loginForm.valid" (click)="login()">SIGN IN</button>
-	</p>
-	<p text-center>
-		Don't have an account yet? <a (click)="goToRegister()">Sign Up</a>
 	</p>
 </ion-content>
 

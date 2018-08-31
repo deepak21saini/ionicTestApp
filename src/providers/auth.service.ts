@@ -4,20 +4,21 @@ import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import {API_ENDPOINT} from './config';
+import {Config} from './config';
   
 @Injectable()
 
 export class AuthService {
 
     private subject = new Subject<any>();
-
-    constructor(private http: Http) { }
+    constructor(private http: Http) {
+        console.log('test', Config.API_URLS.LOGIN);
+     }
 
     signup(data:any){
     	 
     	let options = {};
-    	return this.http.post(API_ENDPOINT+'opt', data, options)
+    	return this.http.post(Config.API_URLS.REGISTER, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
           	return Observable.throw(error.json());
@@ -26,9 +27,8 @@ export class AuthService {
     }
 
     signin(data:any) {
-
       let options = {};
-      return this.http.post(API_ENDPOINT+'opt/signin', data, options)
+      return this.http.post(Config.API_URLS.LOGIN, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());

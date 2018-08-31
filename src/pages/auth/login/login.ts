@@ -3,7 +3,6 @@ import { Storage } from '@ionic/storage';
 import { IonicPage, App, NavController, NavParams, ViewController, Navbar, LoadingController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
-import {VERIFICATION_TYPE} from '../../../providers/config';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
 import {AssetPage} from '../../asset/asset';
@@ -42,7 +41,6 @@ export class LoginPage {
   	}
 
   	ionViewDidLoad() {
-		
   		console.log('ionViewDidLoad LoginPage');
       this.navBar.backButtonClick = (e:UIEvent)=>{
         this.navCtrl.popToRoot();
@@ -54,7 +52,7 @@ export class LoginPage {
         loader.present().then(() => {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
-            this.storage.set('user', res.data);
+            this.storage.set('auth_token', res.token);
             this.auth.setLoggedInStatus(true);
             this.navCtrl.setRoot(AssetPage);
           },
