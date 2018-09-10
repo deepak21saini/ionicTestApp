@@ -12,25 +12,20 @@ export class AssetService {
 	constructor(
      private http: Http,
      private storage: Storage,
-    ){}
-
-  createAuthorizationHeader(
-    headers: Headers
-    ) {
-    headers.append('Authorization', 'Bearer ' +
-      this.storage.get('auth_token')); 
+    ){
+      
   }
 
 	getAssetList(){
 		  let headers = new Headers();
-      this.createAuthorizationHeader(headers);
-    	return this.http.get("http://asm.nascenture.com/api/getAssets", {
+      let token = localStorage.getItem('auth_token');
+      headers.append("Authorization", 'Bearer ' + token);
+      return this.http.get("http://asm.nascenture.com/api/getAssets", {
         headers: headers
       })
-        .map((res:Response) => res.json())
-        .catch(error => {
-          	return Observable.throw(error.json());
-      	})
-    	 
-    }
+      .map((res:Response) => res.json())
+      .catch(error => {
+          return Observable.throw(error.json());
+      })
+  }
 }

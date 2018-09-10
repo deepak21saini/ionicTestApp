@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController, Slides, LoadingCo
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
-import {VERIFICATION_TYPE} from '../../../providers/config';
+import {Config} from '../../../providers/config';
 import {ResetPasswordPage} from '../reset-password/reset-password';
 
 /**
@@ -22,7 +22,7 @@ import {ResetPasswordPage} from '../reset-password/reset-password';
 export class OtpPage {
 
 	public model:any = {};
-	public verification_type = VERIFICATION_TYPE;
+	public verification_type = Config.VERIFICATION_TYPE;
 	public disableButton : boolean;
 
   	constructor(

@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams, ToastController, LoadingController
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
-import {VERIFICATION_TYPE} from '../../../providers/config';
+import {Config} from '../../../providers/config';
 import {HomePage} from '../../home/home';
 import {LoginPage} from '../login/login';
 
@@ -23,7 +23,7 @@ import {LoginPage} from '../login/login';
 export class ResetPasswordPage {
 
 	public model:any = {};
-	public verification_type = VERIFICATION_TYPE;
+	public verification_type = Config.VERIFICATION_TYPE;
 	public disableButton : boolean;
 
 	constructor(

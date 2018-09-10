@@ -34,13 +34,13 @@ export class AssetPage {
   ionViewDidLoad() {
   	let loader = this.loading.create({});
     loader.present().then(() => {
-    this.assetService.getAssetList().subscribe(data => { 
-    	this.assets = data.all_assets;
-    }, 
-    error => {
-       
-    });
-    loader.dismiss();
+      this.assetService.getAssetList().subscribe(data => { 
+      	this.assets = data.all_assets.data;
+      }, 
+      error => {
+         
+      });
+      loader.dismiss();
     });
   
   }

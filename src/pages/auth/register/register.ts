@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
-import {VERIFICATION_TYPE} from '../../../providers/config';
+import {Config} from '../../../providers/config';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {LoginPage} from '../login/login';
@@ -24,7 +24,7 @@ export class RegisterPage {
 	public signupForm: any;
 	public model:any = {};
 	public disableButton : boolean;
-	public verification_type = VERIFICATION_TYPE;
+	public verification_type = Config.VERIFICATION_TYPE;
   	
 	constructor(
 		public navCtrl: NavController, 

@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import {API_ENDPOINT} from './config';
+import {Config} from './config';
 
 @Injectable()
 
@@ -15,7 +15,7 @@ export class SignupService {
     updateProfile(data){
 
       let options = {};
-      return this.http.put(API_ENDPOINT+'opt/'+data.id, data, options)
+      return this.http.put(Config.API_ENDPOINT+'opt/'+data.id, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());

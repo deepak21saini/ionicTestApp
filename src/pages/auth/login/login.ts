@@ -52,7 +52,7 @@ export class LoginPage {
         loader.present().then(() => {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
-            this.storage.set('auth_token', res.token);
+            localStorage.setItem('auth_token', res.data.access_token);
             this.auth.setLoggedInStatus(true);
             this.navCtrl.setRoot(AssetPage);
           },

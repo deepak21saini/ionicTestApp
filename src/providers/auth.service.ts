@@ -38,7 +38,7 @@ export class AuthService {
 
     activateAccount(data){
     	let options = {};
-    	return this.http.post(API_ENDPOINT+'opt/authenticateOPT', data, options)
+    	return this.http.post(Config.API_ENDPOINT+'opt/authenticateOPT', data, options)
         .map((res:Response) => res.json())
         .catch(error => {
           	return Observable.throw(error.json());
@@ -49,7 +49,7 @@ export class AuthService {
     resetPassword(data){
 
       let options = {};
-      return this.http.post(API_ENDPOINT+'opt/forgotPassword', data, options)
+      return this.http.post(Config.API_ENDPOINT+'opt/forgotPassword', data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());
@@ -60,7 +60,7 @@ export class AuthService {
     updatePassword(data){
 
       let options = {};
-      return this.http.post(API_ENDPOINT+'opt/updatePassword', data, options)
+      return this.http.post(Config.API_ENDPOINT+'opt/updatePassword', data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());
@@ -70,7 +70,7 @@ export class AuthService {
 
     resendOTP(data){
       let options = {};
-      return this.http.post(API_ENDPOINT+'opt/resendOTP', data, options)
+      return this.http.post(Config.API_ENDPOINT+'opt/resendOTP', data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());
