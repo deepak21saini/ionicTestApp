@@ -9,6 +9,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 
 export class AssetService {
+
+  headers = new Headers();
+  
 	constructor(
      private http: Http,
      private storage: Storage,
@@ -17,11 +20,9 @@ export class AssetService {
   }
 
 	getAssetList(){
-		  let headers = new Headers();
-      let token = localStorage.getItem('auth_token');
-      headers.append("Authorization", 'Bearer ' + token);
+      this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
       return this.http.get("http://asm.nascenture.com/api/getAssets", {
-        headers: headers
+        headers: this.headers
       })
       .map((res:Response) => res.json())
       .catch(error => {
