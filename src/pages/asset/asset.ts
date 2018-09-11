@@ -1,10 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, List, LoadingController } from 'ionic-angular';
-
 import { AssetDetailPage } from '../asset-detail/asset-detail';
-
 import {AssetService} from '../../providers/asset.service';
-
+import {SharedService} from '../../providers/shared.service';
 /**
  * Generated class for the AssetPage page.
  *
@@ -25,7 +23,8 @@ export class AssetPage {
   		public navCtrl: NavController, 
   		public navParams: NavParams,
   	 	private assetService: AssetService,
-      public loading: LoadingController
+      public loading: LoadingController,
+      public shared: SharedService
   	) {
 	this.assets = [];
 	
@@ -38,7 +37,7 @@ export class AssetPage {
       	this.assets = data.all_assets.data;
       }, 
       error => {
-         
+         this.shared.handleError(error);
       });
       loader.dismiss();
     });

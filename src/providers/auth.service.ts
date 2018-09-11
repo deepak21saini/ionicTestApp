@@ -12,7 +12,7 @@ export class AuthService {
 
     private subject = new Subject<any>();
     constructor(private http: Http) {
-        console.log('test', Config.API_URLS.LOGIN);
+        
      }
 
     signup(data:any){

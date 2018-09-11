@@ -53,6 +53,7 @@ export class LoginPage {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
             localStorage.setItem('auth_token', res.data.access_token);
+            localStorage.setItem('user_id', res.data.id);
             this.auth.setLoggedInStatus(true);
             this.navCtrl.setRoot(AssetPage);
           },

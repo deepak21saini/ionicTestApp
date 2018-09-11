@@ -13,4 +13,12 @@
 <ion-content padding>
 <p>Name: test</p>
 <p>Email: test@gmail.com</p>
+ <p>
+    <ion-item>
+    	<ion-label color="primary" fixed>Upload Photo</ion-label>
+    	<ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
+  	</ion-item>
+   	<button ion-button (click)="uploadFile()">Save</button>
+  </p>
+  <ion-img width="200" height="200" src="{{photo}}" *ngIf="photo != ''"></ion-img>
 </ion-content>

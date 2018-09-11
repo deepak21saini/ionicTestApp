@@ -8,7 +8,9 @@ import {LoginPage} from '../auth/login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-	constructor(public navCtrl: NavController) {
+	constructor(
+		public navCtrl: NavController
+		) {
 
 	}
 	goToRegister(){
@@ -18,5 +20,4 @@ export class HomePage {
 	goToLogin(){
 		this.navCtrl.push(LoginPage);
 	}
-
 }

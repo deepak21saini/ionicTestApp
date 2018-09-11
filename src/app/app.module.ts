@@ -21,6 +21,8 @@ import {SignupService} from "../providers/signup.service";
 import {AssetService} from "../providers/asset.service";
 import {AuthService} from "../providers/auth.service";
 import {SharedService} from "../providers/shared.service";
+import {FileUploadService} from "../providers/file-upload.service";
+import {ProfileService} from "../providers/profile.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
@@ -66,6 +68,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     AuthService,
     SharedService,
     AssetService,
+    FileUploadService,
+    ProfileService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
