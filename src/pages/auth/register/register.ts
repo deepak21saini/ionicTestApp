@@ -48,10 +48,12 @@ export class RegisterPage {
     loader.present().then(() => {
     this.auth.signup(this.model).subscribe(data => { 
         var mobile = this.model.mobile;
+        var email = this.model.email;
         this.model = {};
         this.disableButton = false;
         if(this.verification_type == 'email') {
           this.shared.AlertMessage('Success', 'Thanks for signing up!');  
+          this.navCtrl.push(VerifyOtpPage, {email:email});
         }
         else {
          

@@ -55,7 +55,7 @@ export class VerifyOtpPage {
 	activateAccount(){
 		this.disableButton = true;
 		let loader = this.loading.create({});
-    this.model.otp_number = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
+    this.model.user_pin = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
     loader.present().then(() => {
 	    this.auth.activateAccount(this.model).subscribe(data => { 
           this.model = {};

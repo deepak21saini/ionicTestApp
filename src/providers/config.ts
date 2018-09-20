@@ -6,10 +6,12 @@ export class Config {
 	public static VERIFICATION_TYPE = "email";
 	public static API_URLS = {
 		LOGIN:   	Config.API_ENDPOINT+"login",
-		REGISTER:   Config.API_ENDPOINT+"signup",
+		REGISTER:   Config.API_ENDPOINT+"register",
 		USERIMAGE: 	Config.API_ENDPOINT+"userImage",
 		ASSETS:     Config.API_ENDPOINT+"getAssets",
 		GETUSERBYID: Config.API_ENDPOINT+"userDetailGetbyID",
+		VERIFY_PIN : Config.API_ENDPOINT+"verifyPin",
+		FORGOT_PASSWORD: Config.API_ENDPOINT+"forgotPassword",
 	}
   
 	

@@ -36,16 +36,20 @@ export class ProfilePage {
 	}
 
   ionViewDidLoad() {
-      console.log('ionViewDidLoad ProfilePage');
-      let user_id = localStorage.getItem('user_id');
-      this.postData = {user_id:user_id};
-      this.profile.getUser(this.postData).subscribe(res => { 
-        this.userinfo = res.data;
-        console.log(this.userinfo);
+    console.log('ionViewDidLoad ProfilePage');
+    let loader = this.loading.create({});
+    let user_id = localStorage.getItem('user_id');
+    this.postData = {user_id:user_id};
+    loader.present().then(() => {
+    this.profile.getUser(this.postData).subscribe(res => { 
+      this.userinfo = res.data;
+        this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
       }, 
       error => {
          this.shared.handleError(error);
       });
+       loader.dismiss();
+    });
     
 
   }

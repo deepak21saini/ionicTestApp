@@ -39,6 +39,10 @@
                   <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" placeholder="4" maxlength="1" #passcode3 required></ion-input>
                 </ion-item>
               </ion-col>
+              <ion-item no-padding>
+              <ion-label color="dark" stacked ><strong>Email</strong></ion-label>
+              <ion-input type="text" [(ngModel)]="model.email" name="email" required></ion-input>
+            </ion-item>
               <ion-col col-12 margin-top>
                 <button ion-button block color="pink" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
               </ion-col>
@@ -49,8 +53,12 @@
 
                  <!--<a href="#" ion-text color="pink" (click)="resendOTP()" [disabled] = "disableResendBtn" >Resend</a>--></p>
               </ion-col>
+              <ion-col col-12 margin-top>
+                <button ion-button block color="pink" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+              </ion-col>
             </ion-row>
           </ion-grid>
+
           </form>
         </ion-col>
       
