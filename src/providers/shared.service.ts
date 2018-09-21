@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response} from '@angular/http';
-import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoadingController, AlertController } from 'ionic-angular';
-
-import {Config} from './config';
 
 @Injectable()
 
 export class SharedService {
 
     constructor(
-      private http: Http,
       public loadingCtrl: LoadingController,
       public alertCtrl: AlertController,
     ) { }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';

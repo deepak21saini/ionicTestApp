@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers} from '@angular/http';
-import { Observable, Subject } from 'rxjs';
-import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs';
 import {Config} from './config';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -13,8 +12,7 @@ export class AssetService {
   headers = new Headers();
   
 	constructor(
-     private http: Http,
-     private storage: Storage,
+     private http: Http
     ){
       
   }

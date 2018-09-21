@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, Slides, LoadingController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
@@ -46,7 +46,8 @@ export class OtpPage {
       this.auth.resetPassword(this.model).subscribe(data => { 
         
         if(this.verification_type == 'email') {
-          this.shared.AlertMessage('Success', 'An e-mail was sent with your new password.');
+          this.shared.AlertMessage('Success', 'An e-mail is sent with steps to change your password.');
+          this.navCtrl.push(ResetPasswordPage, {email:this.model.email});
         }
         else {
           this.navCtrl.push(ResetPasswordPage, {mobile:this.model.mobile});

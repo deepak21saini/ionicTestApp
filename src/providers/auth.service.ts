@@ -49,7 +49,7 @@ export class AuthService {
     resetPassword(data){
 
       let options = {};
-      return this.http.post(Config.API_ENDPOINT+'opt/forgotPassword', data, options)
+      return this.http.post(Config.API_URLS.FORGOT_PASSWORD, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());

@@ -4,11 +4,9 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
 import {LoginPage} from '../login/login';
-import { Observable } from 'rxjs/Observable'
-import 'rxjs/add/observable/timer'
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/take'
-import { Pipe, PipeTransform } from '@angular/core';
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 /**
  * Generated class for the VerifyOtpPage page.
@@ -32,7 +30,7 @@ export class VerifyOtpPage {
 	public disableButton : boolean;
   public mobile:number;
   public count : number = 60;
-  private timer;
+  private timer: any;
   private maxTime = 60;
 
 	constructor(

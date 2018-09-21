@@ -1,13 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { IonicPage, App, NavController, NavParams, ViewController, Navbar, LoadingController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
 import {AssetPage} from '../../asset/asset';
-import {HomePage} from '../../home/home';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 /**
  * Generated class for the LoginPage page.
  *
@@ -30,11 +27,9 @@ export class LoginPage {
 	public navCtrl: NavController, 
 	public navParams: NavParams,
 	public viewCtrl: ViewController,
-  	private storage: Storage,
   	public app: App,
   	private auth : AuthService,
     private shared: SharedService,
-    private spinner: Ng4LoadingSpinnerService,
     public loading: LoadingController
   ) {
 		

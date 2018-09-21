@@ -16,7 +16,7 @@
 	</ion-row>
 	<form #resetForm="ngForm">
 		<ion-item no-padding>
-			<ion-input type="text" placeholder="1234567890" [(ngModel)]="model.mobile" name="mobile"required></ion-input>
+			<ion-input type="email" placeholder="example@gmail.com" [(ngModel)]="model.email" name="email" email="true" required></ion-input>
 		</ion-item>
 	</form>
 	<p> 
