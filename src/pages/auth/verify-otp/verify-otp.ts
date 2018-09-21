@@ -30,8 +30,8 @@ export class VerifyOtpPage {
 	public disableButton : boolean;
   public mobile:number;
   public count : number = 60;
-  private timer: any;
-  private maxTime = 60;
+  public timer: any;
+  public maxTime = 60;
 
 	constructor(
 		public navCtrl: NavController, 

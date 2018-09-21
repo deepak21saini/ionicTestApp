@@ -13,10 +13,12 @@ export class FileUploadService {
 	constructor(
      private http: Http
     ){ }
+
 	postFile(fileToUpload: File): Observable<boolean> {
 		this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
 	    const formData: FormData = new FormData();
 	    formData.append('image', fileToUpload, fileToUpload.name);
+	    console.log('here',formData);
 	    return this.http
 	      .post(Config.API_URLS.USERIMAGE, formData,{
         	headers: this.headers

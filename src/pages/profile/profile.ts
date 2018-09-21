@@ -61,6 +61,7 @@ export class ProfilePage {
     loader.present().then(() => {
       this.fileUpload.postFile(this.fileToUpload).subscribe(res => {
         if(res){
+          console.log(res);
           //this.photo = Config.SITE_URL+'/'+res.data.image;
         }
       }, error => {
