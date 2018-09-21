@@ -38,7 +38,7 @@ export class AuthService {
 
     activateAccount(data){
     	let options = {};
-    	return this.http.post(Config.API_ENDPOINT.VERIFY_PIN, data, options)
+    	return this.http.post(Config.API_URLS.VERIFY_PIN, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
           	return Observable.throw(error.json());

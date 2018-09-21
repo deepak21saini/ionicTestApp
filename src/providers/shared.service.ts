@@ -20,8 +20,8 @@ export class SharedService {
   handleError (error:any) {
 
     let errorMessage = '';
-    let errors = error[0];
-
+    let errors = error.errors;
+ 
     for (var i in errors) {
         errorMessage += errors[i][0]+'<br/>';
     }

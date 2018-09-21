@@ -46,29 +46,38 @@ export class RegisterPage {
     this.model.verification_type = this.verification_type;
     let loader = this.loading.create({});
     loader.present().then(() => {
-    this.auth.signup(this.model).subscribe(data => { 
-        var mobile = this.model.mobile;
-        var email = this.model.email;
-        this.model = {};
+      // match password validation //
+      if(this.model.password != this.model.c_password){
+        this.shared.AlertMessage('Error', 'Password did not match');  
+        loader.dismiss();
         this.disableButton = false;
-        if(this.verification_type == 'email') {
-          this.shared.AlertMessage('Success', 'Thanks for signing up!');  
-          this.navCtrl.push(VerifyOtpPage, {email:email});
-        }
-        else {
-         
-          this.shared.AlertMessage('Success', 'Thanks for signing up, please verify your account');
-          this.navCtrl.push(VerifyOtpPage, {mobile:mobile});
+        return false
+      }
 
-        }
-        
-      }, 
-      error => {
-        this.shared.handleError(error);
-        this.disableButton = false;
-      });
+      this.auth.signup(this.model).subscribe(data => { 
+          var mobile = this.model.mobile;
+          var email = this.model.email;
+          this.model = {};
+          this.disableButton = false;
+      
+          if(this.verification_type == 'email') {
+            this.shared.AlertMessage('Success', 'Thanks for signing up!');  
+            this.navCtrl.push(VerifyOtpPage, {email:email});
+          }
+          else {
+           
+            this.shared.AlertMessage('Success', 'Thanks for signing up, please verify your account');
+            this.navCtrl.push(VerifyOtpPage, {mobile:mobile});
+
+          }
+          
+        }, 
+        error => {
+          this.shared.handleError(error);
+          this.disableButton = false;
+        });
     
-      loader.dismiss();
+    loader.dismiss();
   });
   
   }
