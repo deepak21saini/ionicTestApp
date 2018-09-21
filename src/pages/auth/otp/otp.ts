@@ -20,10 +20,10 @@ import {ResetPasswordPage} from '../reset-password/reset-password';
   templateUrl: 'otp.html',
 })
 export class OtpPage {
-
+  public forgotForm: any;
 	public model:any = {};
 	public verification_type = Config.VERIFICATION_TYPE;
-	public disableButton : boolean;
+	public disableButton : boolean = false;
 
   	constructor(
   		public navCtrl: NavController, 
@@ -44,7 +44,7 @@ export class OtpPage {
       let loader = this.loading.create({});
       loader.present().then(() => {
       this.auth.resetPassword(this.model).subscribe(data => { 
-        
+
         if(this.verification_type == 'email') {
           this.shared.AlertMessage('Success', 'An e-mail is sent with steps to change your password.');
           this.navCtrl.push(ResetPasswordPage, {email:this.model.email});
@@ -55,7 +55,7 @@ export class OtpPage {
         
         }, 
         error => {
-          this.model = {};
+          this.disableButton = false;
           this.shared.handleError(error);
         });
         loader.dismiss();

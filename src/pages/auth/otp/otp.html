@@ -10,17 +10,17 @@
 <ion-grid>
 	<ion-row>
 		<ion-col col-12 text-center margin-top>
-			<h4 ion-text><strong> Enter your Email</strong> </h4>
+			<h4 ion-text><strong> Enter your Email Address</strong> </h4>
 			<p ion-text color="dark">We'll send you a code</p>
 		</ion-col>
 	</ion-row>
-	<form #resetForm="ngForm">
+	<form #forgotForm="ngForm">
 		<ion-item no-padding>
 			<ion-input type="email" placeholder="example@gmail.com" [(ngModel)]="model.email" name="email" email="true" required></ion-input>
 		</ion-item>
 	</form>
 	<p> 
-	 <button ion-button block color="primary"  (click)="resetPassword()" [disabled]="!resetForm.valid || disableButton">Next</button>
+	 <button ion-button block color="primary"  (click)="resetPassword()" [disabled]="!forgotForm.valid || disableButton" >Next</button>
 	</p>
 </ion-grid>
 

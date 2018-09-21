@@ -78,6 +78,14 @@ export class AuthService {
 
     }
 
+    verifyPin(data){
+      return this.http.post(Config.API_URLS.VERIFY_PIN, data)
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+      })
+    }
+
     setLoggedInStatus(staus: boolean) {
         this.subject.next(staus);
     }

@@ -16,12 +16,17 @@ export class SharedService {
 
     let errorMessage = '';
     let errors = error.errors;
- 
+
     for (var i in errors) {
+    
+      if(errors.message){
+        errorMessage += errors[i]+'<br/>';
+      }else{
         errorMessage += errors[i][0]+'<br/>';
     }
 
     this.AlertMessage('Error', errorMessage || 'Oops! something went wrong');
+      }
 
   }
 

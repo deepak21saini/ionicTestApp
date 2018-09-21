@@ -57,12 +57,12 @@ export class ProfilePage {
   }
 
   uploadFile() {
+    console.log('ada', this.fileToUpload);
     let loader = this.loading.create({});
     loader.present().then(() => {
       this.fileUpload.postFile(this.fileToUpload).subscribe(res => {
         if(res){
-          console.log(res);
-          //this.photo = Config.SITE_URL+'/'+res.data.image;
+          this.photo = Config.SITE_URL+res.data.image;
         }
       }, error => {
          this.shared.handleError(error);

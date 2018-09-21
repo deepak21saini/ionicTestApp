@@ -7,7 +7,7 @@ import {SharedService} from '../../../providers/shared.service';
 import {Config} from '../../../providers/config';
 import {HomePage} from '../../home/home';
 import {LoginPage} from '../login/login';
-
+import {NewPasswordPage} from '../../new-password/new-password';
 /**
  * Generated class for the ResetPasswordPage page.
  *
@@ -36,7 +36,7 @@ export class ResetPasswordPage {
 	}
 
 	ionViewDidLoad() {
-  	console.log('ionViewDidLoad OtpPage');
+  	console.log('ionViewDidLoad resetPasswordPage');
 	}
 
   updatePassword(){
@@ -49,6 +49,22 @@ export class ResetPasswordPage {
       }, 
       error => {
         this.model = {};
+        this.shared.handleError(error);
+      });
+
+      loader.dismiss();
+    });
+  }
+
+  verifyPin(){
+    let loader = this.loading.create({});
+    loader.present().then(() => {
+      this.model.email = this.navParams.data.email;
+      this.auth.verifyPin(this.model).subscribe(data => {
+        this.model = {};
+        this.navCtrl.setRoot(NewPasswordPage);
+      }, 
+      error => {
         this.shared.handleError(error);
       });
 
