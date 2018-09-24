@@ -14,11 +14,11 @@ export class AssetService {
 	constructor(
      private http: Http
     ){
-      
+      this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
   }
 
 	getAssetList(){
-      this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
+      
       return this.http.get(Config.API_URLS.ASSETS, {
         headers: this.headers
       })

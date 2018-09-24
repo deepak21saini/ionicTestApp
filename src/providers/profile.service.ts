@@ -11,12 +11,10 @@ import {Config} from './config';
 export class ProfileService {
     headers = new Headers();
     constructor(private http: Http) {
-        
+        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
      }
 
     getUser(data:any){
-      this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
-      
     	return this.http.post(Config.API_URLS.GETUSERBYID, data,{
           headers: this.headers
           })
