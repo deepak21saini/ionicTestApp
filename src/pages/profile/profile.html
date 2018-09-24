@@ -16,8 +16,11 @@
 <p>Email: {{userinfo.email}}</p>
  <p>
     <ion-item>
-      <ion-avatar item-start *ngIf="photo != ''">
+      <ion-avatar item-start *ngIf="photo">
         <img src="{{photo}}">
+      </ion-avatar>
+       <ion-avatar item-start *ngIf="!photo">
+          <img src="assets/imgs/user-default.jpeg">
       </ion-avatar>
     	<ion-label color="primary" fixed>Upload Photo</ion-label>
     	<ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>

@@ -15,6 +15,7 @@ export class LogoutPage {
         this.storage.remove('user').then(() => {
         	this.auth.setLoggedInStatus(false);
 	      	this.navCtrl.setRoot(HomePage);
+	      	this.storage.clear();
 	    });
 
 

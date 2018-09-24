@@ -64,9 +64,10 @@ export class VerifyOtpPage {
 	    error => {
 	      this.shared.handleError(error);
         this.disableButton = false;
-	    });
-
-      loader.dismiss();
+	    },
+      () => {
+        loader.dismiss();
+      });
     });
   }
 
@@ -90,8 +91,10 @@ export class VerifyOtpPage {
         this.shared.handleError(error);
         this.disableButton = false;
     
-      });
-      loader.dismiss();
+      },
+        () => {
+          loader.dismiss();
+        });
     });
   }
 

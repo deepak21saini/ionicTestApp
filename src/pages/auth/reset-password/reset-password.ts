@@ -50,9 +50,10 @@ export class ResetPasswordPage {
       error => {
         this.model = {};
         this.shared.handleError(error);
+      },
+      () => {
+        loader.dismiss();
       });
-
-      loader.dismiss();
     });
   }
 
@@ -66,9 +67,10 @@ export class ResetPasswordPage {
       }, 
       error => {
         this.shared.handleError(error);
+      },
+      () => {
+        loader.dismiss();
       });
-
-      loader.dismiss();
     });
   }
 

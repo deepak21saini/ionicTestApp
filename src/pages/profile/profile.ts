@@ -22,6 +22,7 @@ export class ProfilePage {
   fileToUpload: File = null;
   photo:any;
   postData:any;
+  res: any;
   constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
@@ -30,11 +31,14 @@ export class ProfilePage {
     public loading: LoadingController,
     public profile: ProfileService
 		) {
-		
+		this.getUserDetail();
 	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  getUserDetail(){
     let loader = this.loading.create({});
     let user_id = localStorage.getItem('user_id');
     this.postData = {user_id:user_id};
@@ -42,16 +46,19 @@ export class ProfilePage {
     this.profile.getUser(this.postData).subscribe(res => { 
         if(res.data){
            this.userinfo = res.data;
-           this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
+           if(res.data.image){
+              this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
+           }
+           
         }
       }, 
       error => {
          this.shared.handleError(error);
+      },
+      () => {
+        loader.dismiss();
       });
-       loader.dismiss();
     });
-    
-
   }
 
   handleFileInput(files: FileList) {
@@ -60,16 +67,23 @@ export class ProfilePage {
 
   uploadFile() {
     let loader = this.loading.create({});
-    loader.present().then(() => {
-      this.fileUpload.postFile(this.fileToUpload).subscribe(res => {
+    if(this.fileToUpload){
+      loader.present().then(() => {
+      this.fileUpload.postFile(this.fileToUpload).subscribe((res:any) => {
         if(res.data){
           this.photo = Config.SITE_URL+res.data.image;
         }
       }, error => {
          this.shared.handleError(error);
-        });
-      loader.dismiss();
+      },
+      () => {
+        loader.dismiss();
+      });
     });
+    }else {
+      this.shared.AlertMessage('Error', 'Please select image to upload'); 
+    }
+   
   }
 
 

@@ -11,6 +11,7 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { Storage } from '@ionic/storage';
 import {AuthService} from '../providers/auth.service';
+import{Config} from '../providers/config';
 
 @Component({
   templateUrl: 'app.html'                               
@@ -35,35 +36,41 @@ export class MyApp {
     private auth:AuthService
     ) {
 
-    this.storage.get('user').then((val) => {
-      console.log('here', val);
+
+      this.auth.isLoggedIn().subscribe(status => {
+          this.isLoggedIn = status;
+      });
+
+      this.initializeApp();
+
+      // used for an example of ngFor and navigation
+      this.pages = [
+        { title: 'Home', icon:'home', component: HomePage  },
+  	    { title: 'Login', icon:'contact', component: LoginPage },
+  	    { title: 'Register', icon:'person-add', component: RegisterPage },
+      ];
+
+      this.accountMenuItems = [
+          {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
+          {title: 'My Requests', component: AssetPage, icon: 'list'},
+          {title: 'Help', component: AssetPage, icon: 'help-circle'},
+          {title: 'Feedback', component: AssetPage, icon: 'star'},
+          {title: 'Logout', component: LogoutPage, icon: 'log-out'}
+        ];
+
+      this.storage.get('user').then((val) => {
+
         if(val){
-          this.username = val.first_name+' '+val.last_name;
-          this.image = val.image;
+          this.username = val.first_name;
+          console.log('image', val.image);
+
+          if(val.image){
+            console.log('okk');
+            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
+          }
           this.auth.setLoggedInStatus(true);
         }
     });
-
-    this.auth.isLoggedIn().subscribe(status => {
-        this.isLoggedIn = status;
-    });
-
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', icon:'home', component: HomePage  },
-	    { title: 'Login', icon:'contact', component: LoginPage },
-	    { title: 'Register', icon:'person-add', component: RegisterPage },
-    ];
-
-    this.accountMenuItems = [
-        {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
-        {title: 'My Requests', component: AssetPage, icon: 'list'},
-        {title: 'Help', component: AssetPage, icon: 'help-circle'},
-        {title: 'Feedback', component: AssetPage, icon: 'star'},
-        {title: 'Logout', component: LogoutPage, icon: 'log-out'}
-      ];
   }
 
   initializeApp() {

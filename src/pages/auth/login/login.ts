@@ -49,7 +49,6 @@ export class LoginPage {
         loader.present().then(() => {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
-            console.log(res.data);
             this.storage.set('user', res.data);
             localStorage.setItem('auth_token', res.data.access_token);
             localStorage.setItem('user_id', res.data.id);
@@ -58,9 +57,10 @@ export class LoginPage {
           },
           error => {
             this.shared.handleError(error);
+          },
+          () => {
+            loader.dismiss();
           });
-
-          loader.dismiss();
       }); 
       
   }
