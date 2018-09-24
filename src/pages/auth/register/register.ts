@@ -61,7 +61,6 @@ export class RegisterPage {
           this.disableButton = false;
       
           if(this.verification_type == 'email') {
-            this.shared.AlertMessage('Success', 'Thanks for signing up!');  
             this.navCtrl.push(VerifyOtpPage, {email:email});
           }
           else {

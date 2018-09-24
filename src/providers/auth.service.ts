@@ -70,7 +70,7 @@ export class AuthService {
 
     resendOTP(data){
       let options = {};
-      return this.http.post(Config.API_ENDPOINT+'opt/resendOTP', data, options)
+      return this.http.post(Config.API_URLS.SEND_PIN, data, options)
         .map((res:Response) => res.json())
         .catch(error => {
             return Observable.throw(error.json());

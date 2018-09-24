@@ -4,7 +4,7 @@ import {FileUploadService} from '../../providers/file-upload.service';
 import {SharedService} from '../../providers/shared.service';
 import {ProfileService} from '../../providers/profile.service';
 import {Config} from '../../providers/config';
-
+import {LogoutPage} from '../logout/logout';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -89,5 +89,7 @@ export class ProfilePage {
    
   }
 
-
+  logout(){
+    this.navCtrl.setRoot(LogoutPage);
+  }
 }

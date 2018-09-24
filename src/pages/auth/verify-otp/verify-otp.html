@@ -1,63 +1,57 @@
 <ion-content padding>
 <ion-grid text-center padding-top padding-bottom text-center>
-    <ion-row>
-      <ion-img width="100" height="130" src="/assets/imgs/logo.png" style="margin: auto;"></ion-img>
-    </ion-row>
     <ion-row margin-top>
       <ion-col col-12>
-        <h2 ion-text color="pink"><strong>Verify your Mobile</strong></h2>
+        <h2 ion-text color="default"><strong>Verify your Account</strong></h2>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-list>
-      
-        <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
-          <ion-col text-center>
-            <p ion-text color="dark">Please type verification code sent to </p>
-            <p ion-text color="pink">+91 {{mobile}}</p>
-          </ion-col>
-          <form #verifyAccountForm="ngForm" >
-          <ion-grid>
-            <ion-row>
-              <ion-col col-2 class="padding-2">   
-                <ion-item no-padding >
-                  <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-2 class="padding-2">
-                <ion-item no-padding>
-                  <ion-input text-center type="text" [(ngModel)]="model.otp.second" name="otp2" placeholder="4" maxlength="1"  (keyup)="nextInput($event, 2)" #passcode1 required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-2 class="padding-2">
-                <ion-item no-padding>
-                  <ion-input text-center type="text" [(ngModel)]="model.otp.third" name="otp3" placeholder="4" maxlength="1" (keyup)="nextInput($event, 3)" #passcode2 required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-2 class="padding-2">
-                <ion-item no-padding>
-                  <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" placeholder="4" maxlength="1" #passcode3 required></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-item no-padding>
-              <ion-label color="dark" stacked ><strong>Email</strong></ion-label>
-              <ion-input type="text" [(ngModel)]="model.email" name="email" required></ion-input>
+  
+    <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+      <ion-col text-center>
+        <p ion-text color="dark">Please type verification code sent to </p>
+        <p ion-text color="default"> {{email}}</p>
+      </ion-col>
+      <form #verifyAccountForm="ngForm" >
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2 class="padding-2">   
+            <ion-item no-padding >
+              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
             </ion-item>
-              <ion-col col-12 margin-top>
-                <button ion-button block color="pink" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
-              </ion-col>
-              <ion-col col-12 text-center>
-                <p> Haven't received OTP?
-                  <button ion-button color="pink" (click)="resendOTP()" [disabled]="maxTime > 0 && maxTime != count">Resend</button>
-                  <span *ngIf="maxTime != count">Try after {{maxTime}} seconds</span>
+          </ion-col>
+          <ion-col col-2 class="padding-2">
+            <ion-item no-padding>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.second" name="otp2" placeholder="4" maxlength="1"  (keyup)="nextInput($event, 2)" #passcode1 required></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2 class="padding-2">
+            <ion-item no-padding>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.third" name="otp3" placeholder="4" maxlength="1" (keyup)="nextInput($event, 3)" #passcode2 required></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2 class="padding-2">
+            <ion-item no-padding>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" placeholder="4" maxlength="1" #passcode3 required></ion-input>
+            </ion-item>
+          </ion-col>
+      
+          <ion-col col-12 margin-top>
+            <button ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+          </ion-col>
+          <ion-col col-12 text-center>
+            <p> Haven't received OTP?
+              <button ion-button color="default" (click)="resendOTP()" [disabled]="maxTime > 0 && maxTime != count">Resend</button>
+              <span *ngIf="maxTime != count">Try after {{maxTime}} seconds</span>
 
-                 <!--<a href="#" ion-text color="pink" (click)="resendOTP()" [disabled] = "disableResendBtn" >Resend</a>--></p>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
+             <!--<a href="#" ion-text color="pink" (click)="resendOTP()" [disabled] = "disableResendBtn" >Resend</a>--></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-          </form>
-        </ion-col>
+      </form>
+    </ion-col>
       
   </ion-list>
   </ion-content>

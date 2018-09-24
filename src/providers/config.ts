@@ -12,6 +12,7 @@ export class Config {
 		GETUSERBYID: Config.API_ENDPOINT+"userDetailGetbyID",
 		VERIFY_PIN : Config.API_ENDPOINT+"verifyPin",
 		FORGOT_PASSWORD: Config.API_ENDPOINT+"forgotPassword",
+		SEND_PIN: Config.API_ENDPOINT+"sendPin",
 	}
   
 	

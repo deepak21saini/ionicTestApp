@@ -28,7 +28,7 @@ export class VerifyOtpPage {
   @ViewChild('passcode3') passcode3;
   
 	public disableButton : boolean;
-  public mobile:number;
+  public email:number;
   public count : number = 60;
   public timer: any;
   public maxTime = 60;
@@ -42,7 +42,7 @@ export class VerifyOtpPage {
     public loading: LoadingController
 		) {
    
-    this.mobile = this.navParams.data.mobile;
+    this.email = this.navParams.data.email;
 
 	}
 
@@ -53,6 +53,7 @@ export class VerifyOtpPage {
 	activateAccount(){
 		this.disableButton = true;
 		let loader = this.loading.create({});
+    this.model.email = this.email
     this.model.user_pin = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
     loader.present().then(() => {
 	    this.auth.activateAccount(this.model).subscribe(data => { 
@@ -76,7 +77,7 @@ export class VerifyOtpPage {
   resendOTP(){
     let loader = this.loading.create({ });
     loader.present().then(() => {
-      this.auth.resendOTP({mobile : this.mobile}).subscribe(data => {
+      this.auth.resendOTP({email : this.email}).subscribe(data => {
 
         let toast = this.toastCtrl.create({
             message: 'OTP sent successfully',
