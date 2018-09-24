@@ -57,6 +57,7 @@ export class LoginPage {
           },
           error => {
             this.shared.handleError(error);
+            loader.dismiss();
           },
           () => {
             loader.dismiss();

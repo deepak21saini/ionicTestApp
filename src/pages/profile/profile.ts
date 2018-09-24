@@ -54,6 +54,7 @@ export class ProfilePage {
       }, 
       error => {
          this.shared.handleError(error);
+         loader.dismiss();
       },
       () => {
         loader.dismiss();
@@ -63,6 +64,7 @@ export class ProfilePage {
 
   handleFileInput(files: FileList) {
       this.fileToUpload = files.item(0);
+      this.uploadFile();
   }
 
   uploadFile() {
@@ -75,6 +77,7 @@ export class ProfilePage {
         }
       }, error => {
          this.shared.handleError(error);
+         loader.dismiss();
       },
       () => {
         loader.dismiss();

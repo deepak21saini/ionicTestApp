@@ -75,6 +75,7 @@ export class RegisterPage {
         error => {
           this.shared.handleError(error);
           this.disableButton = false;
+          loader.dismiss();
         },
         () => {
           loader.dismiss();

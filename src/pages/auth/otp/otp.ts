@@ -57,6 +57,7 @@ export class OtpPage {
         error => {
           this.disableButton = false;
           this.shared.handleError(error);
+          loader.dismiss();
         },
         () => {
           loader.dismiss();

@@ -38,6 +38,7 @@ export class AssetPage {
       }, 
       error => {
          this.shared.handleError(error);
+         loader.dismiss();
       },
       () => {
         loader.dismiss();
