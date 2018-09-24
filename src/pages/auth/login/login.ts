@@ -5,6 +5,7 @@ import {SharedService} from '../../../providers/shared.service';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
 import {AssetPage} from '../../asset/asset';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the LoginPage page.
  *
@@ -30,7 +31,8 @@ export class LoginPage {
   	public app: App,
   	private auth : AuthService,
     private shared: SharedService,
-    public loading: LoadingController
+    public loading: LoadingController,
+    private storage: Storage
   ) {
 		
   	}
@@ -47,6 +49,8 @@ export class LoginPage {
         loader.present().then(() => {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
+            console.log(res.data);
+            this.storage.set('user', res.data);
             localStorage.setItem('auth_token', res.data.access_token);
             localStorage.setItem('user_id', res.data.id);
             this.auth.setLoggedInStatus(true);

@@ -1,7 +1,15 @@
 <ion-menu [content]="content">
    <div padding style="background:#488aff;height:100px;">
 		<span *ngIf="isLoggedIn">{{username}}</span>
-    <button *ngIf="isLoggedIn" ion-button menuToggle (click)="goToProfile()">
+    <div *ngIf="isLoggedIn">
+        <ion-avatar item-start *ngIf="image != ''">
+          <img src="{{image}}">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="image == ''">
+          <img src="assets/imgs/user-default.jpeg">
+        </ion-avatar>
+    </div>
+    <button float-right *ngIf="isLoggedIn" ion-button menuToggle (click)="goToProfile()">
     <ion-icon name="md-arrow-forward"></ion-icon>
     </button>
 	</div>

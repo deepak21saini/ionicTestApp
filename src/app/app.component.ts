@@ -24,6 +24,7 @@ export class MyApp {
   accountMenuItems: Array<any>;
   pages: Array<{title: string, component, icon: any}>;
   username:any;
+  image: any;
   // pages: Array<{title: string, icon: string, component: any}>;
 
   constructor(
@@ -35,8 +36,10 @@ export class MyApp {
     ) {
 
     this.storage.get('user').then((val) => {
+      console.log('here', val);
         if(val){
           this.username = val.first_name+' '+val.last_name;
+          this.image = val.image;
           this.auth.setLoggedInStatus(true);
         }
     });

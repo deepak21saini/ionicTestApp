@@ -40,8 +40,10 @@ export class ProfilePage {
     this.postData = {user_id:user_id};
     loader.present().then(() => {
     this.profile.getUser(this.postData).subscribe(res => { 
-      this.userinfo = res.data;
-        this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
+        if(res.data){
+           this.userinfo = res.data;
+           this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
+        }
       }, 
       error => {
          this.shared.handleError(error);
@@ -57,11 +59,10 @@ export class ProfilePage {
   }
 
   uploadFile() {
-    console.log('ada', this.fileToUpload);
     let loader = this.loading.create({});
     loader.present().then(() => {
       this.fileUpload.postFile(this.fileToUpload).subscribe(res => {
-        if(res){
+        if(res.data){
           this.photo = Config.SITE_URL+res.data.image;
         }
       }, error => {
