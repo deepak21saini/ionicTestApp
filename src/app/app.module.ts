@@ -5,16 +5,15 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { AssetPage } from '../pages/asset/asset';
-import { AssetDetailPage } from '../pages/asset-detail/asset-detail';
-import { LoginPage } from '../pages/auth/login/login';
-import { RegisterPage } from '../pages/auth/register/register';
-import { OtpPage } from '../pages/auth/otp/otp';
-import { VerifyOtpPage } from '../pages/auth/verify-otp/verify-otp';
-import { ResetPasswordPage } from '../pages/auth/reset-password/reset-password';
+import { AssetPageModule } from '../pages/asset/asset.module';
+import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
+import { LoginPageModule } from '../pages/auth/login/login.module';
+import { RegisterPageModule } from '../pages/auth/register/register.module';
+import { OtpPageModule } from '../pages/auth/otp/otp.module';
+import { VerifyOtpPageModule } from '../pages/auth/verify-otp/verify-otp.module';
 import { LogoutPage } from '../pages/logout/logout';
-import { ProfilePage } from '../pages/profile/profile';
-import { NewPasswordPage } from '../pages/new-password/new-password';
+import { ProfilePageModule } from '../pages/profile/profile.module';
+import { NewPasswordPageModule } from '../pages/new-password/new-password.module';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,20 +31,19 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   declarations: [
     MyApp,
     HomePage,
-    AssetPage,
-    AssetDetailPage,
-  	LoginPage,
-  	RegisterPage,
-  	OtpPage,
-  	VerifyOtpPage,
-    ResetPasswordPage,
-    LogoutPage,
-    ProfilePage,
-    NewPasswordPage
+    LogoutPage
   ],
   imports: [
     HttpModule,
     BrowserModule,
+    AssetPageModule,
+    AssetDetailPageModule,
+    LoginPageModule,
+    RegisterPageModule,
+    OtpPageModule,
+    VerifyOtpPageModule,
+    ProfilePageModule,
+    NewPasswordPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot()
@@ -54,16 +52,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   entryComponents: [
     MyApp,
     HomePage,
-    AssetPage,
-    AssetDetailPage,
-  	LoginPage,
-  	RegisterPage,
-  	OtpPage,
-  	VerifyOtpPage,
-    ResetPasswordPage,
-    LogoutPage,
-    ProfilePage,
-    NewPasswordPage
+    LogoutPage
   ],
   providers: [
     StatusBar,

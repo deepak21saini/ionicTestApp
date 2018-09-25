@@ -5,8 +5,7 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
 import {Config} from '../../../providers/config';
-import {ResetPasswordPage} from '../reset-password/reset-password';
-
+import {VerifyOtpPage} from '../verify-otp/verify-otp'
 /**
  * Generated class for the OtpPage page.
  *
@@ -46,11 +45,10 @@ export class OtpPage {
       this.auth.resetPassword(this.model).subscribe(data => { 
 
         if(this.verification_type == 'email') {
-          this.shared.AlertMessage('Success', 'An e-mail is sent with steps to change your password.');
-          this.navCtrl.push(ResetPasswordPage, {email:this.model.email});
+          this.navCtrl.push(VerifyOtpPage, {email:this.model.email, type:'password'});
         }
         else {
-          this.navCtrl.push(ResetPasswordPage, {mobile:this.model.mobile});
+          this.navCtrl.push(VerifyOtpPage, {mobile:this.model.mobile, type:'password'});
         }
         
         }, 

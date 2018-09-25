@@ -1,3 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+   <ion-title>Verification</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
 <ion-grid text-center padding-top padding-bottom text-center>
     <ion-row margin-top>
@@ -16,29 +24,32 @@
       <form #verifyAccountForm="ngForm" >
       <ion-grid>
         <ion-row>
-          <ion-col col-2 class="padding-2">   
+          <ion-col col-3 class="padding-2">   
             <ion-item no-padding >
               <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
             </ion-item>
           </ion-col>
-          <ion-col col-2 class="padding-2">
+          <ion-col col-3 class="padding-2">
             <ion-item no-padding>
               <ion-input text-center type="text" [(ngModel)]="model.otp.second" name="otp2" placeholder="4" maxlength="1"  (keyup)="nextInput($event, 2)" #passcode1 required></ion-input>
             </ion-item>
           </ion-col>
-          <ion-col col-2 class="padding-2">
+          <ion-col col-3 class="padding-2">
             <ion-item no-padding>
               <ion-input text-center type="text" [(ngModel)]="model.otp.third" name="otp3" placeholder="4" maxlength="1" (keyup)="nextInput($event, 3)" #passcode2 required></ion-input>
             </ion-item>
           </ion-col>
-          <ion-col col-2 class="padding-2">
+          <ion-col col-3 class="padding-2">
             <ion-item no-padding>
               <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" placeholder="4" maxlength="1" #passcode3 required></ion-input>
             </ion-item>
           </ion-col>
       
           <ion-col col-12 margin-top>
-            <button ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+            <button *ngIf="pageType == 'register'" ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+
+            <button *ngIf="pageType == 'password'" ion-button block color="default" class="login-btn" (click)="verifyPin()" [disabled]="!verifyAccountForm.valid || disableButton">Next</button>
+
           </ion-col>
           <ion-col col-12 text-center>
             <p> Haven't received OTP?
