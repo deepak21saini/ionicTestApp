@@ -1,3 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+   <ion-title>Verification</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
 <ion-grid text-center padding-top padding-bottom text-center>
     <ion-row margin-top>
@@ -38,7 +46,10 @@
           </ion-col>
       
           <ion-col col-12 margin-top>
-            <button ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+            <button *ngIf="pageType == 'register'" ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
+
+            <button *ngIf="pageType == 'password'" ion-button block color="default" class="login-btn" (click)="verifyPin()" [disabled]="!verifyAccountForm.valid || disableButton">Next</button>
+
           </ion-col>
           <ion-col col-12 text-center>
             <p> Haven't received OTP?

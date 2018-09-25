@@ -4,6 +4,7 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 
 import {LoginPage} from '../login/login';
+import {NewPasswordPage} from '../../new-password/new-password';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
@@ -32,6 +33,7 @@ export class VerifyOtpPage {
   public count : number = 60;
   public timer: any;
   public maxTime = 60;
+  public pageType: any;
 
 	constructor(
 		public navCtrl: NavController, 
@@ -43,7 +45,8 @@ export class VerifyOtpPage {
 		) {
    
     this.email = this.navParams.data.email;
-
+    this.pageType = this.navParams.data.type;
+    console.log(this.navParams.data.type);
 	}
 
 	ionViewDidLoad() {
@@ -73,6 +76,24 @@ export class VerifyOtpPage {
     });
   }
 
+  verifyPin(){
+    let loader = this.loading.create({});
+    loader.present().then(() => {
+      this.model.email = this.email;
+      this.model.user_pin = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
+      this.auth.verifyPin(this.model).subscribe(data => {
+       // this.model = {};
+        this.navCtrl.setRoot(NewPasswordPage);
+      }, 
+      error => {
+        this.shared.handleError(error);
+        loader.dismiss();
+      },
+      () => {
+        loader.dismiss();
+      });
+    });
+  }
 
   resendOTP(){
     let loader = this.loading.create({ });

@@ -11,7 +11,6 @@ import { LoginPage } from '../pages/auth/login/login';
 import { RegisterPage } from '../pages/auth/register/register';
 import { OtpPage } from '../pages/auth/otp/otp';
 import { VerifyOtpPage } from '../pages/auth/verify-otp/verify-otp';
-import { ResetPasswordPage } from '../pages/auth/reset-password/reset-password';
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { NewPasswordPage } from '../pages/new-password/new-password';
@@ -37,7 +36,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   	RegisterPage,
   	OtpPage,
   	VerifyOtpPage,
-    ResetPasswordPage,
     LogoutPage,
     ProfilePage,
     NewPasswordPage
@@ -59,7 +57,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   	RegisterPage,
   	OtpPage,
   	VerifyOtpPage,
-    ResetPasswordPage,
     LogoutPage,
     ProfilePage,
     NewPasswordPage
