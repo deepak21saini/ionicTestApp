@@ -27,7 +27,7 @@ export class VerifyOtpPage {
   @ViewChild('passcode2') passcode2;
   @ViewChild('passcode3') passcode3;
   
-	public disableButton : boolean;
+  public disableButton : boolean;
   public email:number;
   public count : number = 60;
   public timer: any;
