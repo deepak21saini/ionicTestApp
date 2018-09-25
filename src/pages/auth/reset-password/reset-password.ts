@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController} from 'ionic-angular';
 
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
@@ -22,17 +22,26 @@ import {NewPasswordPage} from '../../new-password/new-password';
 })
 export class ResetPasswordPage {
 
-	public model:any = {};
+	public model:any = {otp:{first: '', second: '', third: '', fourth: ''}};
+  @ViewChild('passcode1') passcode1;
+  @ViewChild('passcode2') passcode2;
+  @ViewChild('passcode3') passcode3;
 	public verification_type = Config.VERIFICATION_TYPE;
 	public disableButton : boolean;
+  public count : number = 60;
+  public timer: any;
+  public maxTime = 60;
+  public email:number;
 
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
   	private auth : AuthService,
     private shared: SharedService,
-    public loading: LoadingController
+    public loading: LoadingController,
+    public toastCtrl: ToastController
   	) {
+    this.email = this.navParams.data.email;
 	}
 
 	ionViewDidLoad() {
@@ -61,9 +70,11 @@ export class ResetPasswordPage {
   verifyPin(){
     let loader = this.loading.create({});
     loader.present().then(() => {
-      this.model.email = this.navParams.data.email;
+      this.model.email = this.email;
+      this.model.user_pin = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
+      console.log(this.model);
       this.auth.verifyPin(this.model).subscribe(data => {
-        this.model = {};
+       // this.model = {};
         this.navCtrl.setRoot(NewPasswordPage);
       }, 
       error => {
@@ -75,6 +86,75 @@ export class ResetPasswordPage {
       });
     });
   }
+
+  resendOTP(){
+    let loader = this.loading.create({ });
+    loader.present().then(() => {
+      this.auth.resendOTP({email : this.email}).subscribe(data => {
+
+        let toast = this.toastCtrl.create({
+            message: 'OTP sent successfully',
+            cssClass: 'mytoast',
+            duration: 1000
+        });
+        toast.present(toast);
+        this.maxTime = this.count;
+        this.StartTimer();
+          
+      }, 
+      error => {
+        this.shared.handleError(error);
+        this.disableButton = false;
+        loader.dismiss();
+    
+      },
+        () => {
+          loader.dismiss();
+        });
+    });
+  }
+
+  StartTimer() {
+    this.timer = setTimeout(x => 
+     {
+        if(this.maxTime > 0) { 
+          this.maxTime -= 1;
+          this.StartTimer();
+          
+        }
+         
+     }, 1000);
+  }
+
+  keyTab(event, max){
+   
+    let element = event.srcElement.nextElementSibling; // get the sibling element
+
+    if(element == null)  // check if its null
+        return;
+    else
+        element.focus();   // focus if not null
+  }
+
+  nextInput(event, index){
+    console.log(index);
+     this.setFocus(index);
+  }
+
+  setFocus(index){
+       switch(index){
+         case 1:
+         this.passcode1.setFocus();
+         break;
+         case 2:
+         this.passcode2.setFocus();
+         break;
+         case 3:
+         this.passcode3.setFocus();
+         break;
+         
+         }
+    }
 
   goToRoot(){
     this.navCtrl.setRoot(HomePage);
