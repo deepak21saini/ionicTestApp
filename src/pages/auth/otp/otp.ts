@@ -45,7 +45,6 @@ export class OtpPage {
       this.auth.resetPassword(this.model).subscribe(data => { 
 
         if(this.verification_type == 'email') {
-          this.shared.AlertMessage('Success', 'An e-mail is sent with steps to change your password.');
           this.navCtrl.push(VerifyOtpPage, {email:this.model.email, type:'password'});
         }
         else {
