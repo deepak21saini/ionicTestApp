@@ -27,6 +27,7 @@ import {ProfileService} from "../providers/profile.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
+
 @NgModule({
   declarations: [
     MyApp,
