@@ -59,7 +59,7 @@ export class VerifyOtpPage {
 	    this.auth.activateAccount(this.model).subscribe(data => { 
           this.model = {};
 	        this.model = {otp:{first: '', second: '', third: '', fourth: ''}};
-	        this.shared.AlertMessage('Success', 'Your account has been activated successfully');
+	        //this.shared.AlertMessage('Success', 'Your account has been activated successfully');
 	        this.navCtrl.setRoot(LoginPage);
 	    }, 
 	    error => {
