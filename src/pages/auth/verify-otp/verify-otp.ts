@@ -63,7 +63,7 @@ export class VerifyOtpPage {
           this.model = {};
 	        this.model = {otp:{first: '', second: '', third: '', fourth: ''}};
 	        //this.shared.AlertMessage('Success', 'Your account has been activated successfully');
-	        this.navCtrl.setRoot(LoginPage);
+	        this.navCtrl.push(LoginPage);
 	    }, 
 	    error => {
 	      this.shared.handleError(error);
@@ -83,7 +83,7 @@ export class VerifyOtpPage {
       this.model.user_pin = this.model.otp.first+this.model.otp.second+this.model.otp.third+this.model.otp.fourth;
       this.auth.verifyPin(this.model).subscribe(data => {
        // this.model = {};
-        this.navCtrl.setRoot(NewPasswordPage);
+        this.navCtrl.push(NewPasswordPage);
       }, 
       error => {
         this.shared.handleError(error);

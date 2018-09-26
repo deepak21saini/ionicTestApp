@@ -49,9 +49,8 @@ export class LoginPage {
         loader.present().then(() => {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
+            console.log('token-login', res.data);
             this.storage.set('user', res.data);
-            localStorage.setItem('auth_token', res.data.access_token);
-            localStorage.setItem('user_id', res.data.id);
             this.auth.setLoggedInStatus(true);
             this.navCtrl.setRoot(AssetPage);
           },

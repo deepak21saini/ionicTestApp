@@ -5,6 +5,7 @@ import {SharedService} from '../../providers/shared.service';
 import {ProfileService} from '../../providers/profile.service';
 import {Config} from '../../providers/config';
 import {LogoutPage} from '../logout/logout';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -23,15 +24,22 @@ export class ProfilePage {
   photo:any;
   postData:any;
   res: any;
+  user_id: any;
   constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
     public fileUpload: FileUploadService,
     public shared: SharedService,
     public loading: LoadingController,
-    public profile: ProfileService
+    public profile: ProfileService,
+    private storage:Storage
 		) {
-		this.getUserDetail();
+
+    this.storage.get('user').then((val) => {
+       this.user_id = val.id;
+       this.getUserDetail();
+    }); 
+		
 	}
 
   ionViewDidLoad() {
@@ -40,8 +48,8 @@ export class ProfilePage {
 
   getUserDetail(){
     let loader = this.loading.create({});
-    let user_id = localStorage.getItem('user_id');
-    this.postData = {user_id:user_id};
+   console.log(this.user_id);
+    this.postData = {user_id:this.user_id};
     loader.present().then(() => {
     this.profile.getUser(this.postData).subscribe(res => { 
         if(res.data){
