@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import {FileUploadService} from '../../providers/file-upload.service';
-import {SharedService} from '../../providers/shared.service';
-import {ProfileService} from '../../providers/profile.service';
-import {Config} from '../../providers/config';
-import {LogoutPage} from '../logout/logout';
+import { FileUploadService } from '../../providers/file-upload.service';
+import { SharedService } from '../../providers/shared.service';
+import { ProfileService } from '../../providers/profile.service';
+import { AuthService } from '../../providers/auth.service';
+import { Config } from '../../providers/config';
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ProfilePage page.
@@ -32,6 +32,7 @@ export class ProfilePage {
     public shared: SharedService,
     public loading: LoadingController,
     public profile: ProfileService,
+    public auth: AuthService,
     private storage:Storage
 		) {
 
@@ -98,6 +99,6 @@ export class ProfilePage {
   }
 
   logout(){
-    this.navCtrl.setRoot(LogoutPage);
+    this.auth.logout();
   }
 }

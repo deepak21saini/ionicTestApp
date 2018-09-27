@@ -28,6 +28,9 @@
      <button detail-none menuClose ion-item *ngFor="let p of accountMenuItems" (click)="openPage(p)">
        <ion-icon name="{{p.icon}}" margin-right></ion-icon> {{p.title}}  
       </button>
+      <button detail-none menuClose ion-item (click)="logout()">
+       <ion-icon name="log-out" margin-right></ion-icon> Logout
+      </button>
       </div>
     </ion-item>
   </ion-list>

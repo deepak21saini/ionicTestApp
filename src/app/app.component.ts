@@ -2,16 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { AssetPage } from '../pages/asset/asset';
-import { LoginPage } from '../pages/auth/login/login';
-import { RegisterPage } from '../pages/auth/register/register';
-import { LogoutPage } from '../pages/logout/logout';
-import { ProfilePage } from '../pages/profile/profile';
 import { Storage } from '@ionic/storage';
-import {AuthService} from '../providers/auth.service';
-import{Config} from '../providers/config';
+import { AuthService } from '../providers/auth.service';
+import { Config } from '../providers/config';
 
 @Component({
   templateUrl: 'app.html'                               
@@ -21,7 +14,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
   isLoggedIn = false;
-  rootPage: any = HomePage;  
+  rootPage: any = "HomePage";  
   accountMenuItems: Array<any>;
   pages: Array<{title: string, component, icon: any}>;
   username:any;
@@ -40,23 +33,22 @@ export class MyApp {
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
           if(this.isLoggedIn){
-            this.nav.setRoot(AssetPage);
+            this.nav.setRoot('AssetPage');
           }
       });
   
       // used for an example of ngFor and navigation
       this.pages = [
-        { title: 'Home', icon:'home', component: HomePage  },
-  	    { title: 'Login', icon:'contact', component: LoginPage },
-  	    { title: 'Register', icon:'person-add', component: RegisterPage },
+        { title: 'Home', icon:'home', component: 'HomePage'  },
+  	    { title: 'Login', icon:'contact', component: 'LoginPage' },
+  	    { title: 'Register', icon:'person-add', component: 'RegisterPage' },
       ];
 
       this.accountMenuItems = [
-          {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
-          {title: 'My Requests', component: AssetPage, icon: 'list'},
-          {title: 'Help', component: AssetPage, icon: 'help-circle'},
-          {title: 'Feedback', component: AssetPage, icon: 'star'},
-          {title: 'Logout', component: LogoutPage, icon: 'log-out'}
+          {title: 'My Assets', component: 'AssetPage', icon: 'briefcase'},
+          {title: 'My Requests', component: 'AssetPage', icon: 'list'},
+          {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
+          {title: 'Feedback', component: 'AssetPage', icon: 'star'}
         ];
 
       this.storage.get('user').then((val) => {
@@ -86,11 +78,11 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  logoutPage(){
-     this.nav.setRoot(LogoutPage);
+  logout(){
+     this.auth.logout();
   }
 
   goToProfile(){
-     this.nav.push(ProfilePage);
+     this.nav.push('ProfilePage');
   }
 }

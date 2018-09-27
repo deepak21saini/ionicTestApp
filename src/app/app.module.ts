@@ -4,14 +4,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { AssetPageModule } from '../pages/asset/asset.module';
 import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
 import { LoginPageModule } from '../pages/auth/login/login.module';
 import { RegisterPageModule } from '../pages/auth/register/register.module';
 import { OtpPageModule } from '../pages/auth/otp/otp.module';
 import { VerifyOtpPageModule } from '../pages/auth/verify-otp/verify-otp.module';
-import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePageModule } from '../pages/profile/profile.module';
 import { NewPasswordPageModule } from '../pages/new-password/new-password.module';
 
@@ -28,9 +26,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LogoutPage
+    MyApp
   ],
   imports: [
     HttpModule,
@@ -49,9 +45,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LogoutPage
+    MyApp
   ],
   providers: [
     StatusBar,
