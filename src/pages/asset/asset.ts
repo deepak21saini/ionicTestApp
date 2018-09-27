@@ -26,7 +26,7 @@ export class AssetPage {
       public loading: LoadingController,
       public shared: SharedService
   	) {
-	this.assets = [];
+	   this.assets = [];
 	
   }
 

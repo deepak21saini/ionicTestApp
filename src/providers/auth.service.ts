@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response} from '@angular/http';
 import { Observable, Subject } from 'rxjs';
+import { App } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -11,7 +13,7 @@ import {Config} from './config';
 export class AuthService {
 
     private subject = new Subject<any>();
-    constructor(private http: Http) {
+    constructor(private http: Http, private storage:Storage, public appCtrl: App) {
         
      }
 
@@ -90,9 +92,21 @@ export class AuthService {
         this.subject.next(staus);
     }
 
+    logout(){
+      this.storage.remove('user').then(() => {
+          this.setLoggedInStatus(false);
+          localStorage.removeItem('token');
+          this.storage.clear();
+          this.appCtrl.getRootNav().push('HomePage');
+      });
+     
+     }
+
     isLoggedIn(): Observable<any> {
         return this.subject.asObservable();
     }
 
+
+    
 
 }

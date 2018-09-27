@@ -2,18 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { AssetPage } from '../pages/asset/asset';
-import { ContactsPage } from '../pages/contacts/contacts';
-
-import { LoginPage } from '../pages/auth/login/login';
-import { RegisterPage } from '../pages/auth/register/register';
-import { LogoutPage } from '../pages/logout/logout';
-import { ProfilePage } from '../pages/profile/profile';
+ 
 import { Storage } from '@ionic/storage';
-import {AuthService} from '../providers/auth.service';
-import{Config} from '../providers/config';
+import { AuthService } from '../providers/auth.service';
+import { Config } from '../providers/config';
 
 @Component({
   templateUrl: 'app.html'                               
@@ -23,7 +15,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
   isLoggedIn = false;
-  rootPage: any = HomePage;  
+  rootPage: any = "HomePage";  
   accountMenuItems: Array<any>;
   pages: Array<{title: string, component, icon: any}>;
   username:any;
@@ -38,37 +30,37 @@ export class MyApp {
     private auth:AuthService
     ) {
 
-
+      this.initializeApp();
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
+          if(this.isLoggedIn){
+            this.nav.setRoot('AssetPage');
+          }
       });
-
-      this.initializeApp();
-
+  
       // used for an example of ngFor and navigation
       this.pages = [
-        { title: 'Home', icon:'home', component: HomePage  },
-  	    { title: 'Login', icon:'contact', component: LoginPage },
-  	    { title: 'Register', icon:'person-add', component: RegisterPage },
+        { title: 'Home', icon:'home', component: 'HomePage'  },
+  	    { title: 'Login', icon:'contact', component: 'LoginPage' },
+  	    { title: 'Register', icon:'person-add', component: 'RegisterPage' },
       ];
 
       this.accountMenuItems = [
-          {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
-          {title: 'My Requests', component: AssetPage, icon: 'list'},
-          {title: 'My Contacts', component: ContactsPage, icon: 'list'},
-          {title: 'Help', component: AssetPage, icon: 'help-circle'},
-          {title: 'Feedback', component: AssetPage, icon: 'star'},
-          {title: 'Logout', component: LogoutPage, icon: 'log-out'}
+ 
+          {title: 'My Assets', component: 'AssetPage', icon: 'briefcase'},
+          {title: 'My Contacts', component: 'ContactsPage', icon: 'briefcase'},
+
+          {title: 'My Requests', component: 'AssetPage', icon: 'list'},
+          {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
+          {title: 'Feedback', component: 'AssetPage', icon: 'star'}
+ 
         ];
 
       this.storage.get('user').then((val) => {
 
         if(val){
           this.username = val.first_name;
-          console.log('image', val.image);
-
           if(val.image){
-            console.log('okk');
             this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
           }
           this.auth.setLoggedInStatus(true);
@@ -91,11 +83,11 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  logoutPage(){
-     this.nav.setRoot(LogoutPage);
+  logout(){
+     this.auth.logout();
   }
 
   goToProfile(){
-     this.nav.push(ProfilePage);
+     this.nav.push('ProfilePage');
   }
 }

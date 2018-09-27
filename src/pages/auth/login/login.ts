@@ -50,9 +50,8 @@ export class LoginPage {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
             this.storage.set('user', res.data);
-            localStorage.setItem('auth_token', res.data.access_token);
-            localStorage.setItem('user_id', res.data.id);
             this.auth.setLoggedInStatus(true);
+            localStorage.setItem('token', res.data.access_token);
             this.navCtrl.setRoot(AssetPage);
           },
           error => {

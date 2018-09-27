@@ -9,18 +9,16 @@ import 'rxjs/add/operator/catch';
 
 export class AssetService {
 
-  headers = new Headers();
-  
 	constructor(
      private http: Http
-    ){
-      this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
-  }
+    ){ }
 
 	getAssetList(){
-      
+
+      let headers = new Headers();
+      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
       return this.http.get(Config.API_URLS.ASSETS, {
-        headers: this.headers
+        headers: headers
       })
       .map((res:Response) => res.json())
       .catch(error => {

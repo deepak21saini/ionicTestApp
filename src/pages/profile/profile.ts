@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import {FileUploadService} from '../../providers/file-upload.service';
-import {SharedService} from '../../providers/shared.service';
-import {ProfileService} from '../../providers/profile.service';
-import {Config} from '../../providers/config';
-import {LogoutPage} from '../logout/logout';
+import { FileUploadService } from '../../providers/file-upload.service';
+import { SharedService } from '../../providers/shared.service';
+import { ProfileService } from '../../providers/profile.service';
+import { AuthService } from '../../providers/auth.service';
+import { Config } from '../../providers/config';
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -23,15 +24,23 @@ export class ProfilePage {
   photo:any;
   postData:any;
   res: any;
+  user_id: any;
   constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
     public fileUpload: FileUploadService,
     public shared: SharedService,
     public loading: LoadingController,
-    public profile: ProfileService
+    public profile: ProfileService,
+    public auth: AuthService,
+    private storage:Storage
 		) {
-		this.getUserDetail();
+
+    this.storage.get('user').then((val) => {
+       this.user_id = val.id;
+       this.getUserDetail();
+    }); 
+		
 	}
 
   ionViewDidLoad() {
@@ -40,8 +49,8 @@ export class ProfilePage {
 
   getUserDetail(){
     let loader = this.loading.create({});
-    let user_id = localStorage.getItem('user_id');
-    this.postData = {user_id:user_id};
+   console.log(this.user_id);
+    this.postData = {user_id:this.user_id};
     loader.present().then(() => {
     this.profile.getUser(this.postData).subscribe(res => { 
         if(res.data){
@@ -90,6 +99,6 @@ export class ProfilePage {
   }
 
   logout(){
-    this.navCtrl.setRoot(LogoutPage);
+    this.auth.logout();
   }
 }

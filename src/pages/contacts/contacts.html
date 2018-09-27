@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>contacts</ion-title>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Contacts</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-fsf sdf
+<ion-content>
+    <ion-list>
+	   <ion-item *ngFor="let contact of contactlist">
+		     <h2 class="name">{{contact.displayName}}</h2>
+		</ion-item>
+    </ion-list>
+                       
 </ion-content>
