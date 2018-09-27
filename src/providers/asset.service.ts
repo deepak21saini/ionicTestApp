@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers} from '@angular/http';
 import { Observable } from 'rxjs';
 import {Config} from './config';
-import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -10,22 +9,16 @@ import 'rxjs/add/operator/catch';
 
 export class AssetService {
 
-  headers = new Headers();
-  
 	constructor(
-     private http: Http,
-     private storage:Storage
-    ){
-    
-      this.storage.get('user').then((val) => {
-        this.headers.append("Authorization", 'Bearer ' +val.access_token);
-      });   
-  }
+     private http: Http
+    ){ }
 
 	getAssetList(){
-      
+
+      let headers = new Headers();
+      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
       return this.http.get(Config.API_URLS.ASSETS, {
-        headers: this.headers
+        headers: headers
       })
       .map((res:Response) => res.json())
       .catch(error => {
