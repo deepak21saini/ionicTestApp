@@ -18,9 +18,14 @@
         <p ion-text color="dark">Please type verification code sent to </p>
         <p ion-text color="default"> {{email}}</p>
       </ion-col>
-      <form #verifyAccountForm="ngForm" >
+      <form #verifyAccountForm="ngForm">
       <ion-grid>
         <ion-row>
+          <ion-col col-3>   
+            <ion-item no-padding>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
+            </ion-item>
+          </ion-col>
           <ion-col col-3 class="padding-2">   
             <ion-item no-padding >
               <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
@@ -48,7 +53,7 @@
             <button *ngIf="pageType == 'password'" ion-button block color="default" class="login-btn" (click)="verifyPin()" [disabled]="!verifyAccountForm.valid || disableButton">Next</button>
 
           </ion-col>
-          <ion-col col-12 text-center>
+          <ion-col col-12 text-center> 
             <p> Haven't received OTP?
               <button ion-button color="default" (click)="resendOTP()" [disabled]="maxTime > 0 && maxTime != count">Resend</button>
               <span *ngIf="maxTime != count">Try after {{maxTime}} seconds</span>

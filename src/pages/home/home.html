@@ -1,15 +1,16 @@
-<ion-content padding text-center>
-  <img src="assets/imgs/home.png" alt="your image" height="400">
-  <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  </p>
-  <p>
-   Lorem Ipsum has been the industry's standard dummy 
-  </p>
-  <p>
-    <button ion-button (click)="goToRegister()">Create Account</button>
-  </p>
-  <p>
-    <button ion-button (click)="goToLogin()">Sign In</button>
-  </p>
+<ion-content no-padding no-margin class="transparent-header"> 
+<ion-row>
+	<ion-col col-12 class="top-bg" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}"></ion-col>
+</ion-row>
+<ion-row>
+	<ion-col col-12 text-center padding-right padding-left class="login-text">
+		<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration. </p>
+	</ion-col>
+	<ion-col col-12 text-center padding-right padding-left >
+		<button ion-button (click)="goToLogin()" color="primary" block margin-bottom>Login</button>
+		<button ion-button (click)="goToRegister()" color="primary" block outline>Create account</button>
+	</ion-col>
+</ion-row>
 </ion-content>
+<!--     <button ion-button (click)="goToRegister()">Create Account</button>    
+    <button ion-button (click)="goToLogin()">Sign In</button> -->
