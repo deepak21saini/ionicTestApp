@@ -36,13 +36,14 @@ export class MyApp {
     private auth:AuthService
     ) {
 
-
+      this.initializeApp();
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
+          if(this.isLoggedIn){
+            this.nav.setRoot(AssetPage);
+          }
       });
-
-      this.initializeApp();
-
+  
       // used for an example of ngFor and navigation
       this.pages = [
         { title: 'Home', icon:'home', component: HomePage  },
@@ -62,10 +63,7 @@ export class MyApp {
 
         if(val){
           this.username = val.first_name;
-          console.log('image', val.image);
-
           if(val.image){
-            console.log('okk');
             this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
           }
           this.auth.setLoggedInStatus(true);
