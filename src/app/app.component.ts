@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { AssetPage } from '../pages/asset/asset';
+import { ContactsPage } from '../pages/contacts/contacts';
+
 import { LoginPage } from '../pages/auth/login/login';
 import { RegisterPage } from '../pages/auth/register/register';
 import { LogoutPage } from '../pages/logout/logout';
@@ -53,6 +55,7 @@ export class MyApp {
       this.accountMenuItems = [
           {title: 'My Assets', component: AssetPage, icon: 'briefcase'},
           {title: 'My Requests', component: AssetPage, icon: 'list'},
+          {title: 'My Contacts', component: ContactsPage, icon: 'list'},
           {title: 'Help', component: AssetPage, icon: 'help-circle'},
           {title: 'Feedback', component: AssetPage, icon: 'star'},
           {title: 'Logout', component: LogoutPage, icon: 'log-out'}

@@ -6,6 +6,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AssetPageModule } from '../pages/asset/asset.module';
+import { ContactsPageModule } from '../pages/contacts/contacts.module';
+
 import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
 import { LoginPageModule } from '../pages/auth/login/login.module';
 import { RegisterPageModule } from '../pages/auth/register/register.module';
@@ -37,6 +39,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     HttpModule,
     BrowserModule,
     AssetPageModule,
+    ContactsPageModule,
     AssetDetailPageModule,
     LoginPageModule,
     RegisterPageModule,
