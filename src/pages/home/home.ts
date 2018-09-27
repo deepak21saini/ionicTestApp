@@ -11,15 +11,12 @@ import { IonicPage } from 'ionic-angular';
 })
 export class HomePage {
 	constructor(
-		public navCtrl: NavController
-		) {
-
-	}
-	goToRegister(){
+		public navCtrl: NavController) {} 
+		goToRegister(){
 		this.navCtrl.push(RegisterPage);
-	}
-
-	goToLogin(){
+		}
+		public backgroundImage = 'assets/imgs/ani-bg.png';        
+		goToLogin(){
 		this.navCtrl.push(LoginPage);
 	}
 }

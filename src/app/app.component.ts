@@ -32,6 +32,7 @@ export class MyApp {
       this.initializeApp();
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
+          console.log(this.isLoggedIn);
           if(this.isLoggedIn){
             this.nav.setRoot('AssetPage');
           }
