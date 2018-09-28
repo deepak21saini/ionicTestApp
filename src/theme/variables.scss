@@ -14,7 +14,11 @@ $app-direction: ltr;
 
 @import "ionic.globals";
 
-
+.top-bg{height: 60vh; position: absolute; background-size: cover; background-repeat: no-repeat; padding-top: 110px; background-position: center;}
+.login-text p{color: #8c8c8c; font-size: 16px; font-weight: normal; line-height: 22px; margin-top: 0px;}
+.segment-md-primary .segment-button{color:#ffffff !important;}
+.menu-header ion-avatar img{width: 70px; border-radius: 50px;}
+.usermane-text{color: #fff; font-size: 15px; text-transform: capitalize;}
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -43,7 +47,8 @@ $colors: (
   subtle:     #444444,
   vibrant:    rebeccapurple,
   bright:     #ffc125,
-  pink:       #e85080
+  pink:       #e85080,
+  white:      #ffffff
 );
 
 $grid-padding-width:0px;
@@ -61,14 +66,14 @@ $item-ios-paragraph-margin-top:10px;
 
 
 
+
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 $label-md-text-color-focused:color($colors, primary); 
-$text-input-md-highlight-color:color($colors, primary);
 $text-input-md-margin-right:0px;
 $text-input-md-margin-left:0px;
-$text-input-wp-margin-start:0px;
+$button-md-box-shadow:none;
 
 
 // App Windows Variables
@@ -79,12 +84,10 @@ $text-input-wp-highlight-color:color($colors, primary);
 $text-input-wp-margin-end:0px;
 $text-input-wp-border-width:1px;
 $text-input-wp-padding-horizontal:0px;
-$segment-button-ios-background-color:#fff;
-$segment-button-ios-background-color-activated:#fff;
-$segment-button-md-border-color-activated:#fff;
-$segment-button-ios-text-color:#fff;
-$segment-button-md-text-color:#fff;
-$segment-button-md-text-color-activated:#fff;
+$text-input-wp-margin-bottom:0px;
+$text-input-wp-margin-top:0px;
+$text-input-wp-padding-horizontal:10px;
+$text-input-wp-margin-start:0px;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
