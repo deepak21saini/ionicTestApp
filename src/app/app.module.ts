@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { AssetPageModule } from '../pages/asset/asset.module';
-import { ContactsPageModule } from '../pages/contacts/contacts.module';
 
 import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
 import { LoginPageModule } from '../pages/auth/login/login.module';
@@ -25,7 +24,6 @@ import {FileUploadService} from "../providers/file-upload.service";
 import {ProfileService} from "../providers/profile.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
-import { Contacts  } from '@ionic-native/contacts';
 
 @NgModule({
   declarations: [
@@ -35,7 +33,6 @@ import { Contacts  } from '@ionic-native/contacts';
     HttpModule,
     BrowserModule,
     AssetPageModule,
-    ContactsPageModule,
     AssetDetailPageModule,
     LoginPageModule,
     RegisterPageModule,
@@ -60,7 +57,6 @@ import { Contacts  } from '@ionic-native/contacts';
     AssetService,
     FileUploadService,
     ProfileService,
-    Contacts,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
