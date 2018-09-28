@@ -21,11 +21,6 @@
       <form #verifyAccountForm="ngForm">
       <ion-grid>
         <ion-row>
-          <ion-col col-3>   
-            <ion-item no-padding>
-              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
-            </ion-item>
-          </ion-col>
           <ion-col col-3 class="padding-2">   
             <ion-item no-padding >
               <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
