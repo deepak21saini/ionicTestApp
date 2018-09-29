@@ -27,7 +27,8 @@ export class VerifyOtpPage {
   @ViewChild('passcode1') passcode1;
   @ViewChild('passcode2') passcode2;
   @ViewChild('passcode3') passcode3;
-  
+  @ViewChild('passcode4') passcode4;
+
   public disableButton : boolean;
   public email:number;
   public count : number = 60;
@@ -46,10 +47,12 @@ export class VerifyOtpPage {
    
     this.email = this.navParams.data.email;
     this.pageType = this.navParams.data.type;
-    console.log(this.navParams.data.type);
 	}
 
 	ionViewDidLoad() {
+     setTimeout(() => {
+      this.passcode1.setFocus();
+    },1000);
 	   console.log('ionViewDidLoad VerifyOtpPage');
 	}
 
@@ -145,20 +148,19 @@ export class VerifyOtpPage {
   }
 
   nextInput(event, index){
-    console.log(index);
-     this.setFocus(index);
+    this.setFocus(index);
   }
 
   setFocus(index){
        switch(index){
-         case 1:
-         this.passcode1.setFocus();
-         break;
          case 2:
          this.passcode2.setFocus();
          break;
          case 3:
          this.passcode3.setFocus();
+         break;
+         case 4:
+         this.passcode4.setFocus();
          break;
          
          }
