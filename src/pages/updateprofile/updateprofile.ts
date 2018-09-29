@@ -48,8 +48,11 @@ export class UpdateprofilePage {
       this.model[this.column] = value;
       this.profile.updateProfile(this.model).subscribe(res => {
         this.model = {};
-        this.storage.set('user', res.data);
-        this.userinfo = res.data;
+        if(res){
+          this.storage.set('user', res.data);
+          this.userinfo = res.data;
+        }
+       
       },
       error => {
         this.shared.handleError(error);

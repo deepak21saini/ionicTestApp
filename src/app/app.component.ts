@@ -86,6 +86,6 @@ export class MyApp {
   }
 
   goToProfile(){
-     this.nav.push('ProfilePage');
+     this.nav.setRoot('ProfilePage');
   }
 }
