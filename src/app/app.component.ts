@@ -31,9 +31,19 @@ export class MyApp {
     ) {
 
       this.initializeApp();
+      this.storage.get('user').then((val) => {
+        console.log('qqq', val);
+        if(val){
+          this.username = val.first_name;
+          
+          if(val.image){
+            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
+          }
+          this.auth.setLoggedInStatus(true);
+        }
+      });
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
-          console.log(this.isLoggedIn);
           if(this.isLoggedIn){
             this.nav.setRoot('AssetPage');
           }
@@ -54,17 +64,6 @@ export class MyApp {
           {title: 'Feedback', component: 'AssetPage', icon: 'star'}
  
         ];
-
-      this.storage.get('user').then((val) => {
-
-        if(val){
-          this.username = val.first_name;
-          if(val.image){
-            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
-          }
-          this.auth.setLoggedInStatus(true);
-        }
-    });
   }
 
   initializeApp() {

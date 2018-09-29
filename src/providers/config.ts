@@ -13,6 +13,7 @@ export class Config {
 		VERIFY_PIN : Config.API_ENDPOINT+"verifyPin",
 		FORGOT_PASSWORD: Config.API_ENDPOINT+"forgotPassword",
 		SEND_PIN: Config.API_ENDPOINT+"sendPin",
+		UPDATE_PROFILE: Config.API_ENDPOINT + "updateProfile",
 	}
   
 	

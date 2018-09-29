@@ -9,12 +9,6 @@
        <ion-icon name="logout"></ion-icon>Logout
     </button>
   </ion-navbar>
-
-</ion-header>
-<ion-content padding>
-<div *ngIf="userinfo">
-<p>Name: {{userinfo.first_name}}</p>
-<p>Email: {{userinfo.email}}</p>
  <p>
     <ion-item>
       <ion-avatar item-start *ngIf="photo">
@@ -23,9 +17,17 @@
        <ion-avatar item-start *ngIf="!photo">
           <img src="assets/imgs/user-default.jpeg">
       </ion-avatar>
-    	<ion-label color="primary" fixed>Upload Photo</ion-label>
-    	<ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
-  	</ion-item>
+      <ion-label color="primary" fixed>Upload Photo</ion-label>
+      <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
+    </ion-item>
   </p>
+</ion-header>
+<ion-content padding>
+<div *ngIf="userinfo">
+<p>First Name: {{userinfo.first_name}}  <ion-icon name="create" (click)= "presentProfileModal('First Name', userinfo.first_name)"></ion-icon></p>
+<p>Last Name: {{userinfo.last_name}}  <ion-icon name="create" (click)= "presentProfileModal('Last Name', userinfo.last_name)"></ion-icon></p>
+<p>Phone: {{userinfo.phone}}<ion-icon name="create" (click)= "presentProfileModal('Phone', userinfo.phone)"></ion-icon></p>
+<p>Phone: {{userinfo.email}}</p>
+
   </div>
 </ion-content>

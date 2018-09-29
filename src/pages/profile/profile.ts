@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { FileUploadService } from '../../providers/file-upload.service';
 import { SharedService } from '../../providers/shared.service';
 import { ProfileService } from '../../providers/profile.service';
@@ -25,6 +25,7 @@ export class ProfilePage {
   postData:any;
   res: any;
   user_id: any;
+  public model:any = {};
   constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
@@ -33,7 +34,8 @@ export class ProfilePage {
     public loading: LoadingController,
     public profile: ProfileService,
     public auth: AuthService,
-    private storage:Storage
+    private storage:Storage,
+    public modalCtrl: ModalController
 		) {
 
     this.storage.get('user').then((val) => {
@@ -47,9 +49,23 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  presentProfileModal(column, val) {
+    let label = column;
+    column = column.toLowerCase().replace(' ', '_');
+    let profileModal = this.modalCtrl.create('UpdateprofilePage', {label:label, column: column, val:val});
+
+    profileModal.onDidDismiss(data => {
+      if(data){
+        this.userinfo = data;
+      }
+      
+    });
+
+    profileModal.present();
+  }
+
   getUserDetail(){
     let loader = this.loading.create({});
-   console.log(this.user_id);
     this.postData = {user_id:this.user_id};
     loader.present().then(() => {
     this.profile.getUser(this.postData).subscribe(res => { 

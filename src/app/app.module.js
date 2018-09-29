@@ -13,6 +13,7 @@ import { VerifyOtpPageModule } from '../pages/auth/verify-otp/verify-otp.module'
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePageModule } from '../pages/profile/profile.module';
 import { NewPasswordPageModule } from '../pages/new-password/new-password.module';
+import { UpdateprofilePageModule } from '../pages/updateprofile/updateprofile.module';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignupService } from "../providers/signup.service";
@@ -44,6 +45,7 @@ var AppModule = /** @class */ (function () {
                         VerifyOtpPageModule,
                         ProfilePageModule,
                         NewPasswordPageModule,
+                        UpdateprofilePageModule,
                         IonicModule.forRoot(MyApp),
                         IonicStorageModule.forRoot(),
                         Ng4LoadingSpinnerModule.forRoot()
