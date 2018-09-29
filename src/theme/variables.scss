@@ -10,15 +10,22 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
 
 .top-bg{height: 60vh; position: absolute; background-size: cover; background-repeat: no-repeat; padding-top: 110px; background-position: center;}
 .login-text p{color: #8c8c8c; font-size: 16px; font-weight: normal; line-height: 22px; margin-top: 0px;}
 .segment-md-primary .segment-button{color:#ffffff !important;}
-.menu-header ion-avatar img{width: 70px; border-radius: 50px;}
+.menu-header img{width: 70px; border-radius: 50px;}
+.menu-header{ padding: 5px 15px; background-color:#488aff; color: #fff; }
 .usermane-text{color: #fff; font-size: 15px; text-transform: capitalize;}
+.menu-header p.email{color: #fff;}
+.menu-header h2.name{color: #fff;} 
+.menu-header button{color: #fff; font-size: 15px;}
+.menu-header a ion-icon{vertical-align: middle; font-size: 25px;}
+.menu-header .ion-avatar{display: inline-block; vertical-align: top;}
+.userinfo img{width: 100px;  }
+.menu-header ion-list{}
+.menu-header ion-item{background-color: transparent !important;}
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override

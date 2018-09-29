@@ -1,33 +1,27 @@
 <ion-header>
-
   <ion-navbar>
    	<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Profile</ion-title>
     <button ion-button float-right outline (click)="logout()" small >
        <ion-icon name="logout"></ion-icon>Logout
     </button>
   </ion-navbar>
- <p>
-    <ion-item>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="userinfo">
+    <h3 normal>Name: {{userinfo.first_name}}</h3>
+    <p>Email: {{userinfo.email}}</p>
+    <ion-col no-padding>
       <ion-avatar item-start *ngIf="photo">
         <img src="{{photo}}">
       </ion-avatar>
-       <ion-avatar item-start *ngIf="!photo">
-          <img src="assets/imgs/user-default.jpeg">
+      <ion-avatar item-start *ngIf="!photo">
+        <img src="assets/imgs/user-default.jpeg">
       </ion-avatar>
-      <ion-label color="primary" fixed>Upload Photo</ion-label>
+      <p color="primary" fixed>Upload Photo</p>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
-    </ion-item>
-  </p>
-</ion-header>
-<ion-content padding>
-<div *ngIf="userinfo">
-<p>First Name: {{userinfo.first_name}}  <ion-icon name="create" (click)= "presentProfileModal('First Name', userinfo.first_name)"></ion-icon></p>
-<p>Last Name: {{userinfo.last_name}}  <ion-icon name="create" (click)= "presentProfileModal('Last Name', userinfo.last_name)"></ion-icon></p>
-<p>Phone: {{userinfo.phone}}<ion-icon name="create" (click)= "presentProfileModal('Phone', userinfo.phone)"></ion-icon></p>
-<p>Email: {{userinfo.email}}</p>
-
+    </ion-col>   
   </div>
 </ion-content>
