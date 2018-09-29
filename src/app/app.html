@@ -1,21 +1,20 @@
-<ion-menu [content]="content">
-   <div padding style="background:#488aff;height:100px;">
-    <ion-list *ngIf="isLoggedIn">
+<ion-menu [content]="content" primary>
+   <div no-padding class="menu-header">
+    <ion-list no-lines padding-top padding-bottom no-margin *ngIf="isLoggedIn">
       <ion-item>
-        <ion-avatar item-start *ngIf="image">
-          <img src="{{image}}">
-        </ion-avatar>
-        <ion-avatar item-start *ngIf="!image">
+        <ion-thumbnail item-start *ngIf="image">
+           <img src="{{image}}">
+        </ion-thumbnail>
+        <ion-thumbnail item-start *ngIf="!image">
           <img src="assets/imgs/user-default.jpeg">
-        </ion-avatar>
-        <span *ngIf="isLoggedIn">{{username}}</span>
-        <button float-right *ngIf="isLoggedIn" ion-button menuToggle (click)="goToProfile()">
-          <ion-icon name="md-arrow-forward"></ion-icon>
+        </ion-thumbnail>
+        <h2 *ngIf="isLoggedIn" class="name">{{username}}</h2>
+        <p class="email">admin@gmail.com </p>
+        <button ion-button clear item-end *ngIf="isLoggedIn" menuToggle (click)="goToProfile()">
+          <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
         </button>
       </ion-item>
     </ion-list>
-    
-  
 	</div>
 	<ion-list detail-none> 
     <ion-item no-lines no-padding> 

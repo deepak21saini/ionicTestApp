@@ -1,7 +1,6 @@
 <ion-header>
-
   <ion-navbar>
-   	<button ion-button menuToggle>
+   	<button ion-button menuToggle small>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Profile</ion-title>
@@ -9,23 +8,20 @@
        <ion-icon name="logout"></ion-icon>Logout
     </button>
   </ion-navbar>
-
 </ion-header>
 <ion-content padding>
-<div *ngIf="userinfo">
-<p>Name: {{userinfo.first_name}}</p>
-<p>Email: {{userinfo.email}}</p>
- <p>
-    <ion-item>
+  <div *ngIf="userinfo">
+    <h3 normal>Name: {{userinfo.first_name}}</h3>
+    <p>Email: {{userinfo.email}}</p>
+    <ion-col no-padding>
       <ion-avatar item-start *ngIf="photo">
         <img src="{{photo}}">
       </ion-avatar>
-       <ion-avatar item-start *ngIf="!photo">
-          <img src="assets/imgs/user-default.jpeg">
+      <ion-avatar item-start *ngIf="!photo">
+        <img src="assets/imgs/user-default.jpeg">
       </ion-avatar>
-    	<ion-label color="primary" fixed>Upload Photo</ion-label>
-    	<ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
-  	</ion-item>
-  </p>
+      <p color="primary" fixed>Upload Photo</p>
+      <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
+    </ion-col>   
   </div>
 </ion-content>
