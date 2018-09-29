@@ -97,7 +97,7 @@ export class AuthService {
           this.setLoggedInStatus(false);
           localStorage.removeItem('token');
           this.storage.clear();
-          this.appCtrl.getRootNav().push('HomePage');
+          this.appCtrl.getRootNav().setRoot('HomePage');
       });
      
      }

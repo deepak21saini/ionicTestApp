@@ -32,7 +32,6 @@ export class MyApp {
 
       this.initializeApp();
       this.storage.get('user').then((val) => {
-        console.log('qqq', val);
         if(val){
           this.username = val.first_name;
           
