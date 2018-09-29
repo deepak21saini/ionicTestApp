@@ -102,11 +102,16 @@ export class AuthService {
      
      }
 
+    newPassword(data){
+        return this.http.post(Config.API_URLS.RESET_PASSWORD, data)
+          .map((res:Response) => res.json())
+          .catch(error => {
+              return Observable.throw(error.json());
+        })
+    }
+
     isLoggedIn(): Observable<any> {
         return this.subject.asObservable();
     }
-
-
-    
 
 }

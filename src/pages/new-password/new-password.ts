@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import {SharedService} from '../../providers/shared.service';
+import { SharedService } from '../../providers/shared.service';
+import { AuthService } from '../../providers/auth.service';
+import { LoginPage } from '../auth/login/login';
 /**
  * Generated class for the NewPasswordPage page.
  *
@@ -15,13 +17,17 @@ import {SharedService} from '../../providers/shared.service';
 })
 export class NewPasswordPage {
 	public model:any = {};
+  email: any;
+
 	public disableButton : boolean;
   constructor(
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	public loading: LoadingController,
-  	private shared: SharedService
+  	private shared: SharedService,
+    private auth: AuthService
   	) {
+    this.email = this.navParams.data.email;
   }
 
   ionViewDidLoad() {
@@ -32,16 +38,27 @@ export class NewPasswordPage {
   	this.disableButton = true;
   	let loader = this.loading.create({});
   	loader.present().then(() => {
-	  	if(this.model.new_password != this.model.c_new_password){
-	        this.shared.AlertMessage('Error', 'Password did not match');  
-	        loader.dismiss();
-	        this.disableButton = false;
-	        
-	        return false
+      this.model.email = this.email;
+	  	if(this.model.new_password != this.model.new_password_confirmation){
+	      this.shared.AlertMessage('Error', 'Password did not match');  
+	      loader.dismiss();
+	      this.disableButton = false;
+        return false
 	     }
-	    loader.dismiss();
- 	});
 
-  	console.log('new pass');
+	    this.auth.newPassword(this.model).subscribe(data => {
+        this.shared.AlertMessage('Success', 'New password created successfully');
+        this.navCtrl.push(LoginPage);
+      }, 
+      error => {
+        this.shared.handleError(error);
+        this.disableButton = false;
+        loader.dismiss();
+      },
+      () => {
+        loader.dismiss();
+      });
+ 	  });
+
   }
 }
