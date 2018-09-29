@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+ 
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../providers/auth.service';
 import { Config } from '../providers/config';
@@ -30,9 +31,19 @@ export class MyApp {
     ) {
 
       this.initializeApp();
+      this.storage.get('user').then((val) => {
+        console.log('qqq', val);
+        if(val){
+          this.username = val.first_name;
+          
+          if(val.image){
+            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
+          }
+          this.auth.setLoggedInStatus(true);
+        }
+      });
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
-          console.log(this.isLoggedIn);
           if(this.isLoggedIn){
             this.nav.setRoot('AssetPage');
           }
@@ -46,22 +57,13 @@ export class MyApp {
       ];
 
       this.accountMenuItems = [
+ 
           {title: 'My Assets', component: 'AssetPage', icon: 'briefcase'},
           {title: 'My Requests', component: 'AssetPage', icon: 'list'},
           {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
           {title: 'Feedback', component: 'AssetPage', icon: 'star'}
+ 
         ];
-
-      this.storage.get('user').then((val) => {
-
-        if(val){
-          this.username = val.first_name;
-          if(val.image){
-            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
-          }
-          this.auth.setLoggedInStatus(true);
-        }
-    });
   }
 
   initializeApp() {
@@ -84,6 +86,6 @@ export class MyApp {
   }
 
   goToProfile(){
-     this.nav.push('ProfilePage');
+     this.nav.setRoot('ProfilePage');
   }
 }

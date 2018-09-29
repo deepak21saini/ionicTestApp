@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { AssetPageModule } from '../pages/asset/asset.module';
+
 import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
 import { LoginPageModule } from '../pages/auth/login/login.module';
 import { RegisterPageModule } from '../pages/auth/register/register.module';

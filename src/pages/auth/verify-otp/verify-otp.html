@@ -21,36 +21,31 @@
       <form #verifyAccountForm="ngForm">
       <ion-grid>
         <ion-row>
-          <ion-col col-3>   
-            <ion-item no-padding>
-              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" placeholder="4" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
-            </ion-item>
-          </ion-col>
           <ion-col col-3 class="padding-2">   
             <ion-item no-padding >
-              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" maxlength="1" (keyup)="nextInput($event, 1)" required></ion-input>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.first" name="otp1" maxlength="1" (keyup)="nextInput($event, 2)" #passcode1 required></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-3 class="padding-2">
             <ion-item no-padding>
-              <ion-input text-center type="text" [(ngModel)]="model.otp.second" name="otp2" maxlength="1"  (keyup)="nextInput($event, 2)" #passcode1 required></ion-input>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.second" name="otp2" maxlength="1"  (keyup)="nextInput($event, 3)" #passcode2 required></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-3 class="padding-2">
             <ion-item no-padding>
-              <ion-input text-center type="text" [(ngModel)]="model.otp.third" name="otp3" maxlength="1" (keyup)="nextInput($event, 3)" #passcode2 required></ion-input>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.third" name="otp3" maxlength="1" (keyup)="nextInput($event, 4)" #passcode3 required></ion-input>
             </ion-item>
           </ion-col>
           <ion-col col-3 class="padding-2">
             <ion-item no-padding>
-              <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" maxlength="1" #passcode3 required></ion-input>
+              <ion-input text-center type="text" [(ngModel)]="model.otp.fourth" name="otp4" maxlength="1" #passcode4 required></ion-input>
             </ion-item>
           </ion-col>
       
           <ion-col col-12 margin-top>
             <button *ngIf="pageType == 'register'" ion-button block color="default" class="login-btn" (click)="activateAccount()" [disabled]="!verifyAccountForm.valid || disableButton">Verify Now</button>
 
-            <button *ngIf="pageType == 'password'" ion-button block color="default" class="login-btn" (click)="verifyPin()" [disabled]="!verifyAccountForm.valid || disableButton">Next</button>
+            <button *ngIf="pageType == 'password'" ion-button block color="default" class="login-btn" (click)="verifyPin()" [disabled]="!verifyAccountForm.valid || disableButton">Verify</button>
 
           </ion-col>
           <ion-col col-12 text-center> 
