@@ -14,6 +14,7 @@ export class Config {
 		FORGOT_PASSWORD: Config.API_ENDPOINT+"forgotPassword",
 		SEND_PIN: Config.API_ENDPOINT+"sendPin",
 		UPDATE_PROFILE: Config.API_ENDPOINT + "updateProfile",
+		RESET_PASSWORD: Config.API_ENDPOINT+"resetPassword",
 	}
   
 	

@@ -97,16 +97,21 @@ export class AuthService {
           this.setLoggedInStatus(false);
           localStorage.removeItem('token');
           this.storage.clear();
-          this.appCtrl.getRootNav().push('HomePage');
+          this.appCtrl.getRootNav().setRoot('HomePage');
       });
      
      }
 
+    newPassword(data){
+        return this.http.post(Config.API_URLS.RESET_PASSWORD, data)
+          .map((res:Response) => res.json())
+          .catch(error => {
+              return Observable.throw(error.json());
+        })
+    }
+
     isLoggedIn(): Observable<any> {
         return this.subject.asObservable();
     }
-
-
-    
 
 }
