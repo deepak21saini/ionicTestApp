@@ -1,6 +1,9 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Update Profile</ion-title>
+    <ion-title class="pro-title" text-left>Update Profile</ion-title>
+    <button ion-button float-right clear small color="dark">
+    <ion-icon ios="ios-close" md="md-close" (click)="dismiss()" end></ion-icon>
+    </button>
 </ion-navbar>
 
 </ion-header>
@@ -12,7 +15,6 @@
   </ion-item>
    <ion-item no-padding margin-bottom >
   	<button ion-button block color="primary" (click)="updateProfile()">Save</button>
-  	<button ion-button block color="light" (click)="dismiss()">Cancel</button>
   	</ion-item>
 </ion-list>
 </ion-content>
