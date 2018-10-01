@@ -52,6 +52,7 @@ export class LoginPage {
             this.storage.set('user', res.data);
             this.auth.setLoggedInStatus(true);
             localStorage.setItem('token', res.data.access_token);
+            this.auth.setUser(res.data);
             this.navCtrl.setRoot(AssetPage);
           },
           error => {

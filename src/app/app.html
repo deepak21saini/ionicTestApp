@@ -9,7 +9,7 @@
           <img src="assets/imgs/user-default.jpeg">
         </ion-thumbnail>
         <h2 *ngIf="isLoggedIn" class="name">{{username}}</h2>
-        <p class="email">admin@gmail.com </p>
+        <p *ngIf="isLoggedIn" class="email">{{email}}</p>
         <button ion-button clear item-end *ngIf="isLoggedIn" menuToggle (click)="goToProfile()">
           <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
         </button>

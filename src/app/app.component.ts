@@ -2,8 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
- 
-import { Storage } from '@ionic/storage';
 import { AuthService } from '../providers/auth.service';
 import { Config } from '../providers/config';
 
@@ -19,6 +17,7 @@ export class MyApp {
   accountMenuItems: Array<any>;
   pages: Array<{title: string, component, icon: any}>;
   username:any;
+  email: any;
   image: any;
   // pages: Array<{title: string, icon: string, component: any}>;
 
@@ -26,17 +25,16 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private storage: Storage,
     private auth:AuthService
     ) {
 
       this.initializeApp();
-      this.storage.get('user').then((val) => {
-        if(val){
-          this.username = val.first_name;
-          
-          if(val.image){
-            this.image = Config.SITE_URL+'/public/upload/user/'+val.image;
+      this.auth.getUser().subscribe(data => {
+        if(data){
+          this.username = data.first_name;
+          this.email = data.email;
+          if(data.image){
+            this.image = Config.SITE_URL+'/public/upload/user/'+data.image;
           }
           this.auth.setLoggedInStatus(true);
         }

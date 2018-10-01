@@ -12,8 +12,8 @@ import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
-  selector: 'page-updateprofile',
-  templateUrl: 'updateprofile.html',
+  selector: 'page-update-profile',
+  templateUrl: 'update-profile.html',
 })
 export class UpdateprofilePage {
   userinfo: any;

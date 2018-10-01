@@ -16,12 +16,12 @@ import { NewPasswordPageModule } from '../pages/new-password/new-password.module
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {SignupService} from "../providers/signup.service";
-import {AssetService} from "../providers/asset.service";
-import {AuthService} from "../providers/auth.service";
-import {SharedService} from "../providers/shared.service";
-import {FileUploadService} from "../providers/file-upload.service";
-import {ProfileService} from "../providers/profile.service";
+import { SignupService } from "../providers/signup.service";
+import { AssetService } from "../providers/asset.service";
+import { AuthService } from "../providers/auth.service";
+import { SharedService } from "../providers/shared.service";
+import { FileUploadService } from "../providers/file-upload.service";
+import { ProfileService } from "../providers/profile.service";
 import { IonicStorageModule } from '@ionic/storage';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 

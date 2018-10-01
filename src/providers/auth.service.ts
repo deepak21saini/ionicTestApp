@@ -13,6 +13,8 @@ import {Config} from './config';
 export class AuthService {
 
     private subject = new Subject<any>();
+    private user = new Subject<any>();
+
     constructor(private http: Http, private storage:Storage, public appCtrl: App) {
         
      }
@@ -90,6 +92,14 @@ export class AuthService {
 
     setLoggedInStatus(staus: boolean) {
         this.subject.next(staus);
+    }
+
+    setUser(data) {
+        this.user.next(data);
+    }
+
+    getUser(): Observable<any> {
+        return this.user.asObservable();
     }
 
     logout(){
