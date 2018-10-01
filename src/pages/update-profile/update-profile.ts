@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
 import { ProfileService } from '../../providers/profile.service';
 import { SharedService } from '../../providers/shared.service';
+import { AuthService } from '../../providers/auth.service';
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the UpdateprofilePage page.
@@ -27,7 +28,8 @@ export class UpdateprofilePage {
   	public profile: ProfileService,
   	public shared: SharedService,
   	public storage: Storage,
-  	public viewCtrl: ViewController
+  	public viewCtrl: ViewController,
+    public auth: AuthService
   	) {
 
      this.label = navParams.get('label');
@@ -40,7 +42,6 @@ export class UpdateprofilePage {
   }
 
   updateProfile(){
-
   	let loader = this.loading.create({ });
     loader.present().then(() => {
       let value = this.model.name;
@@ -51,6 +52,7 @@ export class UpdateprofilePage {
         if(res){
           this.storage.set('user', res.data);
           this.userinfo = res.data;
+          this.auth.setUser(res.data);
         }
        
       },

@@ -36,9 +36,10 @@ export class MyApp {
           if(data.image){
             this.image = Config.SITE_URL+'/public/upload/user/'+data.image;
           }
-          this.auth.setLoggedInStatus(true);
+          //this.auth.setLoggedInStatus(true);
         }
       });
+
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
           if(this.isLoggedIn){

@@ -1,6 +1,6 @@
 export class Config {
 	public static SITE_URL = "http://asm.nascenture.com";
-    public static API_ENDPOINT = "http://asm.nascenture.com/api/";
+    public static API_ENDPOINT = "http://localhost/asm.nascenture.com/api/";
     public static SERVER_URL = "http://localhost:5000/";
 	public static BUSINESS_IMAGES = "https://cryptic-beach-64691.herokuapp.com/upload/";
 	public static VERIFICATION_TYPE = "email";
