@@ -23,5 +23,9 @@
       <p color="primary" fixed>Upload Photo</p>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
     </ion-col>   
+    <p>First Name: {{userinfo.first_name}}  <ion-icon name="create" (click)= "presentProfileModal('First Name', userinfo.first_name)"></ion-icon></p>
+    <p>Last Name: {{userinfo.last_name}}  <ion-icon name="create" (click)= "presentProfileModal('Last Name', userinfo.last_name)"></ion-icon></p>
+    <p>Phone: {{userinfo.phone}}<ion-icon name="create" (click)= "presentProfileModal('Phone', userinfo.phone)"></ion-icon></p>
+    <p>Email: {{userinfo.email}}</p>
   </div>
 </ion-content>
