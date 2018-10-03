@@ -99,6 +99,8 @@ export class ProfilePage {
       this.fileUpload.postFile(this.fileToUpload).subscribe((res:any) => {
         if(res.data){
           this.photo = Config.SITE_URL+res.data.image;
+          this.storage.set('user', res.data);
+          this.auth.setUser(res.data);
         }
       }, error => {
          this.shared.handleError(error);
@@ -116,5 +118,30 @@ export class ProfilePage {
 
   logout(){
     this.auth.logout();
+  }
+
+  deleteImage(){
+    let loader = this.loading.create({});
+     if(confirm("Are you sure to delete image")) {
+      loader.present().then(() => {
+        this.profile.deleteImage().subscribe((res:any) => {
+          if(res.data){
+            if(!res.data.image){
+              this.photo = '';
+            }else{
+              this.photo = Config.SITE_URL+res.data.image;
+            }
+            this.storage.set('user', res.data);
+            this.auth.setUser(res.data);
+          }
+        }, error => {
+           this.shared.handleError(error);
+           loader.dismiss();
+        },
+        () => {
+          loader.dismiss();
+        });
+      });
+   }
   }
 }

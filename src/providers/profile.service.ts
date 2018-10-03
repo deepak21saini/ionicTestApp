@@ -26,10 +26,22 @@ export class ProfileService {
     }
 
     updateProfile(data:any){
-
       let headers = new Headers();
       headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
       return this.http.post(Config.API_URLS.UPDATE_PROFILE, data,{
+          headers: headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+       
+    }
+
+     deleteImage(){
+      let headers = new Headers();
+      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
+      return this.http.post(Config.API_URLS.DELETE_IMAGE, '',{
           headers: headers
         })
         .map((res:Response) => res.json())

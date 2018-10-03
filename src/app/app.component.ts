@@ -30,12 +30,24 @@ export class MyApp {
 
       this.initializeApp();
       this.auth.getUser().subscribe(data => {
+        console.log(data);
         if(data){
-          this.username = data.first_name;
-          this.email = data.email;
-          if(data.image){
-            this.image = Config.SITE_URL+'/public/upload/user/'+data.image;
+          if(!data.first_name){
+             data.first_name = '';
           }
+          if(!data.last_name){
+             data.last_name = '';
+          }
+
+          this.username = data.first_name+' '+data.last_name;
+          this.email = data.email;
+         
+          if(!data.image){
+            this.image = '';
+          }else{
+             this.image = Config.SITE_URL+data.image;
+          }
+          
           //this.auth.setLoggedInStatus(true);
         }
       });

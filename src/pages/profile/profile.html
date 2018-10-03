@@ -17,6 +17,9 @@
       <ion-avatar item-start *ngIf="!photo">
         <img src="assets/imgs/user-default.jpeg">
       </ion-avatar>
+       <button ion-button clear item-end *ngIf="photo" (click)="deleteImage()">
+         Remove image
+        </button>
       <p color="primary" fixed>Upload Photo</p>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
     </ion-col>   
