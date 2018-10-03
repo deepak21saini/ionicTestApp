@@ -7,25 +7,53 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div *ngIf="userinfo">
-    <h3 normal>Name: {{userinfo.first_name}}</h3>
-    <p>Email: {{userinfo.email}}</p>
-    <ion-col no-padding>
-      <ion-avatar item-start *ngIf="photo">
-        <img src="{{photo}}">
-      </ion-avatar>
-      <ion-avatar item-start *ngIf="!photo">
-        <img src="assets/imgs/user-default.jpeg">
-      </ion-avatar>
-       <button ion-button clear item-end *ngIf="photo" (click)="deleteImage()">
-         Remove image
-        </button>
-      <p color="primary" fixed>Upload Photo</p>
+
+<div *ngIf="userinfo">
+<ion-list no-lines class="user-img">
+  <ion-item color="" no-padding>
+    <ion-thumbnail item-start *ngIf="photo">
+      <img src="{{photo}}">
+    </ion-thumbnail>
+    <ion-thumbnail item-start *ngIf="!photo">
+      <img src="assets/imgs/user-default.jpeg">
+    </ion-thumbnail>
+    <h2>{{userinfo.first_name}}</h2>
+    <p>{{userinfo.email}}</p>
+    <ion-icon ios="ios-trash" md="md-trash" *ngIf="photo" (click)="deleteImage()" class="remove-img" item-end small></ion-icon>
+  </ion-item>
+</ion-list>
+<ion-list class="user-list-edit"> 
+  <ion-item no-padding>
+    <ion-icon ios="ios-contact" md="md-contact" item-start></ion-icon>
+      <label>Upload Photo</label>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
-    </ion-col>   
-    <p>First Name: {{userinfo.first_name}}  <ion-icon name="create" (click)= "presentProfileModal('First Name', userinfo.first_name)"></ion-icon></p>
-    <p>Last Name: {{userinfo.last_name}}  <ion-icon name="create" (click)= "presentProfileModal('Last Name', userinfo.last_name)"></ion-icon></p>
-    <p>Phone: {{userinfo.phone}}<ion-icon name="create" (click)= "presentProfileModal('Phone', userinfo.phone)"></ion-icon></p>
-    <p>Email: {{userinfo.email}}</p>
+    <ion-icon ios="ios-create" md="md-create" item-end small> </ion-icon>
+  </ion-item>
+
+  <ion-item no-padding>
+    <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+      <label>First Name: {{userinfo.first_name}}</label>
+      <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('First Name', userinfo.first_name)" item-end small></ion-icon>
+  </ion-item>
+
+  <ion-item no-padding>
+    <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+      <label>Last Name: {{userinfo.last_name}}</label>
+      <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('Last Name', userinfo.last_name)" item-end small></ion-icon>
+  </ion-item>
+
+  <ion-item no-padding>
+    <ion-icon ios="ios-call" md="md-call" item-start></ion-icon>
+      <label>Phone: {{userinfo.phone}}</label>
+      <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('Phone', userinfo.phone)" item-end small>
+      </ion-icon>
+  </ion-item>
+  <ion-item no-padding>
+    <ion-icon ios="ios-mail-open" md="md-mail-open" item-start></ion-icon>
+      <label>Email: {{userinfo.email}}</label>
+  </ion-item>
+
+</ion-list>
+
   </div>
 </ion-content>

@@ -28,6 +28,11 @@ $app-direction: ltr;
 .menu-header ion-list{}
 .menu-header ion-item{background-color: transparent !important;}
 .padding-2 ion-item{border-bottom: none !important;}
+.user-list-edit > .item-block:first-child{ border-top: none !important; }
+.user-list-edit > .item-block:last-child{ border-bottom: none !important; }
+.user-img{margin-bottom: 15px !important;}
+/*.remove-img{ position: absolute; left: 43px; top: -8px; background-color: #488aff; color: #fff; padding: 2px 0; border-radius: 50px; height: 20px; width: 20px; text-align: center; font-size: 14px !important;
+}  */
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -72,6 +77,7 @@ $text-input-ios-highlight-color:primary ;
 $text-input-ios-margin-end:0px;
 $text-input-ios-margin-start:0px;
 $item-ios-paragraph-margin-top:10px;
+
 
 
 
