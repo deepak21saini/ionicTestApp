@@ -1,3 +1,11 @@
 page-home {
-
+@media (min-width: 768px) {
+	.top-bg{ height: 75vh; }
+	
 }
+@media (max-width: 768px) {
+	.transparent-header{background-image: none !important;}
+	.top-bg{ background-image: url(../assets/imgs/ani-bg1.png); }
+}
+}
+
