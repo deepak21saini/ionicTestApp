@@ -72,7 +72,7 @@ export class ProfilePage {
         if(res.data){
            this.userinfo = res.data;
            if(res.data.image){
-              this.photo = Config.SITE_URL+'/public/upload/user/'+res.data.image;
+              this.photo = res.data.image;
            }
            
         }
@@ -98,7 +98,7 @@ export class ProfilePage {
       loader.present().then(() => {
       this.fileUpload.postFile(this.fileToUpload).subscribe((res:any) => {
         if(res.data){
-          this.photo = Config.SITE_URL+res.data.image;
+          this.photo = res.data.image;
           this.storage.set('user', res.data);
           this.auth.setUser(res.data);
         }
@@ -129,7 +129,7 @@ export class ProfilePage {
             if(!res.data.image){
               this.photo = '';
             }else{
-              this.photo = Config.SITE_URL+res.data.image;
+              this.photo = res.data.image;
             }
             this.storage.set('user', res.data);
             this.auth.setUser(res.data);

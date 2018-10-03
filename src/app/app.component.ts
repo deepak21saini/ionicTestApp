@@ -30,8 +30,8 @@ export class MyApp {
 
       this.initializeApp();
       this.auth.getUser().subscribe(data => {
-        console.log(data);
         if(data){
+          this.auth.setLoggedInStatus(true);
           if(!data.first_name){
              data.first_name = '';
           }
@@ -41,21 +41,19 @@ export class MyApp {
 
           this.username = data.first_name+' '+data.last_name;
           this.email = data.email;
-         
-          if(!data.image){
-            this.image = '';
-          }else{
-             this.image = Config.SITE_URL+data.image;
-          }
+          this.image = '';
           
-          //this.auth.setLoggedInStatus(true);
+          if(data.image){
+            this.image = data.image;
+          } 
+           
         }
       });
 
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
           if(this.isLoggedIn){
-            this.nav.setRoot('AssetPage');
+             //this.nav.setRoot('AssetPage');
           }
       });
   
