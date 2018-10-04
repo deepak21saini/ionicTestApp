@@ -4,7 +4,7 @@ import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
-import {AssetPage} from '../../asset/asset';
+import {EventsPage} from '../../events/events';
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the LoginPage page.
@@ -53,7 +53,7 @@ export class LoginPage {
             this.auth.setLoggedInStatus(true);
             localStorage.setItem('token', res.data.access_token);
             this.auth.setUser(res.data);
-            this.navCtrl.setRoot(AssetPage);
+            this.navCtrl.setRoot(EventsPage);
           },
           error => {
             this.shared.handleError(error);

@@ -4,9 +4,11 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { AssetPageModule } from '../pages/asset/asset.module';
+import { EventsPageModule } from '../pages/events/events.module';
 
-import { AssetDetailPageModule } from '../pages/asset-detail/asset-detail.module';
+import { AddEventPageModule } from '../pages/add-event/add-event.module';
+import { EventDetailsPageModule } from '../pages/event-details/event-details.module';
+
 import { LoginPageModule } from '../pages/auth/login/login.module';
 import { RegisterPageModule } from '../pages/auth/register/register.module';
 import { OtpPageModule } from '../pages/auth/otp/otp.module';
@@ -17,7 +19,7 @@ import { NewPasswordPageModule } from '../pages/new-password/new-password.module
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignupService } from "../providers/signup.service";
-import { AssetService } from "../providers/asset.service";
+import { EventsService } from "../providers/events.service";
 import { AuthService } from "../providers/auth.service";
 import { SharedService } from "../providers/shared.service";
 import { FileUploadService } from "../providers/file-upload.service";
@@ -32,8 +34,9 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
   imports: [
     HttpModule,
     BrowserModule,
-    AssetPageModule,
-    AssetDetailPageModule,
+    EventsPageModule,
+    AddEventPageModule,
+    EventDetailsPageModule,
     LoginPageModule,
     RegisterPageModule,
     OtpPageModule,
@@ -54,7 +57,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     SignupService,
     AuthService,
     SharedService,
-    AssetService,
+    EventsService,
     FileUploadService,
     ProfileService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

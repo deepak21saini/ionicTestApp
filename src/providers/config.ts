@@ -15,7 +15,11 @@ export class Config {
 		SEND_PIN: Config.API_ENDPOINT+"sendPin",
 		UPDATE_PROFILE: Config.API_ENDPOINT + "updateProfile",
 		RESET_PASSWORD: Config.API_ENDPOINT+"resetPassword",
-		DELETE_IMAGE: Config.API_ENDPOINT+"deleteImage"
+		DELETE_IMAGE: Config.API_ENDPOINT+"deleteImage",
+		EVENTS : {
+			LIST: Config.API_ENDPOINT+"getEvents",
+			ADD: Config.API_ENDPOINT+"addEvent"
+		}  
 	}
   
 	

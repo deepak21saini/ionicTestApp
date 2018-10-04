@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth.service';
-import { Config } from '../providers/config';
+ 
 
 @Component({
   templateUrl: 'app.html'                               
@@ -30,6 +30,9 @@ export class MyApp {
 
       this.initializeApp();
       this.auth.getUser().subscribe(data => {
+
+        this.nav.setRoot('EventsPage');
+
         if(data){
           this.auth.setLoggedInStatus(true);
           if(!data.first_name){
@@ -53,7 +56,7 @@ export class MyApp {
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
           if(this.isLoggedIn){
-             //this.nav.setRoot('AssetPage');
+            this.nav.setRoot('EventsPage');
           }
       });
   
@@ -66,7 +69,7 @@ export class MyApp {
 
       this.accountMenuItems = [
  
-          {title: 'My Assets', component: 'AssetPage', icon: 'briefcase'},
+          {title: 'My Events', component: 'EventsPage', icon: 'briefcase'},
           {title: 'My Requests', component: 'AssetPage', icon: 'list-box'},
           {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
           {title: 'Feedback', component: 'AssetPage', icon: 'star'}
