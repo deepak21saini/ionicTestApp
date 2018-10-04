@@ -16,24 +16,18 @@
 
 	<form #eventForm="ngForm">
 		<ion-list class="login-form">
-			<ion-item no-padding no-lines>Name</ion-item>
+			
 			<ion-item no-padding margin-bottom>
-				<ion-input type="text" [(ngModel)]="model.name" name="name" placeholder="Name" required></ion-input>
+				<ion-input type="text" [(ngModel)]="model.name" name="name" placeholder="Event Name" required></ion-input>
 			</ion-item>
-			 
-			<ion-item no-padding no-lines>Start Date</ion-item> 
 			<ion-item no-padding margin-bottom>
 				<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="model.start_date" name="start_date" placeholder="Start Date" required></ion-datetime>
 			</ion-item>
-
-			<ion-item no-padding no-lines>End Date</ion-item> 
 			<ion-item no-padding margin-bottom >
 				 <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="model.end_date" name="end_date" placeholder="End Date" required></ion-datetime>
 			</ion-item>
-
-			<ion-item no-padding no-lines>Note</ion-item> 
 			<ion-item no-padding margin-bottom>
-			    <ion-textarea placeholder="Note" [(ngModel)]="model.notes" name="notes"></ion-textarea>
+			    <ion-textarea placeholder="Notes" [(ngModel)]="model.notes" name="notes"></ion-textarea>
 			</ion-item>
 
 

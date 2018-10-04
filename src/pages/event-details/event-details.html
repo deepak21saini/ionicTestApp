@@ -16,23 +16,16 @@
 <ion-content>
  
  <ion-card>
-  <ion-card-header>
-    <h1>{{event.name}}</h1>
-  </ion-card-header>
-
-  <ion-list>
-    <button ion-item>
-      Start Date : {{event.start_date}}
-    </button>
-    <button ion-item>
-      End Date : {{event.end_date}}
-    </button>
-
-    <button ion-item>
-      Notes : {{event.notes}}
-    </button>
-
-  </ion-list>
+  <ion-card-content>
+    <ion-card-title>
+     {{event.name}}
+    </ion-card-title>
+	<p> Start Date: {{event.start_date}} </p>
+	<p> End Date: {{event.end_date}} </p>
+	<p> Notes: {{event.notes}} </p>
+	
+  </ion-card-content>
 </ion-card>
+
 
 </ion-content>
