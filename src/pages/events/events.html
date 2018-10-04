@@ -12,18 +12,23 @@
 	      <ion-icon name="menu"></ion-icon>
 	    </button>
     </ion-buttons>
-
-    <ion-title>My Events</ion-title>
+	
     <ion-buttons right>
-      <button (click)="goToAdd()">
-        <ion-icon name="add-circle"></ion-icon>
+      <button ion-button>
+        <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title>My Events</ion-title>
+	
   </ion-navbar>
+  
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
+	<ion-fab right bottom>
+	   <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
 	<ion-list>
 	   <ion-item *ngFor="let event of events">
 		    <h2>{{event.name}} </h2>
