@@ -20,12 +20,15 @@
 	<p> Notes: {{event.notes}} </p>
 <ion-row>
   <ion-col>
-    <button ion-button small>Add shagun</button>
-    <button ion-button small color="secondary">View shaguns</button>
+	<button ion-button small (click)="addShagun()">Add shagun</button>
+	<button ion-button small color="secondary" (click)="viewShaguns()">View shaguns</button>
   </ion-col>
 </ion-row>
   </ion-card-content>
 
+ 
+  	
+ 
 </ion-card>
 
 
