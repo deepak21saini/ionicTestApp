@@ -19,8 +19,12 @@ export class Config {
 		EVENTS : {
 			LIST: Config.API_ENDPOINT+"getEvents",
 			ADD: Config.API_ENDPOINT+"addEvent",
-			DELETE: Config.API_ENDPOINT+"destroyEvent"
-		}  
+			DELETE: Config.API_ENDPOINT+"destroyEvent",
+			ADD_SHAGUN: Config.API_ENDPOINT+"eventAmount",
+			SHAGUNS: Config.API_ENDPOINT+"getEventAmounts"
+		} 
+
+		 
 	}
   
 	

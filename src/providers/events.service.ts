@@ -57,6 +57,33 @@ export class EventsService {
         })
 
     }
+
+
+    addShagun(data){
+
+        return this.http.post(Config.API_URLS.EVENTS.ADD_SHAGUN, data, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+    }
+
+    getShaguns(eventId:number){
+
+        return this.http.get(Config.API_URLS.EVENTS.SHAGUNS+'/'+eventId, {
+            headers: this.headers
+        })
+        .map(function (res) { 
+            return res.json(); 
+        })
+        .catch(function (error) {
+            return Observable.throw(error.json());
+        });
+
+    }
  
 
 }

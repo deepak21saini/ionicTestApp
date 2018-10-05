@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ShagunsPage } from '../shaguns/shaguns';
+import { AddShagunPage } from '../add-shagun/add-shagun';
 
 /**
  * Generated class for the EventDetailsPage page.
@@ -21,7 +23,6 @@ export class EventDetailsPage {
 
   	if(this.navParams.data && this.navParams.data.event){
   		this.event = this.navParams.data.event;
-  		console.log('dii -', this.navParams.data.event);
 
   	}
 
@@ -30,5 +31,21 @@ export class EventDetailsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventDetailsPage');
   }
+
+
+  addShagun(){
+
+  	this.navCtrl.push(AddShagunPage, {
+      event: this.event
+    });
+  }
+
+  viewShaguns(){
+
+  	this.navCtrl.push(ShagunsPage, {
+      event: this.event
+    });
+  }
+
 
 }
