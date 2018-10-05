@@ -5,34 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title> Add Event</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 <ion-content padding>
-
 	<form #eventForm="ngForm">
-		<ion-list class="login-form">
-			
-			<ion-item no-padding margin-bottom>
-				<ion-input type="text" [(ngModel)]="model.name" name="name" placeholder="Event Name" required></ion-input>
-			</ion-item>
-			<ion-item no-padding margin-bottom>
-				<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="model.start_date" name="start_date" placeholder="Start Date" required></ion-datetime>
-			</ion-item>
-			<ion-item no-padding margin-bottom >
-				 <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="model.end_date" name="end_date" placeholder="End Date" required></ion-datetime>
-			</ion-item>
-			<ion-item no-padding margin-bottom>
+		<ion-row class="login-form">
+			<ion-col col-12 no-padding>
+				<ion-input padding-bottom type="text" [(ngModel)]="model.name" name="name" placeholder="Event Name" required></ion-input>
+			</ion-col>
+			<ion-col col-6 no-padding margin-bottom padding-vertical>
+				<ion-datetime padding-right no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="model.start_date" name="start_date" placeholder="Start Date" required></ion-datetime>
+			</ion-col>
+			<ion-col col-6 no-padding margin-bottom  padding-vertical>
+				 <ion-datetime padding-left no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="model.end_date" name="end_date" placeholder="End Date" required></ion-datetime>
+			</ion-col>
+			<ion-col col-12 no-padding margin-top>
 			    <ion-textarea placeholder="Notes" [(ngModel)]="model.notes" name="notes"></ion-textarea>
-			</ion-item>
-
-
-		</ion-list>	 
+			</ion-col>
+		</ion-row>	 
 	</form>
 	<button ion-button block color="primary" [disabled]="!eventForm.valid" (click)="add()">ADD</button>
-
 </ion-content>

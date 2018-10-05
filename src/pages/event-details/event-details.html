@@ -5,16 +5,11 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Event Details</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
- 
  <ion-card>
   <ion-card-content>
     <ion-card-title>
@@ -23,12 +18,13 @@
 	<p> Start Date: {{event.start_date}} </p>
 	<p> End Date: {{event.end_date}} </p>
 	<p> Notes: {{event.notes}} </p>
-	
+<ion-row>
+  <ion-col>
+    <button ion-button small>Add shagun</button>
+    <button ion-button small color="secondary">View shaguns</button>
+  </ion-col>
+</ion-row>
   </ion-card-content>
-
-  	<button ion-button large>Add shagun</button>
-	<button ion-button large color="secondary">View shaguns</button>
-
 
 </ion-card>
 

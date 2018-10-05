@@ -50,8 +50,8 @@ export class LoginPage {
           this.auth.signin(this.model).subscribe(res => {
             this.model = {};
             this.storage.set('user', res.data);
-            this.auth.setLoggedInStatus(true);
-            localStorage.setItem('token', res.data.access_token);
+            localStorage.setItem('auth_token', res.data.access_token);
+			this.auth.setLoggedInStatus(true);
             this.auth.setUser(res.data);
             this.navCtrl.setRoot(EventsPage);
           },
