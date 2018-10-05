@@ -18,7 +18,8 @@ export class Config {
 		DELETE_IMAGE: Config.API_ENDPOINT+"deleteImage",
 		EVENTS : {
 			LIST: Config.API_ENDPOINT+"getEvents",
-			ADD: Config.API_ENDPOINT+"addEvent"
+			ADD: Config.API_ENDPOINT+"addEvent",
+			DELETE: Config.API_ENDPOINT+"destroyEvent"
 		}  
 	}
   

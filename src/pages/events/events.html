@@ -30,12 +30,19 @@
 	   <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
 	</ion-fab>
 	<ion-list>
-	   <ion-item *ngFor="let event of events">
-		    <h2>{{event.name}} </h2>
-		    <p>{{event.start_date}} • {{event.end_date}}</p>
-		    <p>{{event.notes}}</p>
-		    <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>
-		</ion-item>
-    </ion-list>
 
+      <ion-item-sliding *ngFor="let event of events">
+        <ion-item>
+            <h2>{{event.name}} </h2>
+            <p>{{event.start_date}} • {{event.end_date}}</p>
+            <p>{{event.notes}}</p>
+            <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>
+        </ion-item>
+         
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(event)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>  
+	    
 </ion-content>

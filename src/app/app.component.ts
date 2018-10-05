@@ -70,7 +70,6 @@ export class MyApp {
       this.accountMenuItems = [
  
           {title: 'My Events', component: 'EventsPage', icon: 'briefcase'},
-          {title: 'My Requests', component: 'AssetPage', icon: 'list-box'},
           {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
           {title: 'Feedback', component: 'AssetPage', icon: 'star'}
  

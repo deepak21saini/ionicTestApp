@@ -30,8 +30,14 @@ export class EventsPage {
   }
 
   ionViewDidLoad() {
-    
-    this.events = [];
+
+		this.getEvents();
+  }
+
+
+  getEvents(){
+
+  	this.events = [];
     let loader = this.loading.create({});
     loader.present().then(() => {
        
@@ -46,7 +52,6 @@ export class EventsPage {
         loader.dismiss();
       });
         
-
     });
 
   }
@@ -59,6 +64,28 @@ export class EventsPage {
   	this.navCtrl.push(EventDetailsPage, {
       event: event
     });
+  }
+
+
+  delete(event){
+
+  	let loader = this.loading.create({});
+    loader.present().then(() => {
+       
+      this.eventsService.deleteEvent(event.id).subscribe(res => { 
+      	this.getEvents();
+      	this.shared.AlertMessage('Success', 'Event deleted successfully.');
+      }, 
+      error => {
+         this.shared.handleError(error);
+         loader.dismiss();
+      },
+      () => {
+        loader.dismiss();
+      });
+        
+    });
+
   }
 
 
