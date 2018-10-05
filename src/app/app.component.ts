@@ -31,7 +31,7 @@ export class MyApp {
       this.initializeApp();
       this.auth.getUser().subscribe(data => {
 
-        this.nav.setRoot('EventsPage');
+        //this.nav.setRoot('EventsPage');
 
         if(data){
           this.auth.setLoggedInStatus(true);
@@ -56,7 +56,7 @@ export class MyApp {
       this.auth.isLoggedIn().subscribe(status => {
           this.isLoggedIn = status;
           if(this.isLoggedIn){
-            this.nav.setRoot('EventsPage');
+            //this.nav.setRoot('EventsPage');
           }
       });
   
