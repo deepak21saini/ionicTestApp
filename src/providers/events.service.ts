@@ -12,15 +12,15 @@ export class EventsService {
     headers;
 
     constructor( private http: Http){ 
+
         this.http = http;
+        this.headers = new Headers();
+        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
 
     }
 
     
     getEventsList(){
-        
-        this.headers = new Headers();
-        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
 
         return this.http.get(Config.API_URLS.EVENTS.LIST, {
             headers: this.headers
@@ -35,8 +35,7 @@ export class EventsService {
     }
 
     addEvent(data){
-        this.headers = new Headers();
-        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
+
         return this.http.post(Config.API_URLS.EVENTS.ADD, data, {
             headers: this.headers
         })
@@ -48,9 +47,7 @@ export class EventsService {
     }
 
     deleteEvent(eventId:number){
-        this.headers = new Headers();
-        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
-        
+
         return this.http.post(Config.API_URLS.EVENTS.DELETE, {event_id:eventId}, {
             headers: this.headers
         })
@@ -60,8 +57,6 @@ export class EventsService {
         })
 
     }
-
-
  
 
 }
