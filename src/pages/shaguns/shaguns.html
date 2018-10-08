@@ -5,29 +5,49 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+ 
+    <ion-navbar color="primary">
+      <ion-title>Shaguns</ion-title>
+    </ion-navbar>
 
-  <ion-navbar>
-    <ion-title>Shaguns</ion-title>
-  </ion-navbar>
+    <ion-toolbar>
+      <ion-searchbar
+	    [(ngModel)]="search"
+	    [showCancelButton]="shouldShowCancel"
+	    (ionInput)="onSerachInput($event)"
+	    (ionCancel)="onCancelSerach($event)">
+	  </ion-searchbar>
+    </ion-toolbar>
+
 
 </ion-header>
 
 
 <ion-content padding>
+ 
+    <ion-fab right bottom>
+	   <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
 
-	<ion-card  *ngFor="let shagun of shaguns">
-	  <ion-card-header>
-	    <h1>{{shagun.name}}</h1>
-	  </ion-card-header>
-	  <ion-card-content>
-	  	 <p *ngIf="shagun.amount">Amount : {{shagun.amount}}</p>
-	     <p *ngIf="shagun.city">City : {{shagun.city}}</p>
-	     <p *ngIf="shagun.address">Address : {{shagun.address}} </p>
-	     <p *ngIf="shagun.gift">Gift : {{shagun.gift}}</p>
+	<ion-list>
 
-	     <img style="width:300px;"  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
+      <ion-item-sliding *ngFor="let shagun of filteredShaguns">
+        <ion-item>
+            <h1>{{shagun.name}}</h1>
+            <p *ngIf="shagun.amount">Amount : {{shagun.amount}}</p>
+	     	<p *ngIf="shagun.city">City : {{shagun.city}}</p>
+	     	<p *ngIf="shagun.address">Address : {{shagun.address}} </p>
+	     	<p *ngIf="shagun.gift">Gift : {{shagun.gift}}</p>
 
-	  </ion-card-content>
-	</ion-card> 
+	     	<img style="width:300px;"  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
+        </ion-item>
+         
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(shagun)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+  	</ion-list>  
+  
 
 </ion-content>

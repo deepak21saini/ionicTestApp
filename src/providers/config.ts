@@ -21,7 +21,10 @@ export class Config {
 			ADD: Config.API_ENDPOINT+"addEvent",
 			DELETE: Config.API_ENDPOINT+"destroyEvent",
 			ADD_SHAGUN: Config.API_ENDPOINT+"eventAmount",
-			SHAGUNS: Config.API_ENDPOINT+"getEventAmounts"
+			SHAGUNS: Config.API_ENDPOINT+"getEventAmounts",
+			DELETE_SHAGUN: Config.API_ENDPOINT+"destroyEventAmount",
+
+			
 		} 
 
 		 

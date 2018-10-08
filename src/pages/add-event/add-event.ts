@@ -40,7 +40,9 @@ export class AddEventPage {
           this.eventsService.addEvent(this.model).subscribe(res => {
             this.model = {};
             this.shared.AlertMessage('Success', 'Event added successfully.');
-            this.navCtrl.setRoot(EventsPage);
+            this.navCtrl.getPrevious().data.addEvent = res.data;
+            this.navCtrl.pop();
+
           },
           error => {
             this.shared.handleError(error);

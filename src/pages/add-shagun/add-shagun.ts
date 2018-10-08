@@ -73,6 +73,7 @@ export class AddShagunPage {
           this.eventsService.addShagun(formData).subscribe(res => {
             //this.model = {};
             this.shared.AlertMessage('Success', 'Shagun added successfully.');
+            this.navCtrl.getPrevious().data.addShagun = res.data;
             this.navCtrl.pop();
           },
           error => {

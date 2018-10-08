@@ -84,6 +84,19 @@ export class EventsService {
         });
 
     }
+
+
+    deleteShagun(shagunId:number){
+
+        return this.http.post(Config.API_URLS.EVENTS.DELETE_SHAGUN, {id:shagunId}, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+    }
  
 
 }
