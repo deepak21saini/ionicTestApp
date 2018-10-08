@@ -9,27 +9,50 @@
     <ion-title>Event Details</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
- <ion-card>
-  <ion-card-content>
-    <ion-card-title>
-     {{event.name}}
-    </ion-card-title>
-	<p> Start Date: {{event.start_date}} </p>
-	<p> End Date: {{event.end_date}} </p>
-	<p> Notes: {{event.notes}} </p>
-<ion-row>
-  <ion-col>
-	<button ion-button small (click)="addShagun()">Add shagun</button>
-	<button ion-button small color="secondary" (click)="viewShaguns()">View shaguns</button>
-  </ion-col>
-</ion-row>
-  </ion-card-content>
-
- 
-  	
- 
-</ion-card>
-
-
+<ion-content padding>
+ <div class="event-detail">
+  <h2>{{event.name}}</h2>
+  <ion-list margin-top>
+    <ion-item no-padding>
+      <ion-icon name="calendar" item-start></ion-icon>
+      <h2>Start Date</h2>
+      <p>{{event.start_date}}</p>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-icon name="calendar" item-start></ion-icon>
+      <h2>End Date</h2>
+      <p>{{event.end_date}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-row margin-top>
+    <ion-col col-6>
+      <ion-card no-margin text-center class="amount-card">
+        <ion-card-header margin-bottom>Amount</ion-card-header>
+        <ion-card-content>2000</ion-card-content>
+      </ion-card>    
+    </ion-col>
+    <ion-col col-6>
+      <ion-card no-margin text-center class="gift-card">
+        <ion-card-header margin-bottom>Gift</ion-card-header>
+        <ion-card-content>12</ion-card-content>
+      </ion-card>    
+    </ion-col>
+  </ion-row>
+    <ion-row padding-top>
+    <ion-col>
+      <h2 class="notes">Notes:</h2>
+      <p class="notes-p">{{event.notes}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6 padding-right>
+      <button ion-button icon-start block block (click)="viewShaguns()"> 
+      <ion-icon ios="ios-eye" md="md-eye" large></ion-icon> View shaguns</button>
+    </ion-col>
+    <ion-col col-6 padding-left>
+      <button ion-button icon-start block color="secondary" (click)="addShagun()"> 
+      <ion-icon ios="ios-add" md="md-add" large></ion-icon> Add shagun</button>
+    </ion-col>
+  </ion-row>
+</div>
 </ion-content>

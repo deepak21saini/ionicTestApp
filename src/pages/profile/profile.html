@@ -24,32 +24,32 @@
 </ion-list>
 <ion-list class="user-list-edit"> 
   <ion-item no-padding>
-    <ion-icon ios="ios-contact" md="md-contact" item-start></ion-icon>
+    <ion-icon ios="ios-contact" md="md-contact" item-start small></ion-icon>
       <label>Upload Photo</label>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
     <ion-icon ios="ios-create" md="md-create" item-end small> </ion-icon>
   </ion-item>
 
   <ion-item no-padding>
-    <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+    <ion-icon ios="ios-person" md="md-person" item-start small></ion-icon>
       <label>First Name: {{userinfo.first_name}}</label>
       <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('First Name', userinfo.first_name)" item-end small></ion-icon>
   </ion-item>
 
   <ion-item no-padding>
-    <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+    <ion-icon ios="ios-person" md="md-person" item-start small></ion-icon>
       <label>Last Name: {{userinfo.last_name}}</label>
       <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('Last Name', userinfo.last_name)" item-end small></ion-icon>
   </ion-item>
 
   <ion-item no-padding>
-    <ion-icon ios="ios-call" md="md-call" item-start></ion-icon>
+    <ion-icon ios="ios-call" md="md-call" item-start small></ion-icon>
       <label>Phone: {{userinfo.phone}}</label>
       <ion-icon ios="ios-create" md="md-create" (click)= "presentProfileModal('Phone', userinfo.phone)" item-end small>
       </ion-icon>
   </ion-item>
   <ion-item no-padding>
-    <ion-icon ios="ios-mail-open" md="md-mail-open" item-start></ion-icon>
+    <ion-icon ios="ios-mail-open" md="md-mail-open" item-start small></ion-icon>
       <label>Email: {{userinfo.email}}</label>
   </ion-item>
 </ion-list>
