@@ -37,9 +37,8 @@
 				<ion-input type="text" [(ngModel)]="model.gift" name="gift" placeholder="Gift"></ion-input>
 			</ion-item>
 
-
 			<ion-item no-padding margin-bottom>
-				<ion-input type="file" id="gift_image" (change)="handleFileInput($event.target.files)"></ion-input>
+				<ion-input type="file" id="gift_image" (change)="handleFileInput($event.target.files)" no-margin></ion-input>
 			</ion-item>
 			  
 

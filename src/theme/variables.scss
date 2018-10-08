@@ -38,6 +38,12 @@ $app-direction: ltr;
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
+.event-detail p{margin-bottom:10px !important; font-size: 15px !important; }
+.event-detail h2{ font-size: 20px !important;font-weight: bold !important; }
+.gift-card{width: 95% !important; float: right;}
+.amount-card{width:95% !important; float: left;}
+.amount-card ion-card-header{padding: 10px 0; border-bottom: 1px solid #f3f3f3; font-weight: bold;}
+.gift-card ion-card-header{padding: 10px 0; border-bottom: 1px solid #f3f3f3; font-weight: bold;}
 /*.remove-img{ position: absolute; left: 43px; top: -8px; background-color: #488aff; color: #fff; padding: 2px 0; border-radius: 50px; height: 20px; width: 20px; text-align: center; font-size: 14px !important;
 }  */
 // Shared Variables
