@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { EventsService } from '../../providers/events.service';
 import { SharedService } from '../../providers/shared.service';
+import { AddShagunPage } from '../add-shagun/add-shagun';
 
 /**
  * Generated class for the ShagunsPage page.
@@ -17,15 +18,18 @@ import { SharedService } from '../../providers/shared.service';
 })
 export class ShagunsPage {
   
-   shaguns: Array<{}>;
-   event:any;
+  shaguns: Array<{}>;
+  event:any;
+  filteredShaguns: Array<{}>;
+  search:string;
 
   constructor(
   		public navCtrl: NavController, 
   		public navParams: NavParams,
   		public loading: LoadingController,
   		public eventsService: EventsService, 
-  		public shared: SharedService
+  		public shared: SharedService,
+      private alertCtrl: AlertController
   	) {
 
   		if(this.navParams.data && this.navParams.data.event){
@@ -39,13 +43,30 @@ export class ShagunsPage {
     console.log('ionViewDidLoad ShagunsPage');
   }
 
-    getShaguns(){
+
+  ionViewWillEnter() {
+    
+    let newShagun = this.navParams.get('addShagun');
+    if(newShagun){
+        this.navParams.data.addShagun = null;
+        this.shaguns.unshift(newShagun);
+        this.assignCopy();
+    }
+      
+  }
+
+  assignCopy(){
+     this.filteredShaguns = Object.assign([], this.shaguns);
+  }
+
+  getShaguns(){
 
 	    let loader = this.loading.create({});
 	    loader.present().then(() => {
 	       
 	      this.eventsService.getShaguns(this.event.id).subscribe(res => { 
 	      	this.shaguns = res.data.amount;
+          this.assignCopy();
 	      }, 
 	      error => {
 	         this.shared.handleError(error);
@@ -57,6 +78,80 @@ export class ShagunsPage {
 	        
     	});
 
+  }
+
+
+  delete(shagun){
+
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Are you sure you want to delete this shagun?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+           
+              let loader = this.loading.create({});
+              loader.present().then(() => {
+                 
+                this.eventsService.deleteShagun(shagun.id).subscribe(res => { 
+                   
+                  this.shaguns = Object.assign([], this.shaguns).filter(
+                      item => item.id != shagun.id
+                  );
+
+                  this.assignCopy();
+                  this.shared.AlertMessage('Success', 'Shagun deleted successfully.');
+                }, 
+                error => {
+                   this.shared.handleError(error);
+                   loader.dismiss();
+                },
+                () => {
+                  loader.dismiss();
+                });
+                  
+              });
+
+          }
+        }
+      ]
+    });
+
+    alert.present();
+
+  }
+
+
+  onSerachInput(){
+        
+      if(!this.search){
+        this.assignCopy();
+        return false;
+      }
+
+      this.filteredShaguns = Object.assign([], this.shaguns).filter(
+          item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      );
+      
+  }
+
+  onCancelSerach(){
+      this.assignCopy();
+  }
+
+
+  goToAdd() {
+    this.navCtrl.push(AddShagunPage, {
+      event: this.event
+    });
   }
 
 

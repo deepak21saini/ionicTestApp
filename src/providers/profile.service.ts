@@ -8,15 +8,21 @@ import {Config} from './config';
 @Injectable()
 
 export class ProfileService {
- 
-    constructor(private http: Http) {}
+    
+    headers;
+
+    constructor(private http: Http) {
+
+        this.http = http;
+        this.headers = new Headers();
+        this.headers.append("Authorization", 'Bearer ' + localStorage.getItem('auth_token'));
+
+    }
 
     getUser(data:any){
-
-      let headers = new Headers();
-      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
+ 
     	return this.http.post(Config.API_URLS.GETUSERBYID, data,{
-          headers: headers
+          headers: this.headers
           })
         .map((res:Response) => res.json())
         .catch(error => {
@@ -26,10 +32,9 @@ export class ProfileService {
     }
 
     updateProfile(data:any){
-      let headers = new Headers();
-      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
+       
       return this.http.post(Config.API_URLS.UPDATE_PROFILE, data,{
-          headers: headers
+          headers: this.headers
         })
         .map((res:Response) => res.json())
         .catch(error => {
@@ -39,10 +44,9 @@ export class ProfileService {
     }
 
      deleteImage(){
-      let headers = new Headers();
-      headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
+      
       return this.http.post(Config.API_URLS.DELETE_IMAGE, '',{
-          headers: headers
+          headers: this.headers
         })
         .map((res:Response) => res.json())
         .catch(error => {
