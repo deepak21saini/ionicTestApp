@@ -5,29 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Shaguns</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
 	<ion-card  *ngFor="let shagun of shaguns">
 	  <ion-card-header>
-	    <h1>{{shagun.name}}</h1>
+	    <h2>{{shagun.name}}</h2>
 	  </ion-card-header>
 	  <ion-card-content>
-	  	 <p *ngIf="shagun.amount">Amount : {{shagun.amount}}</p>
+	  	 <p *ngIf="shagun.amount">Amount : {{shagun.amount}} </p>
 	     <p *ngIf="shagun.city">City : {{shagun.city}}</p>
 	     <p *ngIf="shagun.address">Address : {{shagun.address}} </p>
 	     <p *ngIf="shagun.gift">Gift : {{shagun.gift}}</p>
-
-	     <img style="width:300px;"  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
-
+	     <img  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
 	  </ion-card-content>
 	</ion-card> 
-
 </ion-content>
