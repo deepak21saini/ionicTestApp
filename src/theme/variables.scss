@@ -32,8 +32,12 @@ $app-direction: ltr;
 .user-list-edit > .item-block:last-child{ border-bottom: none !important; }
 .user-img{margin-bottom: 15px !important;}
 .login-form ion-col input{border-bottom: 1px solid #ccc}
-.login-form ion-col button{ border-bottom: 1px solid #ccc }
+.login-form ion-col button .button-inner{ border-bottom: 1px solid #ccc }
+.login-form .e-date button{padding-right: 0px;}
+.login-form .s-date button{padding-left: 0px;}
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
+.s-date ion-datetime{ padding-left: 0px; }
+.e-date ion-datetime{padding-left: 6px !important;}
 /*.remove-img{ position: absolute; left: 43px; top: -8px; background-color: #488aff; color: #fff; padding: 2px 0; border-radius: 50px; height: 20px; width: 20px; text-align: center; font-size: 14px !important;
 }  */
 // Shared Variables
