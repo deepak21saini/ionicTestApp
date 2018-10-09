@@ -14,10 +14,15 @@
     <h2>{{event.name}}</h2>
     <ion-item-group margin-top margin-bottom>
       <ion-item no-padding>
-        <h2 class="date"><ion-icon name="calendar" large></ion-icon> Start Date: <b style="color:#488aff;">{{event.start_date}}</b></h2>
+        <h3 class="date"><ion-icon name="calendar" large></ion-icon> Start Date: 
+          <b style="color:#488aff;">{{event.start_date}}</b>
+        </h3>
       </ion-item>
       <ion-item no-padding>
-        <h2 class="date"><ion-icon name="calendar" large></ion-icon> End Date: <b style="color:#488aff;">{{event.end_date}}</b> </h2>
+        <h3 class="date">
+          <ion-icon name="calendar" large></ion-icon> End Date: 
+          <b style="color:#488aff;">{{event.end_date}}</b> 
+        </h3>
       </ion-item>
     </ion-item-group>
     <ion-row>
@@ -27,36 +32,51 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col col-6 class="card-box shagun-box">
-        <ion-card no-margin margin-bottom text-center>
-          <ion-card-header> Shaguns </ion-card-header>
-          <ion-card-content> 18 </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6 margin-bottom class="card-box gift-box">
-        <ion-card no-margin text-center> 
-          <ion-card-header> Gift </ion-card-header>
-          <ion-card-content> 12 </ion-card-content>
-        </ion-card>
-      </ion-col>
+    <ion-row class="box-row">
       <ion-col col-12 class="card-box amount-box"> 
-        <ion-card no-margin text-center>
-          <ion-card-header> Amount </ion-card-header>
-          <ion-card-content> 2000 </ion-card-content>
+        <ion-card no-margin margin-bottom>
+          <ion-card-content>  
+          <div class="img-box">
+            <img src="assets/imgs/blance.png" alt="" title="" />
+          </div>
+          <div class="text-box">
+           <h4> Total Blance</h4>
+           <h2> 38,888 </h2> 
+          </div>
+          </ion-card-content>
         </ion-card>
       </ion-col>
+      <ion-col col-12 class="card-box shagun-box">
+        <ion-card no-margin margin-bottom>
+          <ion-card-content class="clearfox">  
+          <div class="img-box">
+            <img src="assets/imgs/amount.png" alt="" title="" />
+          </div>
+          <div class="text-box">
+           <h4> Amount</h4>
+           <h2> 25400 </h2> 
+          </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 class="card-box gift-box">
+        <ion-card no-margin>
+          <ion-card-content>  
+          <div class="img-box">
+            <img src="assets/imgs/gift.png" alt="" title="" />
+          </div>
+          <div class="text-box">
+           <h4> Gifts</h4>
+           <h2> 14 </h2> 
+          </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      
     </ion-row>
-
     <ion-row margin-top>
-      <ion-col col-12>
-        <button ion-button icon-start block block (click)="viewShaguns()" margin-bottom no-margin> 
-        <ion-icon ios="ios-eye" md="md-eye" large></ion-icon> View shaguns</button>
-      </ion-col>
-      <ion-col col-12>
-        <button ion-button icon-start block color="secondary" (click)="addShagun()" no-margin> 
-        <ion-icon ios="ios-add" md="md-add" large></ion-icon> Add shagun</button>
-      </ion-col>
+      <button ion-button  block (click)="viewShaguns()" margin-bottom no-margin>View shaguns</button>
+      <button ion-button block outline (click)="addShagun()" no-margin>Add shagun</button>
     </ion-row>
   </div>
 </ion-content>

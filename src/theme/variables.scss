@@ -38,17 +38,21 @@ $app-direction: ltr;
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
-.event-detail h2{margin: 0px 0 10px 0; font-size: 18px; color: #5a5a5a; font-weight: 500; }
+.event-detail h2{margin: 0px 0 10px 0; font-size: 18px; color: #5a5a5a; font-weight: 600; }
 .notes-p{margin-top: 0px; font-size: 15px; color: #545454; line-height: 22px; }
 .event-detail h2 ion-icon{ font-size: 20px; vertical-align: middle; }
-.card-box ion-card{border: 2px solid #e8e8e8; box-shadow: none;}
-.card-box ion-card-header{font-size: 16px; font-weight: normal; text-transform: capitalize; font-weight: bold; letter-spacing: 1px;}
-.card-box ion-card-content{ color: #488aff; font-size: 25px; font-weight: bold;} 
-.shagun-box{ padding-right: 8px !important; }
-.gift-box{ padding-left: 8px !important; }
-.event-detail h2{ margin: 0px 0 10px 0; font-size: 16px; color: #5a5a5a; font-weight: bold;}
-.event-detail h2.date{ margin: 0px 0 10px 0; font-size: 15px; color: #5a5a5a;}
-.event-detail .date ion-icon{ margin-right: 10px; }
+.card-box ion-card{ box-shadow: none; border-radius: 4px;}
+.amount-box ion-card{ background-image: linear-gradient(to right, #0bbcff , #059bfc ); }
+.gift-box ion-card{background-image: linear-gradient(to right, #ffa957 , #fe5d75);}
+.shagun-box ion-card{background-image: linear-gradient(to right, #fecd0f , #fe9f03);}
+.card-box .img-box{width: 75px; height: 75px; float: left;}
+.card-box .text-box{float: left; margin-left: 15px;}
+.card-box .text-box h4{font-size: 16px; color: #fff; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 6px; margin-top: 6px !important;}
+.card-box .text-box h2{font-size: 35px; font-weight: bold; color: #fff; letter-spacing: 0.5px; margin: 0;}
+.card-box ion-card-content{float: left; width: 100%; padding: 15px;}
+.box-row{ margin-right: -16px; margin-left: -16px; padding: 15px; background-color: #f3f3f3; }
+.event-detail h3{font-size: 15px !important; color: #3a3a3a;}
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
