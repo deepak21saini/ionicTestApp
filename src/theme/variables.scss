@@ -38,44 +38,17 @@ $app-direction: ltr;
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
-.event-detail h2{margin: 0px 0 10px 0;
-    font-size: 18px;
-    color: #5a5a5a;
-    font-weight: 500; }
+.event-detail h2{margin: 0px 0 10px 0; font-size: 18px; color: #5a5a5a; font-weight: 500; }
 .notes-p{margin-top: 0px; font-size: 15px; color: #545454; line-height: 22px; }
-.gift-box{
-border: 1px solid #7fdc9a;
-border-left: none;
-    padding: 30px !important;
-    border-radius: 0px;
-  background-color: rgba(50, 219, 100, 0.4);
-          border-radius: 0 4px 4px 0;
-  }
-.amount-box{
-  border: 1px solid #7fdc9a;
-  border-left: 0.5px solid #7fdc9a;
-  padding: 30px !important;
-  border-radius: 0px;
-  background-color: rgba(50, 219, 100, 0.4);
-      border-radius: 4px 0 0 4px;
-}
-.amount-box h2{
-    font-size: 20px;
-    margin-bottom: 0;
-    color: #333333;
-  }
-  .gift-box h2{
-    font-size: 20px;
-    margin-bottom: 0;
-    color: #333333;
-  }
-/*.gift-card{width: 90% !important; float: right; box-shadow: none !important; border: 1px solid #e9e9e9; font-weight: bold; border-radius: 4px !important;}
-.amount-card{width: 90% !important; float: left; box-shadow: none !important; border: 1px solid #e9e9e9; font-weight: bold; border-radius: 4px !important;}
-.gift-card ion-card-header{border-bottom: 1px solid #e9e9e9; padding: 12px; font-weight: bold; color: #545454;}
-.amount-card ion-card-header{border-bottom: 1px solid #e9e9e9; padding: 12px; font-weight: bold; color: #545454;}
-.amount-card ion-card-content {font-weight: normal; font-size: 17px; color: #545454;}
-.gift-card ion-card-content {font-weight: normal; font-size: 17px; color: #545454;} */
-.event-detail h2 ion-icon{ font-size: 25px; vertical-align: middle; }
+.event-detail h2 ion-icon{ font-size: 20px; vertical-align: middle; }
+.card-box ion-card{border: 2px solid #e8e8e8; box-shadow: none;}
+.card-box ion-card-header{font-size: 16px; font-weight: normal; text-transform: capitalize; font-weight: bold; letter-spacing: 1px;}
+.card-box ion-card-content{ color: #488aff; font-size: 25px; font-weight: bold;} 
+.shagun-box{ padding-right: 8px !important; }
+.gift-box{ padding-left: 8px !important; }
+.event-detail h2{ margin: 0px 0 10px 0; font-size: 16px; color: #5a5a5a; font-weight: bold;}
+.event-detail h2.date{ margin: 0px 0 10px 0; font-size: 15px; color: #5a5a5a;}
+.event-detail .date ion-icon{ margin-right: 10px; }
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
