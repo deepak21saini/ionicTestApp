@@ -38,7 +38,12 @@ $app-direction: ltr;
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
-.event-detail h2{margin: 0px 0 10px 0; font-size: 18px; color: #5a5a5a; font-weight: 600; }
+.event-detail h2{margin: 0px 0 10px 0;
+    font-size: 18px;
+    color: #585858;
+    font-weight: 600;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;}
 .notes-p{margin-top: 0px; font-size: 15px; color: #545454; line-height: 22px; }
 .event-detail h2 ion-icon{ font-size: 20px; vertical-align: middle; }
 .card-box ion-card{ box-shadow: none; border-radius: 4px;}
@@ -51,7 +56,8 @@ $app-direction: ltr;
 .card-box .text-box h2{font-size: 35px; font-weight: bold; color: #fff; letter-spacing: 0.5px; margin: 0;}
 .card-box ion-card-content{float: left; width: 100%; padding: 15px;}
 .box-row{ margin-right: -16px; margin-left: -16px; padding: 15px; background-color: #f3f3f3; }
-.event-detail h3{font-size: 15px !important; color: #3a3a3a;}
+.event-detail h3{font-size: 16px !important; color: #3a3a3a;}
+.event-detail h3 span{color: red; font-weight: bold;}
 
 // Shared Variables
 // --------------------------------------------------
