@@ -22,7 +22,8 @@ export class AddShagunPage {
   	tags:'',
   	gift:'',
 	  amount : '',
-  	gift_image:null
+  	gift_image:null,
+    type : 'add'
   };
   event:any;
   shagunForm:any;
@@ -74,6 +75,7 @@ export class AddShagunPage {
             //this.model = {};
             this.shared.AlertMessage('Success', 'Shagun added successfully.');
             this.navCtrl.getPrevious().data.addShagun = res.data;
+            this.eventsService.setEventShagun(this.model);
             this.navCtrl.pop();
           },
           error => {

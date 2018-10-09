@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers} from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import {Config} from './config';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -10,6 +10,8 @@ import 'rxjs/add/operator/catch';
 export class EventsService {
 
     headers;
+
+    private shagun = new Subject<any>();
 
     constructor( private http: Http){ 
 
@@ -97,7 +99,15 @@ export class EventsService {
         })
 
     }
- 
+
+
+    setEventShagun(data) {
+        this.shagun.next(data);
+    }
+
+    getEventShagun(): Observable<any> {
+        return this.shagun.asObservable();
+    }
 
 }
 

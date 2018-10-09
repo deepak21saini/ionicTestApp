@@ -112,6 +112,15 @@ export class ShagunsPage {
 
                   this.assignCopy();
                   this.shared.AlertMessage('Success', 'Shagun deleted successfully.');
+
+                  let data = {
+                      type : 'delete',
+                      amount : shagun.amount,
+                      gift : shagun.gift,
+                      gift_image : shagun.gift_image
+
+                  }
+                  this.eventsService.setEventShagun(data);
                 }, 
                 error => {
                    this.shared.handleError(error);
