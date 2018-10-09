@@ -88,6 +88,8 @@ export class VerifyOtpPage {
         this.navCtrl.push(NewPasswordPage,{email:this.model.email});
       }, 
       error => {
+        this.model = {otp:{first: '', second: '', third: '', fourth: ''}};
+        this.passcode1.setFocus();
         this.shared.handleError(error);
         loader.dismiss();
       },

@@ -45,6 +45,10 @@
         </ion-item-options>
       </ion-item-sliding>
 
+      <div *ngIf="!filteredShaguns?.length && isDataLoaded" padding>
+         No data found...
+      </div>
+
   	</ion-list>  
   
 

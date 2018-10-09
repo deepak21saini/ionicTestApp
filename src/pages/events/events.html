@@ -50,5 +50,8 @@
       </ion-item-sliding>
 
   </ion-list>  
-	    
+	  <div *ngIf="!filteredEvents?.length && isDataLoaded" padding>
+         No data found...
+    </div>
+
 </ion-content>

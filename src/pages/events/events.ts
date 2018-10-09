@@ -23,6 +23,7 @@ export class EventsPage {
   search:string;
   timer = null;
   filteredEvents: Array<{}>;
+  isDataLoaded:boolean = false;
 
   constructor(
   		public navCtrl: NavController,
@@ -58,10 +59,12 @@ export class EventsPage {
       this.eventsService.getEventsList().subscribe(res => { 
       	this.events = res.data;
         this.assignCopy();
+        this.isDataLoaded = true;
       }, 
       error => {
          this.shared.handleError(error);
          loader.dismiss();
+         this.isDataLoaded = true;
       },
       () => {
         loader.dismiss();

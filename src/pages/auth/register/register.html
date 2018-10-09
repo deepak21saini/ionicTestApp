@@ -13,8 +13,12 @@
 		</ion-row>
 	</ion-grid>
 	<ion-list class="login-form">
+
 		<ion-item no-padding margin-bottom>
-			<!-- <ion-label color="dark" stacked >Email</ion-label> -->
+			<ion-input type="text" [(ngModel)]="model.full_name" name="full_name" placeholder="Full Name" required></ion-input>
+		</ion-item>
+
+		<ion-item no-padding margin-bottom>
 			<ion-input type="text" [(ngModel)]="model.email" name="email" placeholder="Email" required></ion-input>
 		</ion-item>
 		<ion-item no-padding margin-bottom>
