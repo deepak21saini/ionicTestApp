@@ -109,7 +109,7 @@ export class EventsPage {
                   );
 
                   this.assignCopy();
-                  this.shared.AlertMessage('Success', 'Event deleted successfully.');
+                  //this.shared.AlertMessage('Success', 'Event deleted successfully.');
                 }, 
                 error => {
                    this.shared.handleError(error);
