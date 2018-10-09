@@ -22,6 +22,7 @@ export class ShagunsPage {
   event:any;
   filteredShaguns: Array<{}>;
   search:string;
+  isDataLoaded:boolean = false;
 
   constructor(
   		public navCtrl: NavController, 
@@ -67,10 +68,12 @@ export class ShagunsPage {
 	      this.eventsService.getShaguns(this.event.id).subscribe(res => { 
 	      	this.shaguns = res.data.amount;
           this.assignCopy();
+          this.isDataLoaded = true;
 	      }, 
 	      error => {
 	         this.shared.handleError(error);
 	         loader.dismiss();
+           this.isDataLoaded = true;
 	      },
 	      () => {
 	        loader.dismiss();
@@ -109,6 +112,15 @@ export class ShagunsPage {
 
                   this.assignCopy();
                   this.shared.AlertMessage('Success', 'Shagun deleted successfully.');
+
+                  let data = {
+                      type : 'delete',
+                      amount : shagun.amount,
+                      gift : shagun.gift,
+                      gift_image : shagun.gift_image
+
+                  }
+                  this.eventsService.setEventShagun(data);
                 }, 
                 error => {
                    this.shared.handleError(error);

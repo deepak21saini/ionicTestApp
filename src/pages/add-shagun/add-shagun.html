@@ -22,26 +22,24 @@
 			</ion-item>
 			 
 			<ion-item no-padding margin-bottom>
-			    <ion-input type="text" [(ngModel)]="model.address" name="address" placeholder="Address"></ion-input>
+			    <ion-input type="text" [(ngModel)]="model.tags" name="tags" placeholder="Tags (optional)"></ion-input>
 			</ion-item>
 			 
-			<ion-item no-padding margin-bottom>
-				<ion-input type="text" [(ngModel)]="model.city" name="city" placeholder="City"></ion-input>
-			</ion-item>
  
 			<ion-item no-padding margin-bottom>
 				<ion-input type="number" [(ngModel)]="model.amount" name="amount" placeholder="Amount"></ion-input>
 			</ion-item>
 
-			<ion-item no-padding margin-bottom>
+			<ion-item no-padding margin-bottom *ngIf="isGift">
 				<ion-input type="text" [(ngModel)]="model.gift" name="gift" placeholder="Gift"></ion-input>
 			</ion-item>
 
-			<ion-item no-padding margin-bottom>
+			<ion-item no-padding margin-bottom *ngIf="isGift">
 				<ion-input type="file" id="gift_image" (change)="handleFileInput($event.target.files)" no-margin></ion-input>
 			</ion-item>
-			  
 
+			<button ion-button round outline (click)="addGift()">{{buttonText}}</button>
+ 
 		</ion-list>	 
 	</form>
 	<button ion-button block color="primary" [disabled]="!shagunForm.valid" (click)="add()">ADD</button>

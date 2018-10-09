@@ -19,15 +19,17 @@ export class AddShagunPage {
   
   model = {
   	name:'',
-  	city:'',
-  	address:'',
+  	tags:'',
   	gift:'',
-	amount : '',
-  	gift_image:null
+	  amount : '',
+  	gift_image:null,
+    type : 'add'
   };
   event:any;
   shagunForm:any;
-
+  isGift:boolean = false;
+  buttonText = 'Add Gift';
+ 
   constructor(
   		public navCtrl: NavController, 
   		public navParams: NavParams,
@@ -54,7 +56,6 @@ export class AddShagunPage {
 
   add(){
 
-    
     const formData: FormData = new FormData();
     if (this.model.gift_image) {
     	formData.append('gift_image', this.model.gift_image, this.model.gift_image.name);
@@ -62,11 +63,11 @@ export class AddShagunPage {
 	
 	formData.append('name', this.model.name);
 	formData.append('amount', this.model.amount);
-	formData.append('city', this.model.city );
+	formData.append('tags', this.model.tags );
 	formData.append('event_id', this.event.id);
 	formData.append('gift', this.model.gift);
     
-    console.log(formData);
+    //console.log(formData);
 
   	let loader = this.loading.create({ });
         loader.present().then(() => {
@@ -74,6 +75,7 @@ export class AddShagunPage {
             //this.model = {};
             this.shared.AlertMessage('Success', 'Shagun added successfully.');
             this.navCtrl.getPrevious().data.addShagun = res.data;
+            this.eventsService.setEventShagun(this.model);
             this.navCtrl.pop();
           },
           error => {
@@ -84,6 +86,22 @@ export class AddShagunPage {
             loader.dismiss();
           });
       }); 
+
+  }
+
+
+  addGift(){
+
+    this.isGift = !this.isGift;
+    if(this.isGift){
+      this.buttonText = 'Cancel Gift';
+    }
+    else{
+      this.model.gift_image = null;
+      this.model.gift = '';
+      this.buttonText = 'Add Gift';
+    }
+
   }
 
 

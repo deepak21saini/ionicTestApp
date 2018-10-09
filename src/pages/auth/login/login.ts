@@ -23,6 +23,7 @@ export class LoginPage {
 	public loginForm: any;
   public model:any = {};
   public disableButton : boolean;
+  public passwordType : string = 'password';
 
   constructor(
 	public navCtrl: NavController, 
@@ -64,6 +65,17 @@ export class LoginPage {
           });
       }); 
       
+  }
+
+  changePasswordType(){
+
+    if(this.passwordType == 'password'){
+        this.passwordType = 'text';
+    }
+    else{
+        this.passwordType = 'password';
+    }
+
   }
 
   goToRegister(){

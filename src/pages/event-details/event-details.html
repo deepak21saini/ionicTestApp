@@ -35,26 +35,29 @@
     <ion-row class="box-row">
       <ion-col col-12 class="card-box amount-box"> 
         <ion-card no-margin margin-bottom>
+
           <ion-card-content>  
           <div class="img-box">
-            <img src="assets/imgs/blance.png" alt="" title="" />
+             <img src="assets/imgs/amount.png" alt="" title="" />
+           
           </div>
           <div class="text-box">
-           <h4> Total Blance</h4>
-           <h2> 38,888 </h2> 
+           <h4> Total Members</h4>
+           <h2> {{event.total_member || 0 }} </h2> 
           </div>
           </ion-card-content>
+
         </ion-card>
       </ion-col>
       <ion-col col-12 class="card-box shagun-box">
         <ion-card no-margin margin-bottom>
           <ion-card-content class="clearfox">  
           <div class="img-box">
-            <img src="assets/imgs/amount.png" alt="" title="" />
+            <img src="assets/imgs/blance.png" alt="" title="" />
           </div>
           <div class="text-box">
            <h4> Amount</h4>
-           <h2> 25400 </h2> 
+           <h2> {{event.total_amount || 0 }} </h2> 
           </div>
           </ion-card-content>
         </ion-card>
@@ -67,7 +70,7 @@
           </div>
           <div class="text-box">
            <h4> Gifts</h4>
-           <h2> 14 </h2> 
+           <h2> {{event.total_gift || 0 }} </h2> 
           </div>
           </ion-card-content>
         </ion-card>

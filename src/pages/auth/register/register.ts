@@ -54,6 +54,13 @@ export class RegisterPage {
         return false
       }
 
+      let full_name = this.model.full_name.split(" ");
+      this.model.first_name = full_name[0];
+       
+      if(full_name.length > 1){
+           this.model.last_name = full_name[1];
+      }
+      
       this.auth.signup(this.model).subscribe(data => { 
           var mobile = this.model.mobile;
           var email = this.model.email;

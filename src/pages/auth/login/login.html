@@ -17,8 +17,9 @@
 			<ion-item no-padding margin-bottom >
 				<ion-input type="text" [(ngModel)]="model.email" name="email" placeholder="Email Address" required></ion-input>
 			</ion-item>
-			<ion-item no-padding >  
-				<ion-input type="password" [(ngModel)]="model.password" name="password" placeholder="Password" required ></ion-input>
+			<ion-item no-padding>  
+				<ion-input type="{{passwordType}}" [(ngModel)]="model.password" name="password" placeholder="Password" required ></ion-input>
+				<ion-icon ios="ios-eye" md="md-eye" item-end (click)="changePasswordType()"></ion-icon>
 			</ion-item>
 			<p text-right>
 				<a no-padding  no-lines (click)="goToForgotPassword()">Forgot Password?</a>
