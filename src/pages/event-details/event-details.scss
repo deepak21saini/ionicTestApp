@@ -3,4 +3,10 @@ page-event-details {
 .list-ios > .item-block:last-child{border-bottom:none;}
 .list-ios{margin: -1px 0 15px}
 ion-card{ width: 100% !important; } 
+
+/*@media screen and (max-width: 334px) {
+    .amount-box {
+       padding-left: 0px !important;
+    }
+}*/
 }
