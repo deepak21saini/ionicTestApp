@@ -7,14 +7,12 @@
  
  <ion-header>
   <ion-navbar primary>
-  	 
     <ion-navbar color="primary">
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
       <ion-title>My Events</ion-title>
     </ion-navbar>
-
     <ion-toolbar>
       <ion-searchbar right
       [(ngModel)]="search"
@@ -23,32 +21,48 @@
       (ionCancel)="onCancelSerach($event)">
       </ion-searchbar>
     </ion-toolbar>
-	 
   </ion-navbar>
-  
 </ion-header>
 
 <ion-content>
-    
-
 	<ion-fab right bottom>
 	   <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
 	</ion-fab>
-	<ion-list>
+<!-- <ion-list *ngFor="let event of filteredEvents">
+  <ion-item>
+    <ion-thumbnail item-start>
+      <h2> 17 <span>Jun</span></h2>
+    </ion-thumbnail>
+    <h2>{{event.name}}</h2>
+    <p>{{event.start_date}} • {{event.end_date}}</p>
+    <p><span> Blance : 38,888 </span> <span> Amount : 2000 </span> <span> Gift : 12 </span> </p>
+    <p>{{event.notes}}</p>
+    <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>
+    </ion-item>
+    <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(event)">Delete</button>
+      </ion-item-options>
+</ion-list> -->
 
-      <ion-item-sliding *ngFor="let event of filteredEvents">
-        <ion-item>
-            <h2>{{event.name}} </h2>
-            <p>{{event.start_date}} • {{event.end_date}}</p>
-            <p>{{event.notes}}</p>
-            <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>
-        </ion-item>
-         
-        <ion-item-options side="right">
-          <button ion-button color="danger" (click)="delete(event)">Delete</button>
-        </ion-item-options>
-      </ion-item-sliding>
-
+	<ion-list class="sliding-list">
+    <ion-item-sliding *ngFor="let event of filteredEvents" no-lines>
+      <ion-item class="event-list" no-padding no-lines>
+          <ion-thumbnail item-start>
+            <h3> 17 <span>Jun</span></h3>
+          </ion-thumbnail>
+          <h2>{{event.name}} </h2>
+          <p>{{event.start_date}} • {{event.end_date}}</p>
+          <p>
+            <span class="blance"> Total Blance: 38,858</span> 
+            <span class="total-amount"> Amount : 2500</span>
+            <span class="total-gift">Gift : 22</span>
+          </p>
+          <p>{{event.notes}}</p>
+          <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(event)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>  
-	    
 </ion-content>
