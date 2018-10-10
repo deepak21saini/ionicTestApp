@@ -19,11 +19,16 @@
 			</ion-item>
 			<ion-item no-padding>  
 				<ion-input type="{{passwordType}}" [(ngModel)]="model.password" name="password" placeholder="Password" required ></ion-input>
-				<ion-icon ios="ios-eye" md="md-eye" item-end (click)="changePasswordType()"></ion-icon>
+				<ion-icon name="eye-off" item-end (click)="changePasswordType()" *ngIf="passwordType=='password'"></ion-icon>
+				<ion-icon name="eye" item-end (click)="changePasswordType()" *ngIf="passwordType=='text'"></ion-icon>
+				 
 			</ion-item>
 			<p text-right>
 				<a no-padding  no-lines (click)="goToForgotPassword()">Forgot Password?</a>
 			</p>
+			
+ 
+
 		</ion-list>	 
 	 </form>
 	
