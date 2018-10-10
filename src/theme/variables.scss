@@ -58,7 +58,18 @@ $app-direction: ltr;
 .box-row{ margin-right: -16px; margin-left: -16px; padding: 15px; background-color: #f3f3f3; }
 .event-detail h3{font-size: 15px !important; color: #a9a9a9; letter-spacing: 0.3px;}
 .event-detail h3 span{font-weight: normal; font-size: 17px; color: #525252;}
-.event-list{}
+.event-list ion-thumbnail {margin-left: 5px !important; background-color: #ff9800; border-radius: 50px; min-width: 50px !important; min-height: 50px !important; height: 50px; width: 50px;}
+.event-list img{ width: 14px; vertical-align: middle; }
+.event-list h2{font-size: 18px !important; font-weight: bold !important; letter-spacing: 0.5px; color: #464646; margin-bottom: 0 !important; }
+.event-list p{font-size: 14px !important; color: #a5a5a5 !important; margin: 5px 0 0px !important;} 
+.event-list{border-bottom: 1px solid #ececec !important;}
+.event-list p span{ display: inline-block; vertical-align: middle; } 
+.event-list ion-thumbnail h3{font-size: 27px; text-align: center; color: #fff; padding: 5px 0;}
+.sliding-list ion-item-sliding:nth-of-type(2) .event-list ion-thumbnail {background-color: #03a9f4 !important;}
+.sliding-list ion-item-sliding:nth-of-type(3) .event-list ion-thumbnail {background-color: #009688 !important;}
+.sliding-list ion-item-sliding:nth-of-type(4) .event-list ion-thumbnail {background-color: #9C27B0 !important;}
+.sliding-list ion-item-sliding:nth-of-type(5) .event-list ion-thumbnail {background-color: #e91e63 !important;}
+/*.event-list{}
 .event-list ion-thumbnail{margin: 0 !important; min-height: 100px !important; text-align: center; width: 70px; padding: 25px 10px;}
 .event-list ion-thumbnail h3{font-size: 25px; font-weight: bold; color: #383838;}
 .event-list ion-thumbnail h3 span{display: block; font-size: 12px; color: #9e9e9e; font-weight: normal; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px;}
@@ -68,12 +79,12 @@ $app-direction: ltr;
 .sliding-list ion-item-sliding:last-child{}
 .event-list p span{ display: inline-block; margin-bottom: 4px;}
 .event-list .item-inner {border-left:1px solid #eaeaea !important;}
-.event-list p{margin-top: 2px !important;} 
+.event-list p{margin-top: 2px !important;} */
 .blance{ color: #03A9F4; }
 .total-amount{color: #4CAF50;}
 .total-gift{color: #FF9800;}
 .date-list{padding: 5px 14px; -webkit-box-shadow: 0px 0px 6px 0px #000000; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.06); border-radius: 4px;}
-
+.btn-view{ margin: 0px !important; padding: 0px !important}
 
 
 // Shared Variables

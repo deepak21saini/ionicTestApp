@@ -5,39 +5,52 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
     <ion-navbar color="primary">
       <ion-title>Shaguns</ion-title>
     </ion-navbar>
-
     <ion-toolbar>
       <ion-searchbar
-	    [(ngModel)]="search"
-	    [showCancelButton]="shouldShowCancel"
-	    (ionInput)="onSerachInput($event)"
-	    (ionCancel)="onCancelSerach($event)">
-	  </ion-searchbar>
+  	    [(ngModel)]="search"
+  	    [showCancelButton]="shouldShowCancel"
+  	    (ionInput)="onSerachInput($event)"
+  	    (ionCancel)="onCancelSerach($event)">
+      </ion-searchbar>
     </ion-toolbar>
-
 </ion-header>
-
 <ion-content>
+  <ion-fab right bottom>
+    <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+<ion-card *ngFor="let shagun of filteredShaguns">
+  <ion-card-header>
+     {{shagun.name}}
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list no-lines>
+      <ion-item no-padding no-margin *ngIf="shagun.amount"> Amount <span>{{shagun.amount}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.city"> City <span> {{shagun.city}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.address"> Address <span>{{shagun.address}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.gift"> Gift <span>{{shagun.gift}}</span></ion-item>
+    </ion-list>
+<!--     <p *ngIf="shagun.amount"> Amount <span>{{shagun.amount}}</span> </p>
+    <p *ngIf="shagun.city"> City <span> {{shagun.city}}</span></p>
+    <p *ngIf="shagun.address"> Address <span>{{shagun.address}}</span> </p>
+    <p *ngIf="shagun.gift"> Gift <span>{{shagun.gift}}</span></p> -->
+  </ion-card-content>
+  <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
+</ion-card>
 
-    <ion-fab right bottom>
-	   <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
-	</ion-fab>
 
-	<ion-list>
-
+	<!-- <ion-list>
       <ion-item-sliding *ngFor="let shagun of filteredShaguns">
         <ion-item>
             <h2>{{shagun.name}}</h2>
             <p *ngIf="shagun.amount">{{shagun.amount}}</p>
-	     	<p *ngIf="shagun.city">{{shagun.city}}</p>
-	     	<p *ngIf="shagun.address">{{shagun.address}} </p>
-	     	<p *ngIf="shagun.gift">{{shagun.gift}}</p>
+	     	     <p *ngIf="shagun.city">{{shagun.city}}</p>
+	     	     <p *ngIf="shagun.address">{{shagun.address}} </p>
+	     	     <p *ngIf="shagun.gift">{{shagun.gift}}</p>
 
-	     	<img style="width:300px;"  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
+	     	   <img style="width:300px;"  src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
         </ion-item>
          
         <ion-item-options side="right">
@@ -49,7 +62,7 @@
          No data found...
       </div>
 
-  	</ion-list>  
+  	</ion-list>  --> 
   
 
 </ion-content>
