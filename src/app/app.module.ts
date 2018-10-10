@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { EventsPageModule } from '../pages/events/events.module';
 
 import { AddEventPageModule } from '../pages/add-event/add-event.module';
+import { EditEventPageModule } from '../pages/edit-event/edit-event.module';
 import { EventDetailsPageModule } from '../pages/event-details/event-details.module';
 import { ShagunsPageModule } from '../pages/shaguns/shaguns.module';
 import { AddShagunPageModule } from '../pages/add-shagun/add-shagun.module';
@@ -38,6 +39,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     BrowserModule,
     EventsPageModule,
     AddEventPageModule,
+    EditEventPageModule,
     EventDetailsPageModule,
     LoginPageModule,
     RegisterPageModule,

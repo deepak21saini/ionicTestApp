@@ -52,6 +52,10 @@ export class ProfilePage {
   presentProfileModal(column, val) {
     let label = column;
     column = column.toLowerCase().replace(' ', '_');
+    if(column == 'full_name'){
+      val = val.first_name + ' '+val.last_name; 
+    }
+
     let profileModal = this.modalCtrl.create('UpdateprofilePage', {label:label, column: column, val:val});
 
     profileModal.onDidDismiss(data => {

@@ -46,7 +46,19 @@ export class UpdateprofilePage {
     loader.present().then(() => {
       let value = this.model.name;
       this.model = {};
-      this.model[this.column] = value;
+ 
+      if(this.column == 'full_name'){
+          let full_name = value.split(" ");
+          this.model.first_name = full_name[0];
+           
+          if(full_name.length > 1){
+               this.model.last_name = full_name[1];
+          }
+      }
+      else{
+          this.model[this.column] = value;
+      }
+      
       this.profile.updateProfile(this.model).subscribe(res => {
         this.model = {};
         if(res){

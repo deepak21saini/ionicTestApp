@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth.service';
- 
+import { EventsService } from '../providers/events.service';
 
 @Component({
   templateUrl: 'app.html'                               
@@ -19,13 +19,15 @@ export class MyApp {
   username:any;
   email: any;
   image: any;
+  newNotifications:number;
   // pages: Array<{title: string, icon: string, component: any}>;
 
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private auth:AuthService
+    private auth:AuthService,
+    private eventsService: EventsService,
     ) {
 
       this.initializeApp();
@@ -61,17 +63,37 @@ export class MyApp {
       });
   
       // used for an example of ngFor and navigation
+      //localStorage.setItem('notifications'
+
+      let notifications = parseInt(localStorage.getItem('notifications'));
+
+      this.eventsService.getViewedNotifications().subscribe(data => {
+
+        if(notifications > data){
+          this.newNotifications = notifications - data;
+        }
+
+      });
+
+      
+      let viewedNotifications = parseInt(localStorage.getItem('viewedNotifications'));
+      if(notifications > viewedNotifications){
+        this.newNotifications = notifications - viewedNotifications;
+      }
+       
+
       this.pages = [
-        { title: 'Home', icon:'home', component: 'HomePage'  },
+        { title: 'Home a', icon:'home', component: 'HomePage'  },
   	    { title: 'Login', icon:'contact', component: 'LoginPage' },
   	    { title: 'Register', icon:'person-add', component: 'RegisterPage' },
       ];
 
       this.accountMenuItems = [
  
-          {title: 'My Events', component: 'EventsPage', icon: 'briefcase'},
-          {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
-          {title: 'Feedback', component: 'AssetPage', icon: 'star'}
+          {title: 'My Events', data:'', component: 'EventsPage', icon: 'briefcase'},
+          {title: 'Notifications', data: this.newNotifications,  component: 'NotificationsPage', icon: 'alert'},
+          {title: 'Help', data:'',  component: 'AssetPage', icon: 'help-circle'},
+          {title: 'Feedback', data:'',  component: 'AssetPage', icon: 'star'}
  
         ];
   }
@@ -80,9 +102,16 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+
+  ionViewWillEnter() {
+
+      console.log('jiiiiiiiii');
   }
 
   openPage(page) {

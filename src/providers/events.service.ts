@@ -12,6 +12,7 @@ export class EventsService {
     headers;
 
     private shagun = new Subject<any>();
+    private notifications = new Subject<any>();
 
     constructor( private http: Http){ 
 
@@ -48,6 +49,18 @@ export class EventsService {
 
     }
 
+    editEvent(data){
+
+        return this.http.post(Config.API_URLS.EVENTS.EDIT, data, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+    }
+
     deleteEvent(eventId:number){
 
         return this.http.post(Config.API_URLS.EVENTS.DELETE, {event_id:eventId}, {
@@ -72,6 +85,7 @@ export class EventsService {
         })
 
     }
+ 
 
     getShaguns(eventId:number){
 
@@ -108,6 +122,30 @@ export class EventsService {
     getEventShagun(): Observable<any> {
         return this.shagun.asObservable();
     }
+
+    setViewedNotifications(no:number) {
+        this.notifications.next(no);
+    }
+
+    getViewedNotifications(): Observable<any> {
+        return this.notifications.asObservable();
+    }
+
+     
+    getNotifications(){
+
+        return this.http.get(Config.API_URLS.EVENTS.NOTIFICATIONS, {
+            headers: this.headers
+        })
+        .map(function (res) { 
+            return res.json(); 
+        })
+        .catch(function (error) {
+            return Observable.throw(error.json());
+        });
+
+    }
+
 
 }
 

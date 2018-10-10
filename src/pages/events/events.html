@@ -49,22 +49,27 @@
       <ion-item class="event-list" no-padding no-lines>
           <ion-thumbnail item-start><h3>A</h3></ion-thumbnail>
           <h2>{{event.name}}</h2>
-          <p>Sept 20, 2018, 09:00AM</p>
+          <p>{{ event.start_date | date:'dd MMM, yyyy' }}</p>
           <!-- <p>{{event.start_date}} • {{event.end_date}}</p> -->
           <p> 
-            <img src="assets/imgs/user-icon.png" alt="" title="" /> <span>10</span> ,
-            <img src="assets/imgs/ruppes-icon.png" alt="" title="" /> <span>2000</span> , 
-            <img src="assets/imgs/gift-icon.png" alt="" title="" /> <span>12</span>
+            <img src="assets/imgs/user-icon.png" alt="" title="" /> <span>{{event.total_member}}</span> ,
+            <img src="assets/imgs/ruppes-icon.png" alt="" title="" /> <span>{{event.total_amount}}</span> , 
+            <img src="assets/imgs/gift-icon.png" alt="" title="" /> <span>{{event.total_gift}}</span>
             <!-- <span class="blance"> Total Blance: 38,858</span> 
             <span class="total-amount"> Amount : 2500</span>
             <span class="total-gift">Gift : 22</span> -->
+
           </p>
           <!-- <p>{{event.notes}}</p> -->
           <button ion-button clear no-margin item-end (click)="goToEventDetail(event)" class="btn-view">View</button>
       </ion-item>
+
+       
       <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="edit(event)"> Edit </button>
         <button ion-button color="danger" (click)="delete(event)">Delete</button>
       </ion-item-options>
+
     </ion-item-sliding>
   </ion-list>  
 	  <div *ngIf="!filteredEvents?.length && isDataLoaded" padding>
