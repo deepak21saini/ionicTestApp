@@ -12,20 +12,21 @@
 <ion-content padding>
   <div class="event-detail">
     <h2>{{event.name}}</h2>
-    <ion-item-group margin-top margin-bottom>
+    <ion-list class="date-list">
       <ion-item no-padding>
         <h3 class="date"><ion-icon name="calendar" large></ion-icon> Start Date : 
-          <span style="color:#488aff;">{{event.start_date}}</span>
-        </h3>
+          <span>{{event.start_date}}</span></h3>
       </ion-item>
+    </ion-list> 
+    <ion-list class="date-list">
       <ion-item no-padding>
         <h3 class="date">
           <ion-icon name="calendar" large></ion-icon> End Date : 
-          <span style="color:#488aff;">{{event.end_date}}</span> 
+          <span>{{event.end_date}}</span> 
         </h3>
       </ion-item>
-    </ion-item-group>
-    <ion-row>
+    </ion-list>
+    <ion-row margin-top padding-top>
       <ion-col>
         <h2 class="notes">Event Description</h2>
         <p class="notes-p">{{event.notes}}</p>
@@ -35,18 +36,15 @@
     <ion-row class="box-row">
       <ion-col col-12 class="card-box amount-box"> 
         <ion-card no-margin margin-bottom>
-
           <ion-card-content>  
           <div class="img-box">
              <img src="assets/imgs/amount.png" alt="" title="" />
-           
           </div>
           <div class="text-box">
            <h4> Total Members</h4>
            <h2> {{event.total_member || 0 }} </h2> 
           </div>
           </ion-card-content>
-
         </ion-card>
       </ion-col>
       <ion-col col-12 class="card-box shagun-box">
@@ -78,8 +76,8 @@
       
     </ion-row>
     <ion-row margin-top>
-      <button ion-button  block (click)="viewShaguns()" margin-bottom no-margin>View shaguns</button>
-      <button ion-button block outline (click)="addShagun()" no-margin>Add shagun</button>
+      <button ion-button  block (click)="viewShaguns()" margin-bottom no-margin>View Shaguns</button>
+      <button ion-button block outline (click)="addShagun()" no-margin>Add Shagun</button>
     </ion-row>
   </div>
 </ion-content>

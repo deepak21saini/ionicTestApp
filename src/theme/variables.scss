@@ -38,8 +38,13 @@ $app-direction: ltr;
 .login-form ion-col textarea{ border-bottom: 1px solid #ccc }
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
-.event-detail h2{margin: 0px 0 10px 0; font-size: 18px; color: #585858; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;}
-.notes-p{margin-top: 0px; font-size: 15px; color: #545454; line-height: 22px; }
+.event-detail h2{margin: 0px 0 15px 0; font-size: 20px; color: #585858; font-weight: 400; text-transform: capitalize; letter-spacing: 0.5px;}
+.notes-p{    margin-top: 0px;
+    font-size: 14px;
+    color: #797979;
+    line-height: 23px;
+    font-weight: normal; }
+.notes{ margin-bottom: 5px !important; }
 .event-detail h2 ion-icon{ font-size: 20px; vertical-align: middle; }
 .card-box ion-card{ box-shadow: none; border-radius: 4px;}
 .amount-box ion-card{ background-image: linear-gradient(to right, #0bbcff , #059bfc ); }
@@ -51,21 +56,26 @@ $app-direction: ltr;
 .card-box .text-box h2{font-size: 35px; font-weight: bold; color: #fff; letter-spacing: 0.5px; margin: 0;}
 .card-box ion-card-content{float: left; width: 100%; padding: 15px;}
 .box-row{ margin-right: -16px; margin-left: -16px; padding: 15px; background-color: #f3f3f3; }
-.event-detail h3{font-size: 17px !important; color: #6b6b6b;}
-.event-detail h3 span{color: red; font-weight: normal;}
+.event-detail h3{font-size: 15px !important; color: #a9a9a9; letter-spacing: 0.3px;}
+.event-detail h3 span{font-weight: normal; font-size: 17px; color: #525252;}
 .event-list{}
-.event-list ion-thumbnail{margin: 0 !important; min-height: 100px !important; border-right: 1px solid #eaeaea; text-align: center; width: 70px; padding: 25px 10px;}
+.event-list ion-thumbnail{margin: 0 !important; min-height: 100px !important; text-align: center; width: 70px; padding: 25px 10px;}
 .event-list ion-thumbnail h3{font-size: 25px; font-weight: bold; color: #383838;}
-.event-list ion-thumbnail h3 span{display: block; font-size: 18px; color: #9e9e9e; font-weight: normal;}
+.event-list ion-thumbnail h3 span{display: block; font-size: 12px; color: #9e9e9e; font-weight: normal; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px;}
 .event-list .item-inner{padding: 0 0 0 10px;}
 .sliding-list ion-item-sliding{border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4; margin-top: 10px; }
 .sliding-list ion-item-sliding:first-child{ margin-top: 0px; }
-.sliding-list ion-item-sliding:last-child{border-bottom: none;}
+.sliding-list ion-item-sliding:last-child{}
 .event-list p span{ display: inline-block; margin-bottom: 4px;}
-.event-list p{margin-top: 2px !important;}
+.event-list .item-inner {border-left:1px solid #eaeaea !important;}
+.event-list p{margin-top: 2px !important;} 
 .blance{ color: #03A9F4; }
 .total-amount{color: #4CAF50;}
 .total-gift{color: #FF9800;}
+.date-list{padding: 5px 14px; -webkit-box-shadow: 0px 0px 6px 0px #000000; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.06); border-radius: 4px;}
+
+
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
