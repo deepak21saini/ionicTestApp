@@ -48,14 +48,14 @@
     <ion-item-sliding *ngFor="let event of filteredEvents" no-lines>
       <ion-item class="event-list" no-padding no-lines>
           <ion-thumbnail item-start>
-            <h3> 17 <span>Jun</span></h3>
+            <h3> {{ event.start_date | date:'dd MMM' }}  </h3>
           </ion-thumbnail>
           <h2>{{event.name}} </h2>
           <p>{{event.start_date}} • {{event.end_date}}</p>
           <p>
-            <span class="blance"> Total Blance: 38,858</span> 
-            <span class="total-amount"> Amount : 2500</span>
-            <span class="total-gift">Gift : 22</span>
+            <span class="blance"> Members: {{event.total_member}}</span>,
+            <span class="total-amount"> Amount : {{event.total_amount}}</span>, 
+            <span class="total-gift">Gift : {{event.total_gift}}</span>
           </p>
           <p>{{event.notes}}</p>
           <button ion-button clear item-end (click)="goToEventDetail(event)" >View</button>

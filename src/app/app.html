@@ -25,7 +25,8 @@
       </div>
       <div *ngIf="isLoggedIn">
      <button detail-none menuClose ion-item *ngFor="let p of accountMenuItems" (click)="openPage(p)">
-       <ion-icon name="{{p.icon}}" margin-right></ion-icon> {{p.title}}  
+       <ion-icon name="{{p.icon}}" margin-right></ion-icon> {{p.title}} 
+       <span style="color:red">{{p.data}}</span> 
       </button>
       <button detail-none menuClose ion-item (click)="logout()">
        <ion-icon name="log-out" margin-right></ion-icon> Logout

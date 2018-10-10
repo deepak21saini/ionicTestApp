@@ -52,7 +52,8 @@ export class LoginPage {
             this.model = {};
             this.storage.set('user', res.data);
             localStorage.setItem('auth_token', res.data.access_token);
-			this.auth.setLoggedInStatus(true);
+            localStorage.setItem('notifications', res.notifications);
+			      this.auth.setLoggedInStatus(true);
             this.auth.setUser(res.data);
             this.navCtrl.setRoot(EventsPage);
           },

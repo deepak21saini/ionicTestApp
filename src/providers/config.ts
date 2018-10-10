@@ -19,10 +19,12 @@ export class Config {
 		EVENTS : {
 			LIST: Config.API_ENDPOINT+"getEvents",
 			ADD: Config.API_ENDPOINT+"addEvent",
+			EDIT: Config.API_ENDPOINT+"updateEvent",
 			DELETE: Config.API_ENDPOINT+"destroyEvent",
 			ADD_SHAGUN: Config.API_ENDPOINT+"eventAmount",
 			SHAGUNS: Config.API_ENDPOINT+"getEventAmounts",
 			DELETE_SHAGUN: Config.API_ENDPOINT+"destroyEventAmount",
+			NOTIFICATIONS : Config.API_ENDPOINT+"getNotifications"
 
 			
 		} 

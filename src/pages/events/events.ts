@@ -4,6 +4,8 @@ import { EventsService } from '../../providers/events.service';
 import { SharedService } from '../../providers/shared.service';
 import { AddEventPage } from '../add-event/add-event';
 import { EventDetailsPage } from '../event-details/event-details';
+import { EditEventPage } from '../edit-event/edit-event';
+
 
 /**
  * Generated class for the EventsPage page.
@@ -47,6 +49,16 @@ export class EventsPage {
         this.events.unshift(newEvent);
         this.assignCopy();
     }
+
+    let updateEvent = this.navParams.get('updateEvent');
+    if(updateEvent ){
+        this.navParams.data.updateEvent = null;
+        this.events.forEach((item, index) =>  {
+            this.events[index] = updateEvent; 
+        });
+        this.assignCopy();
+    }
+
       
   } 
 
@@ -80,6 +92,12 @@ export class EventsPage {
 
   goToEventDetail(event){
   	this.navCtrl.push(EventDetailsPage, {
+      event: event
+    });
+  }
+
+  edit(event){
+    this.navCtrl.push(EditEventPage, {
       event: event
     });
   }
