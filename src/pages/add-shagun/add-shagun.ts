@@ -19,12 +19,13 @@ export class AddShagunPage {
   
   model = {
   	name:'',
-  	tags:'',
+  	tag:'',
   	gift:'',
 	  amount : '',
   	gift_image:null,
     type : 'add'
   };
+
   event:any;
   shagunForm:any;
   isGift:boolean = false;
@@ -63,7 +64,7 @@ export class AddShagunPage {
 	
 	formData.append('name', this.model.name);
 	formData.append('amount', this.model.amount);
-	formData.append('tags', this.model.tags );
+	formData.append('tag', this.model.tag );
 	formData.append('event_id', this.event.id);
 	formData.append('gift', this.model.gift);
     

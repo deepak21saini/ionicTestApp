@@ -1,34 +1,58 @@
 <!--
-  Generated template for the AddShagunPage page.
+  Generated template for the EditShagunPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
+
   <ion-navbar>
-    <ion-title>Add Shagun</ion-title>
+    <ion-title>Edit Shagun</ion-title>
   </ion-navbar>
+
 </ion-header>
+
+
 <ion-content padding>
+
 	<form #shagunForm="ngForm">
 		<ion-list class="login-form">
+			
 			<ion-item no-padding margin-bottom>
 				<ion-input type="text" [(ngModel)]="model.name" name="name" placeholder="Name" required></ion-input>
 			</ion-item>
+			 
 			<ion-item no-padding margin-bottom>
 			    <ion-input type="text" [(ngModel)]="model.tag" name="tag" placeholder="Tags (optional)"></ion-input>
 			</ion-item>
+			 
+ 
 			<ion-item no-padding margin-bottom>
 				<ion-input type="number" [(ngModel)]="model.amount" name="amount" placeholder="Amount"></ion-input>
 			</ion-item>
+
 			<ion-item no-padding margin-bottom *ngIf="isGift">
 				<ion-input type="text" [(ngModel)]="model.gift" name="gift" placeholder="Gift"></ion-input>
 			</ion-item>
+
 			<ion-item no-padding margin-bottom *ngIf="isGift">
 				<ion-input type="file" id="gift_image" (change)="handleFileInput($event.target.files)" no-margin></ion-input>
 			</ion-item>
-			<button ion-button small round (click)="addGift()">{{buttonText}}</button>
+
+			<ion-item color="" no-padding> 
+			
+			<ion-icon ios="ios-trash" md="md-trash" color="danger" *ngIf="shagun.gift_image" (click)="deleteImage()" class="remove-img" item-end small></ion-icon>
+
+			<ion-thumbnail item-start *ngIf="shagun.gift_image && isGift">
+		      <img src="{{shagun.gift_image}}">
+		    </ion-thumbnail>
+		    </ion-item>
+
+			<br/>
+			<button ion-button round outline (click)="addGift()">{{buttonText}}</button>
+ 
 		</ion-list>	 
 	</form>
-	<button ion-button block color="primary" [disabled]="!shagunForm.valid" (click)="add()">ADD</button>
+	<button ion-button block color="primary" [disabled]="!shagunForm.valid" (click)="update()">Update</button>
+
 </ion-content>
