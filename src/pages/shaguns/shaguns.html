@@ -21,22 +21,23 @@
   <ion-fab right bottom>
     <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
-<ion-card *ngFor="let shagun of filteredShaguns">
-  <ion-card-header>
-     {{shagun.name}}
+<ion-card *ngFor="let shagun of filteredShaguns" class="add-shugun">
+  <ion-card-header margin-bottom>
+    <h2>{{shagun.name}}</h2>
   </ion-card-header>
   <ion-card-content>
-    <ion-list no-lines>
-      <ion-item no-padding no-margin *ngIf="shagun.amount"> Amount <span>{{shagun.amount}}</span></ion-item>
-      <ion-item no-padding no-margin *ngIf="shagun.tags"> Tags <span> {{shagun.tags}}</span></ion-item>
-      <ion-item no-padding no-margin *ngIf="shagun.gift"> Gift <span>{{shagun.gift}}</span></ion-item>
-    </ion-list>
- 
+    <p no-padding no-margin *ngIf="shagun.amount"> Amount : <span>{{shagun.amount}}</span> </p>
+    <p no-padding no-margin *ngIf="shagun.tags"> Tags : <span>{{shagun.tags}}</span></p>
+    <p no-padding margin-bottom *ngIf="shagun.gift"> Gift : <span>{{shagun.gift}}</span></p>
+    <!-- <ion-list no-lines>
+      <ion-item no-padding no-margin *ngIf="shagun.amount"> Amount : <span>{{shagun.amount}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.tags"> Tags : <span>{{shagun.tags}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.gift"> Gift : <span>{{shagun.gift}}</span></ion-item>
+    </ion-list> -->
+    <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image" margin-bottom margin-top />
+    <button ion-button small outline color="primary" (click)="edit(shagun)">Edit</button>
+    <button ion-button small color="danger" (click)="delete(shagun)">Delete</button>
   </ion-card-content>
-  <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
-
-  <button ion-button color="secondary" (click)="edit(shagun)">Edit</button>
-  <button ion-button color="danger" (click)="delete(shagun)">Delete</button>
 </ion-card>
 
 
