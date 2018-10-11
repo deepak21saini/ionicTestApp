@@ -1,20 +1,30 @@
 <ion-header>
   <ion-navbar>
-    <ion-title class="pro-title" text-left>Update Profile</ion-title>
-    <button ion-button float-right clear small color="dark">
-    <ion-icon ios="ios-close" md="md-close" (click)="dismiss()" end></ion-icon>
-    </button>
-</ion-navbar>
-
+    <ion-title class="pro-title">Update Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only color="dark">
+        <ion-icon ios="ios-close" md="md-close" (click)="dismiss()" end></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Update Profile</ion-title>
+    <ion-buttons end clear>
+      <button ion-button clear small icon-only color="dark">
+        <ion-icon ios="ios-close" md="md-close" (click)="dismiss()" end></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
 <ion-content padding>
-<ion-list>
-  <ion-item no-padding margin-bottom >
-    <ion-label color="primary" stacked>{{label}}</ion-label>
-    <ion-input type="text" [(ngModel)]="model.name" name="{{column}}" value="{{val}}"></ion-input>
-  </ion-item>
-   <ion-item no-padding margin-bottom >
-  	<button ion-button block color="primary" (click)="updateProfile()">Save</button>
-  	</ion-item>
-</ion-list>
+  <ion-list>
+    <ion-item no-padding no-margin >
+      <ion-label color="primary" stacked>{{label}}</ion-label>
+      <ion-input type="text" [(ngModel)]="model.name" name="{{column}}" value="{{val}}"></ion-input>
+    </ion-item>
+    <button ion-button block color="primary" (click)="updateProfile()" margin-top >Save</button>
+  </ion-list>
 </ion-content>
