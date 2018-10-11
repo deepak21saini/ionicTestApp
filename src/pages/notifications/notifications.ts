@@ -38,7 +38,7 @@ export class NotificationsPage {
 	      		this.notifications = res.data;
 	      		let viewedNotifications = this.notifications.length; 
 	      		localStorage.setItem('viewedNotifications', viewedNotifications);
-	      		this.eventsService.setViewedNotifications(viewedNotifications)
+	      		this.eventsService.setViewedNotifications(viewedNotifications);
 	      }, 
 	      error => {
 	         this.shared.handleError(error);

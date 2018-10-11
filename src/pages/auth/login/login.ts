@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, App, NavController, NavParams, ViewController, Navbar, LoadingController } from 'ionic-angular';
 import {AuthService} from '../../../providers/auth.service';
 import {SharedService} from '../../../providers/shared.service';
+import { EventsService } from '../../../providers/events.service';
 import {RegisterPage} from '../register/register';
 import {OtpPage} from '../otp/otp';
 import {EventsPage} from '../../events/events';
@@ -33,6 +34,7 @@ export class LoginPage {
   	private auth : AuthService,
     private shared: SharedService,
     public loading: LoadingController,
+    private eventsService: EventsService,
     private storage: Storage
   ) {
 		
@@ -53,6 +55,8 @@ export class LoginPage {
             this.storage.set('user', res.data);
             localStorage.setItem('auth_token', res.data.access_token);
             localStorage.setItem('notifications', res.notifications);
+            let viewedNotifications = parseInt(localStorage.getItem('viewedNotifications'));
+            this.eventsService.setViewedNotifications(viewedNotifications);
 			      this.auth.setLoggedInStatus(true);
             this.auth.setUser(res.data);
             this.navCtrl.setRoot(EventsPage);

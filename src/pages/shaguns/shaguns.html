@@ -28,16 +28,15 @@
   <ion-card-content>
     <ion-list no-lines>
       <ion-item no-padding no-margin *ngIf="shagun.amount"> Amount <span>{{shagun.amount}}</span></ion-item>
-      <ion-item no-padding no-margin *ngIf="shagun.city"> City <span> {{shagun.city}}</span></ion-item>
-      <ion-item no-padding no-margin *ngIf="shagun.address"> Address <span>{{shagun.address}}</span></ion-item>
+      <ion-item no-padding no-margin *ngIf="shagun.tags"> Tags <span> {{shagun.tags}}</span></ion-item>
       <ion-item no-padding no-margin *ngIf="shagun.gift"> Gift <span>{{shagun.gift}}</span></ion-item>
     </ion-list>
-<!--     <p *ngIf="shagun.amount"> Amount <span>{{shagun.amount}}</span> </p>
-    <p *ngIf="shagun.city"> City <span> {{shagun.city}}</span></p>
-    <p *ngIf="shagun.address"> Address <span>{{shagun.address}}</span> </p>
-    <p *ngIf="shagun.gift"> Gift <span>{{shagun.gift}}</span></p> -->
+ 
   </ion-card-content>
   <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image"/>
+
+  <button ion-button color="secondary" (click)="edit(shagun)">Edit</button>
+  <button ion-button color="danger" (click)="delete(shagun)">Delete</button>
 </ion-card>
 
 

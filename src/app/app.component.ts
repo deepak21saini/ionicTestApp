@@ -66,22 +66,13 @@ export class MyApp {
       //localStorage.setItem('notifications'
 
       let notifications = parseInt(localStorage.getItem('notifications'));
-
       this.eventsService.getViewedNotifications().subscribe(data => {
-
-        if(notifications > data){
+        
+        if(notifications >= data){
           this.newNotifications = notifications - data;
         }
-
       });
-
-      
-      let viewedNotifications = parseInt(localStorage.getItem('viewedNotifications'));
-      if(notifications > viewedNotifications){
-        this.newNotifications = notifications - viewedNotifications;
-      }
-       
-
+ 
       this.pages = [
         { title: 'Home a', icon:'home', component: 'HomePage'  },
   	    { title: 'Login', icon:'contact', component: 'LoginPage' },
@@ -90,10 +81,10 @@ export class MyApp {
 
       this.accountMenuItems = [
  
-          {title: 'My Events', data:'', component: 'EventsPage', icon: 'briefcase'},
-          {title: 'Notifications', data: this.newNotifications,  component: 'NotificationsPage', icon: 'alert'},
-          {title: 'Help', data:'',  component: 'AssetPage', icon: 'help-circle'},
-          {title: 'Feedback', data:'',  component: 'AssetPage', icon: 'star'}
+          {title: 'My Events', component: 'EventsPage', icon: 'briefcase'},
+          {title: 'Notifications', component: 'NotificationsPage', icon: 'alert'},
+          {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
+          {title: 'Feedback', component: 'AssetPage', icon: 'star'}
  
         ];
   }
