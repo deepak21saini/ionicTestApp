@@ -38,6 +38,8 @@ export class EditEventPage {
 	  			name : this.event.name,
 	  			start_date : this.event.start_date,
 	  			end_date : this.event.end_date,
+          start_time : this.event.start_time,
+          end_time : this.event.end_time,
 	  			notes : this.event.notes,
 	  		};
 

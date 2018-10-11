@@ -26,7 +26,7 @@ export class Config {
 			DELETE_SHAGUN: Config.API_ENDPOINT+"destroyEventAmount",
 			NOTIFICATIONS : Config.API_ENDPOINT+"getNotifications",
 			UPDATE_SHAGUN: Config.API_ENDPOINT+"updateEventAmount",
-			DELETE_SHAGUN_IMAGE: Config.API_ENDPOINT+"deleteShagunImage"
+			DELETE_SHAGUN_IMAGE: Config.API_ENDPOINT+"destroyShagunImage"
 
 			
 		} 

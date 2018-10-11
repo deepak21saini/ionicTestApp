@@ -23,7 +23,13 @@
 				<ion-datetime no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="model.start_date" name="start_date" placeholder="Start Date" required></ion-datetime>
 			</ion-col>
 			<ion-col col-6 no-padding margin-bottom padding-vertical class="e-date">
-				 <ion-datetime no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="model.end_date" name="end_date" placeholder="End Date" required></ion-datetime>
+				<ion-datetime no-padding displayFormat="HH:mm a" [(ngModel)]="model.start_time" name="start_time" placeholder="Start Time" required></ion-datetime>
+			</ion-col>
+			<ion-col col-6 no-padding margin-bottom padding-vertical class="s-date">
+				<ion-datetime no-padding displayFormat="MM/DD/YYYY" [(ngModel)]="model.end_date" name="end_date" placeholder="End Date" required></ion-datetime>
+			</ion-col>
+			<ion-col col-6 no-padding margin-bottom padding-vertical class="e-date">
+				 <ion-datetime no-padding displayFormat="HH:mm a" [(ngModel)]="model.end_time" name="end_time" placeholder="End Time" required></ion-datetime>
 			</ion-col>
 			<ion-col col-12 no-padding margin-top>
 			    <ion-textarea placeholder="Event Description" [(ngModel)]="model.notes" name="notes"></ion-textarea>

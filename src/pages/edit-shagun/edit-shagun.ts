@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { SharedService } from '../../providers/shared.service';
 import { EventsService } from '../../providers/events.service';
 
@@ -37,7 +37,8 @@ export class EditShagunPage {
   		public navParams: NavParams,
   		public loading: LoadingController,
   		public eventsService: EventsService, 
-  		public shared: SharedService) {
+  		public shared: SharedService,
+  		private alertCtrl: AlertController) {
 
 
   		if(this.navParams.data && this.navParams.data.shagun){
@@ -45,8 +46,8 @@ export class EditShagunPage {
 
 	  		this.model = {
 			  	name: this.shagun.name,
-			  	tag: this.shagun.tag,
-			  	gift: this.shagun.gift,
+			  	tag: (this.shagun.tag == null) ? this.shagun.tag : '',
+			  	gift: (this.shagun.gift == null) ? this.shagun.gift : '',
 				amount :this.shagun.amount,
 				gift_url : this.shagun.gift_image,
 			  	gift_image:null,
@@ -126,22 +127,46 @@ export class EditShagunPage {
 
 
   deleteImage(){
+  
+      let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Are you sure you want to delete?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+           
+            let formData = {id : this.shagun.id};
+		  	let loader = this.loading.create({ });
+		        loader.present().then(() => {
+		          this.eventsService.deleteShagunImage(formData).subscribe(res => {
+		             this.shagun.gift_image = null;
+		          },
+		          error => {
+		            this.shared.handleError(error);
+		            loader.dismiss();
+		          },
+		          () => {
+		            loader.dismiss();
+		          });
+		      });
 
-  	let formData = {id : this.shagun.id};
+          }
+        }
+      ]
+    });
 
-  	let loader = this.loading.create({ });
-        loader.present().then(() => {
-          this.eventsService.deleteShagunImage(formData).subscribe(res => {
-             this.shagun.gift_image = null;
-          },
-          error => {
-            this.shared.handleError(error);
-            loader.dismiss();
-          },
-          () => {
-            loader.dismiss();
-          });
-      });
+    alert.present();
+
+
+
 
   }
 

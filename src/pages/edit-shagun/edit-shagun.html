@@ -39,11 +39,11 @@
 				<ion-input type="file" id="gift_image" (change)="handleFileInput($event.target.files)" no-margin></ion-input>
 			</ion-item>
 
-			<ion-item color="" no-padding> 
+			<ion-item color="" no-padding *ngIf="shagun.gift_image && isGift"> 
 			
-			<ion-icon ios="ios-trash" md="md-trash" color="danger" *ngIf="shagun.gift_image" (click)="deleteImage()" class="remove-img" item-end small></ion-icon>
+			<ion-icon ios="ios-trash" md="md-trash" color="danger" (click)="deleteImage()" class="remove-img" item-end small></ion-icon>
 
-			<ion-thumbnail item-start *ngIf="shagun.gift_image && isGift">
+			<ion-thumbnail item-start >
 		      <img src="{{shagun.gift_image}}">
 		    </ion-thumbnail>
 		    </ion-item>
