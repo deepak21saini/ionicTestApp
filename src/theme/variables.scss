@@ -85,7 +85,11 @@ $app-direction: ltr;
 .total-gift{color: #FF9800;}
 .date-list{padding: 5px 14px; -webkit-box-shadow: 0px 0px 6px 0px #000000; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.06); border-radius: 4px;}
 .btn-view{ margin: 0px !important; padding: 0px !important}
-
+.date-time{border: 2px solid #d3d6dd; border-radius: 4px; width: 30%; text-align: center; margin-right:15px;}
+.date-time p.month{border-bottom: 2px solid #d3d6dd; margin: 0; padding: 5px 0; font-size: 16px; text-transform: uppercase; font-weight: bold; color: #879097; letter-spacing: 1px;} 
+.date-time h4.day{ color: #394a54; font-size: 30px; font-weight: bold; margin: 0px; padding: 5px 0; background-color: #f9fafe;}
+.title-box p.time{ margin: 0px 0 10px 0; font-size: 17px; color: #344652;}
+.title-box h2.event-title{font-size: 25px; font-weight: 500; color: #394a54; margin: 0 0 15px 0;}
 
 // Shared Variables
 // --------------------------------------------------
