@@ -54,7 +54,7 @@ export class EventsPage {
     if(updateEvent ){
         this.navParams.data.updateEvent = null;
         this.events.forEach((item, index) =>  {
-			if(updateEvent.id == item.id){
+			if(updateEvent.id == item['id']){
 				this.events[index] = updateEvent; 
 			}
             
