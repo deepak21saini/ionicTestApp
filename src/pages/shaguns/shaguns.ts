@@ -53,8 +53,21 @@ export class ShagunsPage {
         this.shaguns.unshift(newShagun);
         this.assignCopy();
     }
-      
-  }
+
+
+    let updateShagun = this.navParams.get('updateShagun');
+
+    if(updateShagun){
+        this.navParams.data.updateShagun = null;
+        this.shaguns.forEach((item, index) =>  {
+            if(updateShagun.id == item['id']){
+              this.shaguns[index] = updateShagun; 
+            }
+            this.assignCopy();
+         });
+      } 
+
+  } 
 
   assignCopy(){
      this.filteredShaguns = Object.assign([], this.shaguns);
@@ -163,6 +176,12 @@ export class ShagunsPage {
   goToAdd() {
     this.navCtrl.push(AddShagunPage, {
       event: this.event
+    });
+  }
+
+  edit(shagun) {
+    this.navCtrl.push('EditShagunPage', {
+      shagun: shagun
     });
   }
 

@@ -85,6 +85,30 @@ export class EventsService {
         })
 
     }
+
+    updateShagun(data){
+
+        return this.http.post(Config.API_URLS.EVENTS.UPDATE_SHAGUN, data, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+    }
+
+    deleteShagunImage(data){
+
+        return this.http.post(Config.API_URLS.EVENTS.DELETE_SHAGUN_IMAGE, data, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+    }
  
 
     getShaguns(eventId:number){
