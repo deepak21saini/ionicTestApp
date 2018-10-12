@@ -73,8 +73,6 @@ export class AddShagunPage {
   	let loader = this.loading.create({ });
         loader.present().then(() => {
           this.eventsService.addShagun(formData).subscribe(res => {
-            //this.model = {};
-            this.shared.AlertMessage('Success', 'Shagun added successfully.');
             this.navCtrl.getPrevious().data.addShagun = res.data;
             this.eventsService.setEventShagun(this.model);
             this.navCtrl.pop();
