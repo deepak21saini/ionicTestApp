@@ -19,8 +19,8 @@
 			</ion-item>
 			<ion-item no-padding>  
 				<ion-input type="{{passwordType}}" [(ngModel)]="model.password" name="password" placeholder="Password" required ></ion-input>
-				<ion-icon name="eye-off" item-end (click)="changePasswordType()" *ngIf="passwordType=='password'"></ion-icon>
-				<ion-icon name="eye" item-end (click)="changePasswordType()" *ngIf="passwordType=='text'"></ion-icon>
+				<ion-icon name="eye-off" class="eye-icon" item-end (click)="changePasswordType()" *ngIf="passwordType=='password'"></ion-icon>
+				<ion-icon name="eye" class="eye-icon" item-end (click)="changePasswordType()" *ngIf="passwordType=='text'"></ion-icon>
 				 
 			</ion-item>
 			<p text-right>

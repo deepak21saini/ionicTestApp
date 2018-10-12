@@ -11,7 +11,7 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 @import "ionic.globals";
- 
+  
 .transparent-header{background-repeat: no-repeat; background-size: cover; background-position: top -30px center;}
 .top-bg{height: 60vh; position: absolute; background-size: cover; background-repeat: no-repeat; padding-top: 110px; background-position: center;}
 .login-text p{color: #8c8c8c; font-size: 16px; font-weight: normal; line-height: 22px; margin-top: 0px;}
@@ -39,11 +39,7 @@ $app-direction: ltr;
 .s-date ion-datetime{ padding-left: 0px; }
 .e-date ion-datetime{padding-left: 6px !important;}
 .event-detail h2{margin: 0px 0 15px 0; font-size: 20px; color: #585858; font-weight: 400; text-transform: capitalize; letter-spacing: 0.5px;}
-.notes-p{    margin-top: 0px;
-    font-size: 14px;
-    color: #797979;
-    line-height: 23px;
-    font-weight: normal; }
+.notes-p{margin-top: 0px; font-size: 14px; color: #797979; line-height: 23px; font-weight: normal; }
 .notes{ margin-bottom: 5px !important; }
 .event-detail h2 ion-icon{ font-size: 20px; vertical-align: middle; }
 .card-box ion-card{ box-shadow: none; border-radius: 4px;}
@@ -58,13 +54,13 @@ $app-direction: ltr;
 .box-row{ margin-right: -16px; margin-left: -16px; padding: 15px; background-color: #f3f3f3; }
 .event-detail h3{font-size: 15px !important; color: #a9a9a9; letter-spacing: 0.3px;}
 .event-detail h3 span{font-weight: normal; font-size: 17px; color: #525252;}
-.event-list ion-thumbnail {margin-left: 5px !important; border-radius: 50px; min-width: 50px !important; min-height: 50px !important; height: 50px; width: 50px;}
+.event-list ion-thumbnail {position: relative; top: -3px; margin-left: 5px !important; border-radius: 50px; min-width: 50px !important; min-height: 50px !important; height: 50px; width: 50px;}
 .event-list img{ width: 14px; vertical-align: middle; }
-.event-list h2{font-size: 17px !important; font-weight: bold !important; letter-spacing: 0.5px; color: #464646; margin-bottom: 0 !important; }
-.event-list p{font-size: 14px !important; color: #a5a5a5 !important; margin: 5px 0 0px !important;} 
+.event-list h2{font-size: 16px !important; font-weight:500 !important; letter-spacing: 0.5px; color: #6d6d6d; margin-bottom: 0 !important; }
+.event-list p{font-size: 13px !important; color: #a5a5a5 !important; margin: 3px 0 0px !important;} 
 .event-list{border-bottom: 1px solid #ececec !important;}
 .event-list p span{ display: inline-block; vertical-align: middle; } 
-.event-list ion-thumbnail h3{font-size: 27px; text-align: center; color: #fff; padding: 5px 0;}
+.event-list ion-thumbnail h3{font-size: 27px; text-align: center; color: #fff; padding: 3px 0;} 
 .color-a{background-color: #ef4e3d;} 
 .color-b{background-color: #6e30b4;}
 .color-c{background-color: #a92158;}
@@ -93,27 +89,18 @@ $app-direction: ltr;
 .color-z{background-color: #6664bd;}
 .add-shugun p{font-size: 15px !important; margin-bottom: 5px !important;}
 .add-shugun ion-card-header{padding: 8px 16px !important; border-bottom: 1px solid #f1f1f1;}
-/*.event-list{}
-.event-list ion-thumbnail{margin: 0 !important; min-height: 100px !important; text-align: center; width: 70px; padding: 25px 10px;}
-.event-list ion-thumbnail h3{font-size: 25px; font-weight: bold; color: #383838;}
-.event-list ion-thumbnail h3 span{display: block; font-size: 12px; color: #9e9e9e; font-weight: normal; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px;}
-.event-list .item-inner{padding: 0 0 0 10px;}
-.sliding-list ion-item-sliding{border-top: 1px solid #e4e4e4; border-bottom: 1px solid #e4e4e4; margin-top: 10px; }
-.sliding-list ion-item-sliding:first-child{ margin-top: 0px; }
-.sliding-list ion-item-sliding:last-child{}
-.event-list p span{ display: inline-block; margin-bottom: 4px;}
-.event-list .item-inner {border-left:1px solid #eaeaea !important;}
-.event-list p{margin-top: 2px !important;} */
 .blance{ color: #03A9F4; }
 .total-amount{color: #4CAF50;}
 .total-gift{color: #FF9800;}
 .date-list{padding: 5px 14px; -webkit-box-shadow: 0px 0px 6px 0px #000000; box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.06); border-radius: 4px;}
 .btn-view{ margin: 0px !important; padding: 0px !important}
-.date-time{border: 2px solid #d3d6dd; border-radius: 4px; width: 30%; text-align: center; margin-right:15px;}
+.date-time{border: 2px solid #d3d6dd; border-radius: 4px; width: 95px; text-align: center; margin-right:15px;}
 .date-time p.month{border-bottom: 2px solid #d3d6dd; margin: 0; padding: 5px 0; font-size: 16px; text-transform: uppercase; font-weight: bold; color: #879097; letter-spacing: 1px;} 
 .date-time h4.day{ color: #394a54; font-size: 30px; font-weight: bold; margin: 0px; padding: 5px 0; background-color: #f9fafe;}
-.title-box p.time{ margin: 0px 0 10px 0; font-size: 17px; color: #344652;}
+.title-box p.time{ margin: 0px 0 8px 0; font-size: 17px; color: #344652;}
 .title-box h2.event-title{font-size: 25px; font-weight: 500; color: #394a54; margin: 0 0 15px 0;}
+.eye-icon{font-size: 20px !important; color: gray; margin-bottom: 0 !important;}
+
 
 // Shared Variables
 // --------------------------------------------------
