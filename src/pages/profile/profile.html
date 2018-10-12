@@ -46,6 +46,13 @@
     <ion-icon ios="ios-mail-open" md="md-mail-open" item-start small></ion-icon>
       <label>Email: {{userinfo.email}}</label>
   </ion-item>
+
+   <ion-item no-padding>
+      <ion-icon name="log-out"item-start small></ion-icon> 
+      <label (click)="logout()" > Logout </label>
+  </ion-item>
+
+
 </ion-list>
   </div>
 </ion-content>

@@ -28,7 +28,12 @@
 	<ion-card *ngFor="let notification of notifications"> 
 	   <ion-card-content>
 	   {{notification.description}}
+     <br/>
+     <ion-note>
+       {{notification.date | date:'dd MMM, yyyy'}}
+      </ion-note>
 	   </ion-card-content>
+
 	</ion-card>
 
 </ion-content>
