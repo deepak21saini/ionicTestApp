@@ -60,7 +60,9 @@ $app-direction: ltr;
 .event-list p{font-size: 13px !important; color: #a5a5a5 !important; margin: 3px 0 0px !important;} 
 .event-list{border-bottom: 1px solid #ececec !important;}
 .event-list p span{ display: inline-block; vertical-align: middle; } 
-.event-list ion-thumbnail h3{font-size: 27px; text-align: center; color: #fff; padding: 3px 0;} 
+
+.event-list ion-thumbnail h3{font-size: 27px; text-align: center; color: #fff; padding: 5px 0; text-transform: uppercase;}
+
 .color-a{background-color: #ef4e3d;} 
 .color-b{background-color: #6e30b4;}
 .color-c{background-color: #a92158;}
@@ -87,6 +89,7 @@ $app-direction: ltr;
 .color-x{background-color: #38b7d2;}
 .color-y{background-color: #e85a52;}
 .color-z{background-color: #6664bd;}
+ 
 .add-shugun p{font-size: 15px !important; margin-bottom: 5px !important;}
 .add-shugun ion-card-header{padding: 8px 16px !important; border-bottom: 1px solid #f1f1f1;}
 .blance{ color: #03A9F4; }

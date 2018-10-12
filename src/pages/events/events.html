@@ -45,22 +45,23 @@
 
 	<ion-list class="sliding-list">
     <ion-item-sliding *ngFor="let event of filteredEvents" no-lines>
-      <ion-item class="event-list" no-padding no-lines>
-          <ion-thumbnail item-start class="color-a"><h3>A</h3></ion-thumbnail>
+      <ion-item class="event-list" no-padding no-lines (click)="goToEventDetail(event)">
+          <ion-thumbnail item-start class="color-{{event.name.substring(0,1)}}"><h3>{{event.name.substring(0,1)}}</h3></ion-thumbnail>
           <h2>{{event.name}}</h2>
           <p>{{ event.start_date | date:'dd MMM, yyyy' }}</p>
           <!-- <p>{{event.start_date}} • {{event.end_date}}</p> -->
           <p> 
-            <img src="assets/imgs/user-icon.png" alt="" title="" /> <span>{{event.total_member}}</span> ,
-            <img src="assets/imgs/ruppes-icon.png" alt="" title="" /> <span>{{event.total_amount}}</span> , 
-            <img src="assets/imgs/gift-icon.png" alt="" title="" /> <span>{{event.total_gift}}</span>
+            <img src="assets/imgs/user-icon.png" alt="" title="" /> <span>{{event.total_member || 0 }}</span> ,
+            <img src="assets/imgs/ruppes-icon.png" alt="" title="" /> <span>{{event.total_amount || 0 }}</span> , 
+            <img src="assets/imgs/gift-icon.png" alt="" title="" /> <span>{{event.total_gift || 0 }}</span>
             <!-- <span class="blance"> Total Blance: 38,858</span> 
             <span class="total-amount"> Amount : 2500</span>
             <span class="total-gift">Gift : 22</span> -->
 
           </p>
-          <!-- <p>{{event.notes}}</p> -->
-          <button ion-button clear no-margin item-end (click)="goToEventDetail(event)" class="btn-view">View</button>
+         
+          <ion-icon name="ios-arrow-forward-outline" item-end></ion-icon>
+
       </ion-item>
 
        

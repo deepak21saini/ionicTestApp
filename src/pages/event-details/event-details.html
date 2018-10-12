@@ -13,12 +13,12 @@
   <div class="event-detail">
   	<ion-row>
 	  	<div class="date-time">
-	  		<p class="month">Sept</p> 
-	  		<h4 class="day">14</h4>
+	  		<p class="month">{{ event.start_date | date:'MMM'  }}</p> 
+	  		<h4 class="day">{{ event.start_date | date:'dd'  }}</h4>
 	  	</div>
 	  	<div class="title-box">
-	  		<p class="time"> 10:00 AM - 02:00 PM</p>
-	  		<h2 class="event-title"> Birthday Party</h2>
+	  		<p class="time"> {{ event.start_time }} - {{ event.end_time}}</p>
+	  		<h2 class="event-title"> {{event.name}}</h2>
 	  	</div>
   	</ion-row>	
   	
