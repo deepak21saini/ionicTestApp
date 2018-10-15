@@ -21,6 +21,33 @@
   <ion-fab right bottom>
     <button ion-fab mini (click)="goToAdd()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
+<ion-list>
+  <ion-item-sliding *ngFor="let shagun of filteredShaguns" class="add-shugun">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image" margin-bottom margin-top />
+      </ion-avatar>
+      <h2>{{shagun.name}}</h2>
+      <p no-padding no-margin *ngIf="shagun.amount"> Amount : <span>{{shagun.amount}}</span> </p>
+      <p no-padding no-margin *ngIf="shagun.tags"> Tags : <span>{{shagun.tags}}</span></p>
+      <p no-padding margin-bottom *ngIf="shagun.gift"> Gift : <span>{{shagun.gift}}</span></p>
+    </ion-item> 
+    <ion-item-options side="right">
+      <button ion-button small outline color="primary" (click)="edit(shagun)">
+        <ion-icon name="mail"></ion-icon>
+        Edit</button>
+      <button ion-button small color="danger" (click)="delete(shagun)">
+        <ion-icon name="mail"></ion-icon>
+       Delete
+     </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+
+<!-- 
 <ion-card *ngFor="let shagun of filteredShaguns" class="add-shugun">
   <ion-card-header margin-bottom>
     <h2>{{shagun.name}}</h2>
@@ -29,18 +56,18 @@
     <p no-padding no-margin *ngIf="shagun.amount"> Amount : <span>{{shagun.amount}}</span> </p>
     <p no-padding no-margin *ngIf="shagun.tags"> Tags : <span>{{shagun.tags}}</span></p>
     <p no-padding margin-bottom *ngIf="shagun.gift"> Gift : <span>{{shagun.gift}}</span></p>
-    <!-- <ion-list no-lines>
+    <ion-list no-lines>
       <ion-item no-padding no-margin *ngIf="shagun.amount"> Amount : <span>{{shagun.amount}}</span></ion-item>
       <ion-item no-padding no-margin *ngIf="shagun.tags"> Tags : <span>{{shagun.tags}}</span></ion-item>
       <ion-item no-padding no-margin *ngIf="shagun.gift"> Gift : <span>{{shagun.gift}}</span></ion-item>
-    </ion-list> -->
+    </ion-list>
     <img src="{{shagun.gift_image}}" *ngIf="shagun.gift_image" margin-bottom margin-top />
     <button ion-button small outline color="primary" (click)="edit(shagun)">Edit</button>
     <button ion-button small color="danger" (click)="delete(shagun)">Delete</button>
   </ion-card-content>
 </ion-card>
 
-
+ -->
 	<!-- <ion-list>
       <ion-item-sliding *ngFor="let shagun of filteredShaguns">
         <ion-item>
