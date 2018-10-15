@@ -6,30 +6,36 @@
     <ion-title>Profile</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
 
 <div *ngIf="userinfo">
-<ion-list no-lines class="user-img">
-  <ion-item color="" no-padding>
+<ion-col no-lines class="user-img">
+  <ion-col class="thum-user">
     <ion-thumbnail item-start *ngIf="photo">
       <img src="{{photo}}">
     </ion-thumbnail>
     <ion-thumbnail item-start *ngIf="!photo">
       <img src="assets/imgs/user-default.jpeg">
     </ion-thumbnail>
+    <div class="upload-box">
+      <ion-icon name="camera"></ion-icon>
+      <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
+    </div>
+  </ion-col>
+  </ion-col>
+  <ion-col class="userthum-detail" text-center>
     <h2>{{userinfo.first_name}}</h2>
     <p>{{userinfo.email}}</p>
-    <ion-icon ios="ios-trash" md="md-trash" *ngIf="photo" (click)="deleteImage()" class="remove-img" item-end small></ion-icon>
-  </ion-item>
-</ion-list>
-<ion-list class="user-list-edit"> 
-  <ion-item no-padding>
+    <!-- <ion-icon ios="ios-trash" md="md-trash" *ngIf="photo" (click)="deleteImage()" class="remove-img" item-end small></ion-icon> -->
+  </ion-col>
+<ion-list class="user-list-edit" padding> 
+ <!--  <ion-item no-padding>
     <ion-icon ios="ios-contact" md="md-contact" item-start small></ion-icon>
       <label>Upload Photo</label>
       <ion-input type="file" id="file" (change)="handleFileInput($event.target.files)"></ion-input>
     <ion-icon ios="ios-create" md="md-create" item-end small> </ion-icon>
   </ion-item>
-
+ -->
   <ion-item no-padding>
     <ion-icon ios="ios-person" md="md-person" item-start small></ion-icon>
       <label>Full Name: {{userinfo.first_name}} {{userinfo.last_name}}</label>

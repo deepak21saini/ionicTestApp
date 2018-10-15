@@ -7,16 +7,14 @@
 <ion-grid text-center padding-top padding-bottom text-center>
     <ion-row margin-top>
       <ion-col col-12>
-        <h2 ion-text color="default"><strong>Verify your Account</strong></h2>
+        <h4 ion-text color="default"><strong>Verify your Account</strong></h4>
+        <p ion-text color="dark">Please type verification code sent to </p>
+        <p ion-text color="default"> {{email}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-list>
     <ion-col col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
-      <ion-col text-center>
-        <p ion-text color="dark">Please type verification code sent to </p>
-        <p ion-text color="default"> {{email}}</p>
-      </ion-col>
       <form #verifyAccountForm="ngForm">
       <ion-grid>
         <ion-row>
