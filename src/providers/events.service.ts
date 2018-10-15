@@ -171,6 +171,20 @@ export class EventsService {
     }
 
 
+    sendFeedback(data){
+
+        return this.http.post(Config.API_URLS.FEEDBACK, data, {
+            headers: this.headers
+        })
+        .map((res:Response) => res.json())
+        .catch(error => {
+            return Observable.throw(error.json());
+        })
+
+
+    }
+
+
 }
 
   

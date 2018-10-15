@@ -23,7 +23,7 @@ export class EditShagunPage {
 	  	name:'',
 	  	tag:'',
 	  	gift:'',
-		amount : '',
+		  amount : '',
 	  	gift_image:null,
 	  	gift_url:'',
 	    type : 'edit'
@@ -46,13 +46,15 @@ export class EditShagunPage {
 
 	  		this.model = {
 			  	name: this.shagun.name,
-			  	tag: (this.shagun.tag == null) ? this.shagun.tag : '',
-			  	gift: (this.shagun.gift == null) ? this.shagun.gift : '',
-				amount :this.shagun.amount,
-				gift_url : this.shagun.gift_image,
+			  	tag:  (this.shagun.tag == null) ? '' : this.shagun.tag ,
+			  	gift: (this.shagun.gift == null) ? '' : this.shagun.gift,
+				  amount :this.shagun.amount,
+				  gift_url : this.shagun.gift_image,
 			  	gift_image:null,
 			    type : 'edit'
-			};
+			  };
+
+        console.log(this.model);
 
 			if(this.shagun.gift_image || this.shagun.gift){
 				this.isGift = true;
@@ -111,7 +113,7 @@ export class EditShagunPage {
         loader.present().then(() => {
           this.eventsService.updateShagun(formData).subscribe(res => {
             this.navCtrl.getPrevious().data.updateShagun = res.data;
-            this.eventsService.setEventShagun(this.model);
+            this.eventsService.setEventShagun(res.eventData);
             this.navCtrl.pop();
           },
           error => {

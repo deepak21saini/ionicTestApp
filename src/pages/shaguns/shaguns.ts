@@ -56,7 +56,6 @@ export class ShagunsPage {
 
 
     let updateShagun = this.navParams.get('updateShagun');
-
     if(updateShagun){
         this.navParams.data.updateShagun = null;
         this.shaguns.forEach((item, index) =>  {

@@ -15,7 +15,7 @@ export class FileUploadService {
 
 	postFile(fileToUpload: File): Observable<boolean> {
 		let headers = new Headers();
-      	headers.append("Authorization", 'Bearer ' +localStorage.getItem('token'));
+      	headers.append("Authorization", 'Bearer ' +localStorage.getItem('auth_token'));
 	    const formData: FormData = new FormData();
 	    formData.append('image', fileToUpload, fileToUpload.name);
 	    return this.http

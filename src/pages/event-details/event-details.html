@@ -13,8 +13,8 @@
   <div class="event-detail">
   	<ion-row>
 	  	<div class="date-time">
-	  		<p class="month">{{ event.start_date | date:'MMM'  }}</p> 
-	  		<h4 class="day">{{ event.start_date | date:'dd'  }}</h4>
+	  		<p class="month">{{ event.start_date | date:'dd MMM'  }}</p> 
+	  		<h4 class="day">{{ event.start_date | date:'yyyy'  }}</h4>
 	  	</div>
 	  	<div class="title-box">
 	  		<p class="time"> {{ event.start_time }} - {{ event.end_time}}</p>

@@ -57,6 +57,9 @@ export class EventDetailsPage {
                 this.event.total_gift = this.event.total_gift - 1;
             }
         }
+        else if(data.id == this.event.id){
+            this.event = data;
+        }
 
     });
 

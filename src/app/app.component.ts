@@ -84,7 +84,7 @@ export class MyApp {
           {title: 'My Events', component: 'EventsPage', icon: 'briefcase'},
           {title: 'Notifications', component: 'NotificationsPage', icon: 'alert'},
           {title: 'Help', component: 'AssetPage', icon: 'help-circle'},
-          {title: 'Feedback', component: 'AssetPage', icon: 'star'}
+          {title: 'Feedback', component: 'FeedbackPage', icon: 'star'}
  
         ];
   }
